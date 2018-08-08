@@ -1,0 +1,93 @@
+page-signup {
+    .myview{
+        background-image:url('/assets/imgs/Android_Master_bg.jpg');
+    };
+    .neo-logo{
+        align-content: center;
+        text-align: center;
+        display: block;
+        
+        color:  map-get($colors, afont1);
+        font-size: 40px;
+        margin-top: 40%;
+    };
+    .inputfield{
+        border:1.5px solid;
+        width: 80%;
+        height:5px;
+        margin-left:10% ;
+        color:map-get($colors , afont1 );
+        background-color: red;
+    margin-top: 10px;
+    };
+    .icons{
+        color: map-get($colors , afont1 );
+    };
+    .button1{
+        
+        padding-top:10px ;
+        background-color:map-get($colors ,afont1 );
+        color:#e91c1a;
+        font-size: 23px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10%;
+        width:80%;
+    }
+    .button1:hover{
+        
+        background-color:map-get($colors , font3);
+    };
+    
+    
+    .a1{
+        align-content: center;
+        text-align: center;
+        display: block;
+        color:map-get($colors , afont1 );
+        
+        background-color: map-get($colors, primary);
+    
+    };
+    .a2{
+        color: white;
+        background-color: red;
+    };
+    .a3{
+        align-content: center;
+        text-align: center;
+        display: block;
+        color:map-get($colors , afont1 );
+        
+        background-color: map-get($colors, primary);
+        font-size: 14px;
+        font-weight: 600;
+    };
+    
+    .text-input::-webkit-input-placeholder{
+        color:white;
+        font-size: 18px;
+        font-weight: 600;
+    };
+    .text-input{
+            font-size:18px; //sets placeholder font size
+            color: white;
+            font-weight:600
+       };
+       .buttonadd{
+        padding:10px 10px ;
+        position:fixed;
+        right:15px;
+        bottom: 15px;
+        opacity: 0.8;
+        background-color :maroon;
+        font-size: 40px
+       }
+    .ion-radio{
+        border-color: white !important;
+    };
+    .list .item-radio .item-icon{
+        border-color:white !important;
+    };
+    
+}

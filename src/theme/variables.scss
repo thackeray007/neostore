@@ -34,11 +34,24 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    #fe3f3f,
+  secondary:  #fe3f3f,
+  red1:     #bb0100,
+  red2:#9e0100,
+  red3:#e91b1a,
+  light:   #131212,
+  dark:    #222,
+  afont1: #ffffff,
+  font2: #ededed,
+font3:#bfbfbf,
+font4:#8e8e8e,
+font5:#7f7f7f,
+font6:#282727,
+font7:#333333,
+font9:#2c2b2b,
+font10:#111111,
+font11:#4f4f4f,
+
 );
 
 
@@ -71,6 +84,13 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
+
+$radio-md-color-on: (
+darken(#ffffff, 0%)
+);
+$radio-md-color-off: (
+darken(#ffffff, 0%)
+);
 
 
 // Ionicons
