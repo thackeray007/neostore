@@ -15,8 +15,11 @@ page-neostore {
     height: 100%;
 };
 .sliders{
-     
-     height: 50%;
+    margin-top: 0px;
+     padding-top: 0px;
+     height: 60%;
+     margin-bottom: 0px;
+     padding-bottom: 0px;
 }
 
 .grid-full{
@@ -30,17 +33,17 @@ page-neostore {
     width:100%;
 };
 .tile2{
-    background-color:map-get($colors , primary) !important;
+    background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
 };
 .tile3{
-    background-color:map-get($colors , primary) !important;
+    background-color:map-get($colors , red2) !important;
     height: 100%;
     width:100%;
 };
 .tile4{
-    background-color:map-get($colors , primary) !important;
+    background-color:map-get($colors ,danger) !important;
     height: 100%;
     width:100%;
 };

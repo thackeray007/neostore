@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TemplateBindingParseResult } from '../../../node_modules/@angular/compiler';
+import { Http } from '../../../node_modules/@angular/http';
 
 /*
   Generated class for the UrlProvider provider.
@@ -10,10 +12,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello UrlProvider Provider');
-  }
+    constructor(public http: Http) {
+        console.log('Hello UrlProvider Provider');
+    }
 
+    public baseUrl: string = "http://staging.php-dev.in:8844/trainingapp/api/";
+
+    public login = this.baseUrl + "users/login";
+    public register = this.baseUrl + "users/register";
 
 }
 

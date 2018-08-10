@@ -1,26 +1,40 @@
+<ion-content padding class="myview">
+
+    <form>
+        <title class="neo-logo">NeoSTORE</title>
+        <form ng-submit="validate();">
+            <ion-list style="align-items: center">
+                <ion-item class="inputfield" style="margin-top:43px">
+                    <ion-label color="primary">
+                        <ion-icon class="icons" name="person"></ion-icon>
+                    </ion-label>
+                    <ion-input name="email" [(ngModel)]="email" placeholder="Username"></ion-input>
+                </ion-item>
+                <ion-item class="inputfield">
+                    <ion-label>
+                        <ion-icon class="icons" name="lock"></ion-icon>
+                    </ion-label>
+                    <ion-input name="Password" [(ngModel)]="Password" placeholder="Password"></ion-input>
+                </ion-item>
+            </ion-list>
 
 
-<ion-content padding class="myview"><form>
-    <title class="neo-logo">NeoSTORE</title>
-  <form ng-submit="validate();">
-    <ion-list style="align-items: center" >
-      <ion-item  class="inputfield" style="margin-top:43px"  >
-          <ion-label color="primary"><ion-icon class="icons" name="person"></ion-icon></ion-label>
-          <ion-input  name="email"  [(ngModel)]="email" placeholder="Username"></ion-input>
-        </ion-item>       <ion-item class="inputfield">
-            <ion-label  ><ion-icon class="icons" name="lock"></ion-icon></ion-label>
-            <ion-input name="Password" [(ngModel)]="Password" placeholder="Password"></ion-input>
-          </ion-item>
-</ion-list>
+            <button ion-button class="button1" (click)=validate(); style="margin-top: 30px" full>
+                <h2>login</h2>
+            </button>
+        </form>
+        <ion-list>
+            <ion-label class="a3">Forgot Password?</ion-label>
+            <ion-label class="s4" style="position:fixed;bottom:0px">DON'T HAVE AN ACCOUNT? </ion-label>
+            <button class="buttonadd" ion-button (click)=a1();>
+                <ion-icon name="add"></ion-icon>
+            </button>
+            <button ion-button (click)=a4();>
 
-          
-  <button ion-button class="button1" (click)=validate(); style="margin-top: 30px" full><h2>login</h2></button>
-</form>
-  <ion-list>
-  <ion-label class="a3" >Forgot Password?</ion-label>
-<ion-label class="s4" style="position:fixed;bottom:0px">DON'T HAVE AN ACCOUNT?   </ion-label>
-<button class="buttonadd" ion-button (click)=a1();><ion-icon  name="add"></ion-icon></button>
+                <ion-icon name="add"></ion-icon>
+            </button>
 
-</ion-list></form>
-<button class="buttontoadd" ion-button (click)=a2();></button>
+        </ion-list>
+    </form>
+    <button class="buttontoadd" ion-button (click)=a2();></button>
 </ion-content>

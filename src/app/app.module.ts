@@ -6,41 +6,47 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import{SignupPage}from'../pages/signup/signup';
+import { SignupPage } from '../pages/signup/signup';
 import { AlerttProvider } from '../providers/alertt/alertt';
 import { ApiintegrateProvider } from '../providers/apiintegrate/apiintegrate';
 import { UrlProvider } from '../providers/url/url';
 import { HttpModule } from '@angular/http';
 import { NeostorePage } from '../pages/neostore/neostore';
+import { ProductsPage } from '../pages/products/products';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
 
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    SignupPage,
-    NeostorePage
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    SignupPage,
-    NeostorePage,
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AlerttProvider,
-    HttpClient,
-    ApiintegrateProvider,
-    UrlProvider,
-  ]
+    declarations: [
+        MyApp,
+        HomePage,
+        SignupPage,
+        NeostorePage,
+        ProductsPage,
+        ProductDetailsPage
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        IonicModule.forRoot(MyApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        SignupPage,
+        NeostorePage,
+        ProductsPage,
+        ProductDetailsPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        AlerttProvider,
+        HttpClient,
+        ApiintegrateProvider,
+        UrlProvider,
+    ]
 })
-export class AppModule {}
+export class AppModule { }

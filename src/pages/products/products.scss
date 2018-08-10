@@ -1,0 +1,25 @@
+page-products {
+    .product-title{
+        font-family:'gotham-medium';
+        font-size:15px ;
+        color: map-get($colors , dark )
+
+    };
+    .product-subtitle{
+
+        font-family:'gotham-book';
+        font-size:10px ;
+        color: map-get($colors , dark )
+    };
+
+    .product-price{
+        font-family:'gotham-medium';
+        font-size:20px;
+        color:#fe4040;
+    };
+
+    .img{
+        width: 44px;
+        height: 44px;
+    }
+}

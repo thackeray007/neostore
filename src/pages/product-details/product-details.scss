@@ -1,0 +1,32 @@
+page-product-details {
+
+.detail-title{
+    margin-top: 10px;
+    font-family: 'gotham-medium';
+    font-size:58px ;
+    color:map-get($colors ,dark );
+    margin-bottom: 0px;
+};
+.category{
+    margin-top: 10px;
+    margin-bottom:0px;
+    font-family: 'gotham-book';
+    font-size:48px ;
+    color:map-get($colors ,font11 );
+};
+.vendors{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-family: 'gotham-book';
+    font-size:30px ;
+    color:map-get($colors ,font11 );
+};
+.price{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 58px;
+    color: map-get($colors ,primary )
+}
+
+
+}
