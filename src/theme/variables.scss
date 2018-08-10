@@ -106,3 +106,25 @@ darken(#ffffff, 0%)
 
 @import "roboto";
 @import "noto-sans";
+@font-face{
+  font-family:'Gotham-Medium';
+  font-style:normal;
+  font-weight: normal;
+  src:url('../Gotham-Medium/Gotham-Medium.ttf');
+  
+}
+
+@font-face{
+  font-family:'gotham-bold';
+  font-style:normal;
+  font-weight: normal;
+  src:url('../Gotham-Bold/Gotham-Bold.ttf');
+  
+}
+@font-face{
+  font-family:'gotham-book';
+  font-style:normal;
+  font-weight: normal;
+  src:url('../Gotham-Book/Gotham-Book.ttf');
+  
+}

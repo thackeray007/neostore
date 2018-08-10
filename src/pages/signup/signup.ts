@@ -22,8 +22,7 @@ public email:any;
 public pass:any;
 public pass1:any;
 public mobile:any;
-public male:any;
-public female:any;
+public gender:any;
 public emailpattern:any = /^[a-zA-Z]\w+([\.-]?\w+)*@\w+([\.-]?\w+){1}(\.\w{2,3})$/;
 public phonepattern:any = /^\+?([0-9]{2})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{5})$/;
 public passpattern:any = /^[A-Za-z]+$/;
@@ -39,8 +38,9 @@ constructor(public navCtrl: NavController,public apip:ApiintegrateProvider,publi
     console.log('ionViewDidLoad SignupPage');
   }
 
-  validate(){
-   
+  validate(){   
+    console.log(this.gender);
+    
     this.mess="";
     
     var data=new FormData();
@@ -50,7 +50,7 @@ constructor(public navCtrl: NavController,public apip:ApiintegrateProvider,publi
     data.append('email',this.email);
     data.append('password',this.pass);
     data.append('confirm_password',this.pass1);
-    data.append('gender','M');
+    data.append('gender',this.gender);
     data.append('phone_no',this.mobile);
 
 

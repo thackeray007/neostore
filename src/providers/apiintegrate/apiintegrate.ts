@@ -1,6 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import{ Http } from '@angular/http';
+import { Observable } from '../../../node_modules/rxjs/Observable';
 //import{ HTTP } from '@ionic-native/http';
 /*
   Generated class for the ApiintegrateProvider provider.
@@ -10,7 +11,8 @@ import{ Http } from '@angular/http';
 */
 @Injectable()
 export class ApiintegrateProvider {
-
+  s1:Observable<any>;
+  
   constructor(public http:Http) {
     console.log('Hello ApiintegrateProvider Provider');
   }
@@ -23,13 +25,17 @@ apicall(method,url,data,{}){
       console.log(error);
     });
 
-
      
      
      
    }else{if(method=='get'){
-     //return this.http.get(url,data,{});
-
+     
+     this.s1=this.http.get(url);
+    this.s1
+    .subscribe(data=>{
+      console.log("my data",data);
+      
+    })
    }
 }
 

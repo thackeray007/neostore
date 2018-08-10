@@ -11,6 +11,7 @@ import { AlerttProvider } from '../providers/alertt/alertt';
 import { ApiintegrateProvider } from '../providers/apiintegrate/apiintegrate';
 import { UrlProvider } from '../providers/url/url';
 import { HttpModule } from '@angular/http';
+import { NeostorePage } from '../pages/neostore/neostore';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     SignupPage,
+    NeostorePage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { HttpModule } from '@angular/http';
   entryComponents: [
     MyApp,
     HomePage,
-    SignupPage
+    SignupPage,
+    NeostorePage,
   ],
   providers: [
     StatusBar,
@@ -37,7 +40,7 @@ import { HttpModule } from '@angular/http';
     AlerttProvider,
     HttpClient,
     ApiintegrateProvider,
-    UrlProvider
+    UrlProvider,
   ]
 })
 export class AppModule {}

@@ -6,14 +6,17 @@ page-signup {
         align-content: center;
         text-align: center;
         display: block;
-        
+        font-family: 'gotahm-bold';
         color:  map-get($colors, afont1);
         font-size: 40px;
+        font-style: bold;
+        font-weight: 900;
         margin-top: 40%;
     };
     .inputfield{
         border:1.5px solid;
         width: 80%;
+        font-family: 'gotham-medium';
         height:5px;
         margin-left:10% ;
         color:map-get($colors , afont1 );

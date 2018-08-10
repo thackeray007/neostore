@@ -6,6 +6,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { AlerttProvider } from '../../providers/alertt/alertt';
 import { EmailValidator } from '../../../node_modules/@angular/forms';
 import { viewClassName } from '../../../node_modules/@angular/compiler';
+import { NeostorePage } from '../neostore/neostore';
 
 @Component({
   selector: 'page-home',
@@ -46,6 +47,9 @@ if(this.email==undefined||this.email==null){
 
 a1(){
   this.navCtrl.push(SignupPage);
+}
+a2(){
+  this.navCtrl.setRoot(NeostorePage);
 }
 
 }
