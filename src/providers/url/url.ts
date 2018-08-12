@@ -20,6 +20,7 @@ export class UrlProvider {
 
     public login = this.baseUrl + "users/login";
     public register = this.baseUrl + "users/register";
+    public forgot_pass = this.baseUrl + "users/forgot";
 
 }
 

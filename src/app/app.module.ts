@@ -14,6 +14,7 @@ import { HttpModule } from '@angular/http';
 import { NeostorePage } from '../pages/neostore/neostore';
 import { ProductsPage } from '../pages/products/products';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProductDetailsPage } from '../pages/product-details/product-details';
         SignupPage,
         NeostorePage,
         ProductsPage,
-        ProductDetailsPage
+        ProductDetailsPage,
+        ForgotPasswordPage
     ],
     imports: [
         BrowserModule,
@@ -37,7 +39,8 @@ import { ProductDetailsPage } from '../pages/product-details/product-details';
         SignupPage,
         NeostorePage,
         ProductsPage,
-        ProductDetailsPage
+        ProductDetailsPage,
+        ForgotPasswordPage
     ],
     providers: [
         StatusBar,

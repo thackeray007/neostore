@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AlerttProvider } from '../../providers/alertt/alertt';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { UrlProvider } from '../../providers/url/url';
+import { HomePage } from '../../pages/home/home';
 
 /**
  * Generated class for the SignupPage page.
@@ -33,12 +34,31 @@ export class SignupPage {
     public mess: any;
 
     constructor(public navCtrl: NavController, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public navParams: NavParams, public alertcontroller: AlertController, public url: UrlProvider) {
+        this.registerCallback = this.registerCallback.bind(this);
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad SignupPage');
     }
 
+    registerCallback(response) {
+        console.log(response._body);
+        var a = JSON.parse(response._body);
+        console.log(a);
+        console.log(a.status);
+
+        if (a.status == 200) {
+            console.log(a.status);
+            this.navCtrl.setRoot(HomePage);
+            console.log(a.status);
+
+        } else {
+            console.log(a.statusText);
+
+            this.alertp.presentAlert(a.statusText);
+        }
+
+    }
     validate() {
         console.log(this.gender);
 
@@ -100,16 +120,16 @@ export class SignupPage {
                                                         this.mess = "invalid number"; this.alertp.presentAlert(this.mess);
 
                                                     } else {
-                                                        if (this.mess == undefined || this.mess == "" || this.mess == null) {
-                                                            this.alertp.presentAlert(this.mess);
-                                                            var method = "post";
-                                                            var url = this.url.register;
-                                                            console.log(data);
-                                                            this.apip.apicall(method, url, data, {});
-                                                            console.log(data);
+
+                                                        this.alertp.presentAlert(this.mess);
+                                                        var method = "post";
+                                                        var url = this.url.register;
+                                                        console.log(data);
+                                                        this.apip.apicall(method, url, data, this.registerCallback);
+                                                        console.log(data);
 
 
-                                                        }
+
 
 
                                                     }

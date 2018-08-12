@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { AlerttProvider } from '../alertt/alertt';
 import { NeostorePage } from '../../pages/neostore/neostore';
+import { errorHandler } from '../../../node_modules/@angular/platform-browser/src/browser';
 
 
 
@@ -29,6 +30,10 @@ export class ApiintegrateProvider {
             this.http.post(url, data).subscribe(data => {
                 callback(data);
             }, error => {
+                var a = JSON.parse(error._body);
+                console.log(a);
+
+                this.alertp.presentAlert(a.user_msg);
                 console.log(error);
             });
         } else {

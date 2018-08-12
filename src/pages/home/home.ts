@@ -10,6 +10,7 @@ import { viewClassName } from '../../../node_modules/@angular/compiler';
 import { NeostorePage } from '../neostore/neostore';
 import { UrlProvider } from '../../providers/url/url';
 import { ProductDetailsPage } from '../product-details/product-details';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 
 @Component({
     selector: 'page-home',
@@ -38,7 +39,7 @@ export class HomePage {
                 var mess = "password is essential";
                 this.alertp.presentAlert(mess);
 
-            } else if (mess == undefined || mess == "") {
+            } else {
 
 
                 var method = "post";
@@ -46,9 +47,6 @@ export class HomePage {
                 console.log(data);
                 this.apip.apicall(method, url, data, this.loginCallback);
                 console.log(data);
-            } else {
-                console.log(mess);
-                this.alertp.presentAlert(mess);
             }
         }
     }
@@ -65,6 +63,10 @@ export class HomePage {
             this.navCtrl.setRoot(NeostorePage);
             console.log(a.status);
 
+        } else {
+            console.log(a.statusText);
+
+            this.alertp.presentAlert(a.statusText);
         }
 
     }
@@ -82,5 +84,8 @@ export class HomePage {
 
     a4() {
         this.navCtrl.setRoot(ProductDetailsPage);
+    }
+    new_pass() {
+        this.navCtrl.setRoot(ForgotPasswordPage);
     }
 }
