@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import {AlertController}from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 
 /*
   Generated class for the AlerttProvider provider.
@@ -10,17 +10,20 @@ import {AlertController}from 'ionic-angular';
 */
 @Injectable()
 export class AlerttProvider {
+    public platf: any;
+    constructor(public alertcontroller: AlertController, public platform: Platform) {
+        console.log('Hello AlerttProvider Provider');
+    }
+    presentAlert(mess) {
+        let alert = this.alertcontroller.create({
+            title: 'fail',
+            subTitle: mess,
+            buttons: ['Dismiss']
+        });
+        alert.present();
+    };
 
-  constructor(public alertcontroller:AlertController) {
-    console.log('Hello AlerttProvider Provider');
-  }
-  presentAlert(mess) {
-    let alert = this.alertcontroller.create({
-      title: 'fail',
-      subTitle: mess,
-      buttons: ['Dismiss']
-    });
-    alert.present();
-  }
+
+
 
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HTTP } from '@ionic-native/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient } from '@angular/common/http';
 import { MyApp } from './app.component';
@@ -15,6 +16,8 @@ import { NeostorePage } from '../pages/neostore/neostore';
 import { ProductsPage } from '../pages/products/products';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { Device } from '@ionic-native/device';
+import { Platform } from 'ionic-angular';
 
 
 @NgModule({
@@ -44,6 +47,8 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     ],
     providers: [
         StatusBar,
+        // Platform,
+        HTTP,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         AlerttProvider,

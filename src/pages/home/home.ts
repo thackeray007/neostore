@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, Platform } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { ProductsPage } from '../products/products';
 import { Message } from '../../../node_modules/@angular/compiler/src/i18n/i18n_ast';
@@ -19,16 +19,25 @@ import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 export class HomePage {
     public email: string;
     public Password: string;
-
-    constructor(public navCtrl: NavController, public alertp: AlerttProvider, public apip: ApiintegrateProvider, public url: UrlProvider) {
+    public data: string;
+    constructor(public navCtrl: NavController, public alertp: AlerttProvider, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider) {
         console.log(this.url.login);
         this.loginCallback = this.loginCallback.bind(this);
 
     }
     validate() {
-        var data = new FormData();
-        data.append('email', this.email);
-        data.append('password', this.Password);
+        var data;
+        if (this.platform.is('mobileweb')) {
+            data = new FormData();
+            data.append('email', this.email);
+            data.append('password', this.Password);
+        }
+        else {
+            data = { 'email': this.email, 'password': this.Password };
+        };
+
+
+
 
         if (this.email == undefined || this.email == null) {
             var mess = "username can not be empty";
@@ -53,8 +62,13 @@ export class HomePage {
 
 
     loginCallback(response) {
-        console.log(response._body);
-        var a = JSON.parse(response._body);
+        // console.log(response._body);
+        if (this.platform.is('mobileweb')) {
+            var a = JSON.parse(response._body);
+        }
+        else {
+            var a = JSON.parse(response.data);
+        };
         console.log(a);
         console.log(a.status);
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { AlerttProvider } from '../../providers/alertt/alertt';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { UrlProvider } from '../../providers/url/url';
@@ -33,7 +33,7 @@ export class SignupPage {
 
     public mess: any;
 
-    constructor(public navCtrl: NavController, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public navParams: NavParams, public alertcontroller: AlertController, public url: UrlProvider) {
+    constructor(public platform: Platform, public navCtrl: NavController, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public navParams: NavParams, public alertcontroller: AlertController, public url: UrlProvider) {
         this.registerCallback = this.registerCallback.bind(this);
     }
 
@@ -42,8 +42,12 @@ export class SignupPage {
     }
 
     registerCallback(response) {
-        console.log(response._body);
-        var a = JSON.parse(response._body);
+        if (this.platform.is('mobileweb')) {
+            var a = JSON.parse(response._body);
+        }
+        else {
+            var a = JSON.parse(response.data);
+        };
         console.log(a);
         console.log(a.status);
 
@@ -53,9 +57,7 @@ export class SignupPage {
             console.log(a.status);
 
         } else {
-            console.log(a.statusText);
 
-            this.alertp.presentAlert(a.statusText);
         }
 
     }
@@ -63,16 +65,21 @@ export class SignupPage {
         console.log(this.gender);
 
         this.mess = "";
+        var data;
+        if (this.platform.is('mobileweb')) {
+            data = new FormData();
+            data.append('first_name', this.first_name);
+            data.append('last_name', this.last_name);
+            data.append('email', this.email);
+            data.append('password', this.pass);
+            data.append('confirm_password', this.pass1);
+            data.append('gender', this.gender);
+            data.append('phone_no', this.mobile);
+        }
+        else {
+            data = { 'first_name': this.first_name, 'last_name': this.last_name, 'email': this.email, 'password': this.pass, 'confirm_password': this.pass1, 'gender': this.gender, 'phone_no': this.mobile };
+        };
 
-        var data = new FormData();
-
-        data.append('first_name', this.first_name);
-        data.append('last_name', this.last_name);
-        data.append('email', this.email);
-        data.append('password', this.pass);
-        data.append('confirm_password', this.pass1);
-        data.append('gender', this.gender);
-        data.append('phone_no', this.mobile);
 
 
 
@@ -121,7 +128,7 @@ export class SignupPage {
 
                                                     } else {
 
-                                                        this.alertp.presentAlert(this.mess);
+                                                        //this.alertp.presentAlert(this.mess);
                                                         var method = "post";
                                                         var url = this.url.register;
                                                         console.log(data);
