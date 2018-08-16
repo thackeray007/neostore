@@ -30,6 +30,9 @@ export class LoaderPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad LoaderPage');
         var data1 = localStorage.getItem("access_token");
+        if (data1 == undefined || data1 == null) {
+            this.navCtrl.setRoot(HomePage);
+        }
         // if (data1 == undefined) {
         //     localStorage.setItem("aceess_token", "");
         // }
@@ -40,14 +43,19 @@ export class LoaderPage {
         console.log("before get fn");
         var options;
         // console.log(data);
-        // if (this.platform.is('mobileweb')) {
-        var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
-        // headers.append('access_token', data);
-        console.log(headers);
+        if (this.platform.is('mobileweb')) {
+            var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
+            // headers.append('access_token', data);
+            console.log(headers);
 
-        options = new RequestOptions({ headers: headers });
-        console.log(options);
+            options = new RequestOptions({ headers: headers });
+            console.log(options);
+            this.apip.apicall(method, url, options, this.loaderCallback);
 
+        } else {
+            var header = new Headers({ 'access_token': data1 });
+            this.apip.apicall(method, url, { 'access_token': data1 }, this.loaderCallback);
+        }
         // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
         // // headers.append('access_token', data);
         // console.log(headers);
@@ -71,7 +79,7 @@ export class LoaderPage {
         // else {
         //     data = { 'access_token': data1 };
         // };
-        this.apip.apicall(method, url, options, this.loaderCallback);
+
         // console.log(data);
 
     }

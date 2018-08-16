@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform, NavController, Refresher } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoaderPage } from '../pages/loader/loader';
+import { ResourceLoader } from '../../node_modules/@angular/compiler';
+import { platform } from 'os';
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = HomePage;
+    rootPage: any = LoaderPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, ) {
         platform.ready().then(() => {

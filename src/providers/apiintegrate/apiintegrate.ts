@@ -51,6 +51,8 @@ export class ApiintegrateProvider {
 
                 });
             } else {
+
+
                 if (method == 'get') {
 
                     this.s1 = this.http.get(url, data);
@@ -96,22 +98,45 @@ export class ApiintegrateProvider {
                 });
             } else {
                 if (method == 'get') {
+                    console.log("asd" + typeof (data));
+
+
+
 
                     this.HTTP.get(url, {}, data)
-
-                        .then(data => {
-                            // console.log("my data", data);
-                            return callback(data);
-
-                        }, error => {
-                            console.log("error bhaie");
-
-                            // this.navCtrl.setRoot(HomePage);
+                        .then(response => {
+                            console.log("TEST");
+                            //var formattedResponse = JSON.parse(response.data);
+                            return callback(response);
+                        })
+                        .catch(error => {
+                            console.log("GlobalpostwithHeader_service error", error);
+                            //var formattedResponse = JSON.parse(error.data);
                             return callback(error);
-
-                            // this.alertp.presentAlert("error")
                         });
+
                 }
+
+
+
+
+                // if (method == 'get') {
+
+                //     this.HTTP.get(url, {}, data)
+
+                //         .then(data => {
+                //             // console.log("my data", data);
+                //             return callback(data);
+
+                //         }, error => {
+                //             console.log("error bhaie");
+
+                //             // this.navCtrl.setRoot(HomePage);
+                //             return callback(error);
+
+                //             // this.alertp.presentAlert("error")
+                //         });
+                // }
 
             }
 

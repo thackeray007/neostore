@@ -42,12 +42,13 @@ export class NeostorePage {
         var url: any = "http://staging.php-dev.in:8844/trainingapp/api/users/getUserData";
         var method = "get";
         var data = "";
-        var data1 = localStorage.getItem("aceess_token");
+        var data1 = localStorage.getItem("access_token");
         var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
         var options = new RequestOptions({ headers: headers });
         this.slider_callback = this.slider_callback.bind(this);
-        this.apip.apicall(method, url, options, this.slider_callback);
-
+        if (this.platform.is('mobileweb')) {
+            this.apip.apicall(method, url, options, this.slider_callback);
+        } else { this.apip.apicall(method, url, { 'access_token': data1 }, this.slider_callback); }
 
     }
     slider_callback(response) {
@@ -61,6 +62,7 @@ export class NeostorePage {
         else {
             var a = JSON.parse(response.data);
             console.log("a" + a);
+            this.images = a.data.product_categories;
         };
         console.log("a" + a);
         console.log(a);

@@ -51,6 +51,7 @@ import { LoaderPage } from '../pages/loader/loader';
     ],
     providers: [
         StatusBar,
+
         // Platform,
         HTTP,
         SplashScreen,
