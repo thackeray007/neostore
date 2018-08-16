@@ -15,8 +15,8 @@
 </ion-header>
 <ion-content>
     <ion-slides class="sliders" autoplay="5000" loop="true" speed="3000">
-        <ion-slide>
-            <img src="assets/imgs/slide-1.jpg ">
+        <ion-slide *ngFor="let icon of images">
+            <img src="{{icon.icon_image}}">
         </ion-slide>
         <ion-slide>
             <img src="assets/imgs/slide-2.jpg ">

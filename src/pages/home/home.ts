@@ -11,6 +11,7 @@ import { NeostorePage } from '../neostore/neostore';
 import { UrlProvider } from '../../providers/url/url';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
+import { LoaderPage } from '../loader/loader';
 
 @Component({
     selector: 'page-home',
@@ -27,6 +28,7 @@ export class HomePage {
     }
     validate() {
         var data;
+
         if (this.platform.is('mobileweb')) {
             data = new FormData();
             data.append('email', this.email);
@@ -65,18 +67,37 @@ export class HomePage {
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
+            localStorage.setItem("access_token", (a.data.access_token));
+            console.log(a.data.access_token);
+
         }
         else {
-            var a = JSON.parse(response.data);
+            var a = (response);
+            console.log("asdasd");
+
+            console.log(response.data);
+
+            console.log(JSON.parse(response.data).data.access_token)
+            // // console.log(JSON.parse(response.data.access_token));
+            // console.log(JSON.parse(response.data.data));
+            // console.log(JSON.parse(response.data.data.access_token));
+            // console.log(JSON.parse(a.data))
+            // // console.log(JSON.parse(a.data.access_token));
+            // // console.log("json" + response.data.access_token.JSON);
+
+
+            // console.log(a.data.access_token);
+            // console.log(a.headers.data.access_token);
+            localStorage.setItem("access_token", JSON.parse(response.data).data.access_token);
         };
         console.log(a);
         console.log(a.status);
 
         if (a.status == 200) {
             console.log(a.status);
-            this.navCtrl.setRoot(NeostorePage);
+            this.navCtrl.setRoot(LoaderPage);
             console.log(a.status);
-
+            0
         } else {
             console.log(a.statusText);
 
@@ -97,7 +118,7 @@ export class HomePage {
     }
 
     a4() {
-        this.navCtrl.setRoot(ProductDetailsPage);
+        this.navCtrl.setRoot(LoaderPage);
     }
     new_pass() {
         this.navCtrl.setRoot(ForgotPasswordPage);

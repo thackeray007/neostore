@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP } from '@ionic-native/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +18,7 @@ import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { Device } from '@ionic-native/device';
 import { Platform } from 'ionic-angular';
+import { LoaderPage } from '../pages/loader/loader';
 
 
 @NgModule({
@@ -26,12 +27,14 @@ import { Platform } from 'ionic-angular';
         HomePage,
         SignupPage,
         NeostorePage,
+        LoaderPage,
         ProductsPage,
         ProductDetailsPage,
         ForgotPasswordPage
     ],
     imports: [
         BrowserModule,
+
         HttpModule,
         IonicModule.forRoot(MyApp)
     ],
@@ -39,6 +42,7 @@ import { Platform } from 'ionic-angular';
     entryComponents: [
         MyApp,
         HomePage,
+        LoaderPage,
         SignupPage,
         NeostorePage,
         ProductsPage,
@@ -55,6 +59,7 @@ import { Platform } from 'ionic-angular';
         HttpClient,
         ApiintegrateProvider,
         UrlProvider,
+
     ]
 })
 export class AppModule { }

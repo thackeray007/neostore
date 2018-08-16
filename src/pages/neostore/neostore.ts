@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slide } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slide, Platform } from 'ionic-angular';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
-import {Slides} from 'ionic-angular';
-import {ViewChild} from '@angular/core';
+import { Slides } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 
 /**
  * Generated class for the NeostorePage page.
@@ -13,26 +14,65 @@ import {ViewChild} from '@angular/core';
 
 @IonicPage()
 @Component({
-  selector: 'page-neostore',
-  templateUrl: 'neostore.html',
+    selector: 'page-neostore',
+    templateUrl: 'neostore.html',
 })
 export class NeostorePage {
-public products:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public apip:ApiintegrateProvider) {
-  }
-  @ViewChild(Slides)slides:Slides;
-  //this.slides.slideto(2,500);
+    public products: any;
+    public images: any = [];
+    constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NeostorePage');
-    var url="http://staging.php-dev.in:8844/trainingapp/api/products/getList";
-    var method="get";
-    var data=this.apip.apicall(method,url,{},{});
-    console.log(data);
 
-    
-    
-  }
+    }
+    @ViewChild(Slides) slides: Slides;
+    //this.slides.slideto(2,500);
 
+    ionViewDidLoad() {
+        // console.log('ionViewDidLoad NeostorePage');
+        // var url="http://staging.php-dev.in:8844/trainingapp/api/products/getList";
+        // var method="get";
+        // var data=this.apip.apicall(method,url,{},{});
+        // console.log(data);
+
+        this.slider_pics();
+
+    }
+
+    slider_pics() {
+        var url: any = "http://staging.php-dev.in:8844/trainingapp/api/users/getUserData";
+        var method = "get";
+        var data = "";
+        var data1 = localStorage.getItem("aceess_token");
+        var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
+        var options = new RequestOptions({ headers: headers });
+        this.slider_callback = this.slider_callback.bind(this);
+        this.apip.apicall(method, url, options, this.slider_callback);
+
+
+    }
+    slider_callback(response) {
+        console.log("loader" + response);
+
+        if (this.platform.is('mobileweb')) {
+            this.images = JSON.parse(response._body).data.product_categories;
+            console.log("a" + a);
+
+        }
+        else {
+            var a = JSON.parse(response.data);
+            console.log("a" + a);
+        };
+        console.log("a" + a);
+        console.log(a);
+
+        // if (a.status == 200) {
+
+        // } else {
+        //     console.log(a.statusText);
+
+
+        // }
+
+    }
 
 }

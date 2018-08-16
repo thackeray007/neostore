@@ -1,13 +1,14 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { AlerttProvider } from '../alertt/alertt';
 import { NeostorePage } from '../../pages/neostore/neostore';
 import { errorHandler } from '../../../node_modules/@angular/platform-browser/src/browser';
 import { HTTP } from '@ionic-native/http';
 // import { Device } from '@ionic-native/device';
-import { Platform } from 'ionic-angular';
+import { Platform, Option, NavController } from 'ionic-angular';
+import { HomePage } from '../../pages/home/home';
 
 //import{ HTTP } from '@ionic-native/http';
 /*
@@ -19,6 +20,7 @@ import { Platform } from 'ionic-angular';
 @Injectable()
 export class ApiintegrateProvider {
     s1: Observable<any>;
+    s2: Observable<any>;
 
     constructor(public http: Http, public alertp: AlerttProvider, public HTTP: HTTP, public platform: Platform) {
         console.log('Hello ApiintegrateProvider Provider');
@@ -42,16 +44,28 @@ export class ApiintegrateProvider {
 
                     this.alertp.presentAlert(a.user_msg);
                     console.log(error);
+                    var ab = a.access_tocken;
+
+
+
+
                 });
             } else {
                 if (method == 'get') {
 
-                    this.s1 = this.http.get(url);
+                    this.s1 = this.http.get(url, data);
                     this.s1
                         .subscribe(data => {
-                            console.log("my data", data);
+                            // console.log("my data", data);
+                            return callback(data);
 
-                        })
+                        }, error => {
+                            console.log("error bhaie");
+
+                            return callback(error);
+
+                            // this.alertp.presentAlert("error")
+                        });
                 }
             }
 
@@ -62,8 +76,9 @@ export class ApiintegrateProvider {
                 console.log("asdqw");
 
                 this.HTTP.post(url, data, {}).then(data => {
-                    var a = JSON.parse(data.data);
+                    // var a = JSON.parse(data.data);
                     callback(data);
+
 
                 }, error => {
                     console.log(typeof (error));
@@ -80,14 +95,24 @@ export class ApiintegrateProvider {
 
                 });
             } else {
-                // if (method == 'get') {
+                if (method == 'get') {
 
-                //     this.s1 = this.HTTP.get(url, {}, {});
-                //     this.s1.then(data => {
-                //         console.log("my data", data);
+                    this.HTTP.get(url, {}, data.JSON)
 
-                //     })
-                // }
+                        .then(data => {
+                            // console.log("my data", data);
+                            return callback(data);
+
+                        }, error => {
+                            console.log("error bhaie");
+
+                            // this.navCtrl.setRoot(HomePage);
+                            return callback(error);
+
+                            // this.alertp.presentAlert("error")
+                        });
+                }
+
             }
 
         }
