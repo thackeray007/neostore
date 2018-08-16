@@ -88,8 +88,8 @@ export class ApiintegrateProvider {
                     // console.log(a);
 
                     this.alertp.presentAlert(error.error);
-                    console.log(error);
-                    console.log(error.error.user_msg);
+                    // console.log(error);
+                    // console.log(error.error.user_msg);
 
 
 
@@ -97,7 +97,7 @@ export class ApiintegrateProvider {
             } else {
                 if (method == 'get') {
 
-                    this.HTTP.get(url, {}, data.JSON)
+                    this.HTTP.get(url, {}, data)
 
                         .then(data => {
                             // console.log("my data", data);

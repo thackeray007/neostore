@@ -38,13 +38,22 @@ export class LoaderPage {
         console.log(data1);
         //  var data = data1;
         console.log("before get fn");
+        var options;
         // console.log(data);
+        // if (this.platform.is('mobileweb')) {
         var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
         // headers.append('access_token', data);
         console.log(headers);
 
-        var options = new RequestOptions({ headers: headers });
+        options = new RequestOptions({ headers: headers });
         console.log(options);
+
+        // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
+        // // headers.append('access_token', data);
+        // console.log(headers);
+
+        // var options = new RequestOptions({ headers: headers });
+        // console.log(options);
 
         // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
         // // headers.append('access_token', data);
@@ -71,19 +80,23 @@ export class LoaderPage {
         console.log("loader" + response);
         // console.log(JSON.parse(response));
         console.log(response);
+        // console.log(JSON.parse(response));
+
         // console.log(response.JSON);
 
 
         if (this.platform.is('mobileweb')) {
+            console.log(response._body);
             console.log(JSON.stringify(response));
-            console.log(response);
+            var a = response;
+
 
             // var a = JSON.parse(response._body)
             // console.log(response._body);
 
         }
         else {
-            var a = JSON.parse(response);
+            var a = response;
             console.log("a" + a);
         };
         console.log(response);
