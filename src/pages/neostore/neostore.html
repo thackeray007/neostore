@@ -13,7 +13,7 @@
 
     </ion-navbar>
 </ion-header>
-<ion-content style="overflow: hidden;">
+<ion-content>
     <ion-slides class="sliders" autoplay="5000" loop="true" speed="3000">
         <ion-slide *ngFor="let icon of images">
             <img src="{{icon.icon_image}}">
@@ -27,10 +27,10 @@
     </ion-slides>
     <hr>
 
-    <ion-grid class="grid-full " style="overflow: hidden;">
+    <ion-grid style="overflow:hidden;">
         <ion-row>
             <ion-col>
-                <button class="tile1 ">
+                <button class="tile1 " (click)=table();>
                     <ion-row>
                         <ion-label style="position:absolute;right: 10px " class="a "> Tables</ion-label>
                     </ion-row>
@@ -41,7 +41,7 @@
                 </button>
             </ion-col>
             <ion-col>
-                <button class="tile2 ">
+                <button class="tile2 " (click)=table();>
                     <i style="padding-right: 20px;position: absolute;top:10px;right:10px;color: white;font-size:12vw
         " class="fa fa-shopping-cart "></i>
                     <ion-label style="float: left;position: absolute;bottom:10px " class="a ">Tables</ion-label>
@@ -50,7 +50,7 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <button class="tile1">
+                <button class="tile1" (click)=table();>
                     <ion-row>
                         <ion-label style="position:absolute;left:10px;top: 10px " class="a "> Tables</ion-label>
                     </ion-row>
@@ -60,7 +60,7 @@
                 </button>
             </ion-col>
             <ion-col>
-                <button class="tile1 ">
+                <button class="tile1 " (click)=table();>
                     <ion-row>
                         <i style="padding-right: 20px;padding-top: 10px;padding-bottom: 60px;float:right;color: white;font-size:12vw
         " class="fa fa-shopping-cart "></i>

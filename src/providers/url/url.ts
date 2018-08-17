@@ -22,5 +22,7 @@ export class UrlProvider {
     public register = this.baseUrl + "users/register";
     public forgot_pass = this.baseUrl + "users/forgot";
     public loader = this.baseUrl + "users/getUserData";
+    public tile = this.baseUrl + "products/getList";
 }
+
 

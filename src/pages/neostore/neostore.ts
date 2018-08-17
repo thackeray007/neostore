@@ -4,6 +4,9 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
+import { toObservable } from '../../../node_modules/@angular/forms/src/validators';
+import { UrlProvider } from '../../providers/url/url';
+import { ProductsPage } from '../products/products';
 
 /**
  * Generated class for the NeostorePage page.
@@ -20,7 +23,7 @@ import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 export class NeostorePage {
     public products: any;
     public images: any = [];
-    constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider) {
+    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider) {
 
 
     }
@@ -75,6 +78,17 @@ export class NeostorePage {
 
         // }
 
+
+
+
+
     }
+    table() {
+        this.navCtrl.push(ProductsPage, {
+            id: 1
+        })
+        // this.postdata(data);
+    }
+
 
 }
