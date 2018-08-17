@@ -13,7 +13,7 @@
 
     </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content style="overflow: hidden;">
     <ion-slides class="sliders" autoplay="5000" loop="true" speed="3000">
         <ion-slide *ngFor="let icon of images">
             <img src="{{icon.icon_image}}">
@@ -27,7 +27,7 @@
     </ion-slides>
     <hr>
 
-    <ion-grid class="grid-full ">
+    <ion-grid class="grid-full " style="overflow: hidden;">
         <ion-row>
             <ion-col>
                 <button class="tile1 ">
@@ -50,7 +50,7 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <button class="tile1 ">
+                <button class="tile1">
                     <ion-row>
                         <ion-label style="position:absolute;left:10px;top: 10px " class="a "> Tables</ion-label>
                     </ion-row>

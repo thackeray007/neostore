@@ -19,7 +19,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { Device } from '@ionic-native/device';
 import { Platform } from 'ionic-angular';
 import { LoaderPage } from '../pages/loader/loader';
-
+import { Component } from '@angular/core';
 
 @NgModule({
     declarations: [
