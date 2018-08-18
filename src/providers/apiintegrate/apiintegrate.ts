@@ -66,7 +66,7 @@ export class ApiintegrateProvider {
 
                             return callback(error);
 
-                            // this.alertp.presentAlert("error")
+                            this.alertp.presentAlert("error")
                         });
                 }
             }

@@ -8,7 +8,9 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>products</ion-title>
+        <ion-title>
+            <span id="title"> </span>
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -24,20 +26,23 @@
                 <h2 class="product-title">{{ab.name}}</h2>
                 <p class="product-subtitle">{{ab.description}}</p>
                 <h5 class="product-price">{{ab.cost}}$</h5>
-                <star-rating-comp rating="3"></star-rating-comp>
-                <p style="float: right" class="rating">
-
-                    <!-- <ion-icon *ngFor="let n of ratingRange; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon> -->
+                <!-- <star-rating-comp rating="3"></star-rating-comp> -->
+                <p style="float: right">
+                    <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < ab.rating ? 'star' : 'star-outline'"></ion-icon>
                     <!-- <span id=stars></span> -->
 
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </p>
+                    <!-- <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span> -->
+
             </ion-item>
+
         </ion-list>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
     <!-- <ion-list>
         <ion-item>
