@@ -4,7 +4,7 @@ page-neostore {
     
 }
     .title{
-    text-align: center;
+    // text-align: center;
     font-family: 'gotham';
     font-size: 12px;
     font-weight:500;
@@ -24,6 +24,7 @@ page-neostore {
 }
 
 .grid-full{
+    margin-top: 10%;
     height: 100%;
     width:100%;
     overflow: hidden;

@@ -50,8 +50,8 @@ export class NeostorePage {
         var options = new RequestOptions({ headers: headers });
         this.slider_callback = this.slider_callback.bind(this);
         if (this.platform.is('mobileweb')) {
-            this.apip.apicall(method, url, options, this.slider_callback);
-        } else { this.apip.apicall(method, url, { 'access_token': data1 }, this.slider_callback); }
+            this.apip.apicall(method, url, options, {}, this.slider_callback);
+        } else { this.apip.apicall(method, url, { 'access_token': data1 }, {}, this.slider_callback); }
 
     }
     slider_callback(response) {

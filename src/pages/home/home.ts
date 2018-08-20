@@ -56,7 +56,7 @@ export class HomePage {
                 var method = "post";
                 var url = this.url.login;
                 console.log(data);
-                this.apip.apicall(method, url, data, this.loginCallback);
+                this.apip.apicall(method, url, data, {}, this.loginCallback);
                 console.log(data);
             }
         }

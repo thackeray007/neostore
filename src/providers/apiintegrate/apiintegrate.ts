@@ -27,7 +27,7 @@ export class ApiintegrateProvider {
     }
 
 
-    apicall(method, url, data, callback) {
+    apicall(method, url, data, params, callback) {
         console.log(this.platform);
 
         if (this.platform.is('mobileweb')) {
@@ -77,7 +77,7 @@ export class ApiintegrateProvider {
             if (method == 'post') {
                 console.log("asdqw");
 
-                this.HTTP.post(url, data, {}).then(data => {
+                this.HTTP.post(url, data, params).then(data => {
                     // var a = JSON.parse(data.data);
                     callback(data);
 
@@ -103,16 +103,15 @@ export class ApiintegrateProvider {
 
 
 
-                    this.HTTP.get(url, {}, data)
+                    this.HTTP.get(url, params, data)
                         .then(response => {
                             console.log("TEST");
                             //var formattedResponse = JSON.parse(response.data);
-                            return callback(response);
-                        })
-                        .catch(error => {
+                            callback(response);
+                        }, error => {
                             console.log("GlobalpostwithHeader_service error", error);
                             //var formattedResponse = JSON.parse(error.data);
-                            return callback(error);
+                            callback(error);
                         });
 
                 }

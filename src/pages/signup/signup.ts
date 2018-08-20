@@ -132,7 +132,7 @@ export class SignupPage {
                                                         var method = "post";
                                                         var url = this.url.register;
                                                         console.log(data);
-                                                        this.apip.apicall(method, url, data, this.registerCallback);
+                                                        this.apip.apicall(method, url, data, {}, this.registerCallback);
                                                         console.log(data);
 
 

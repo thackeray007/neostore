@@ -61,7 +61,7 @@ export class ForgotPasswordPage {
         var method = "post";
         var url = this.url.forgot_pass;
         console.log(data);
-        this.apip.apicall(method, url, data, this.forgot_pass_Callback);
+        this.apip.apicall(method, url, data, {}, this.forgot_pass_Callback);
         console.log(data);
 
     }

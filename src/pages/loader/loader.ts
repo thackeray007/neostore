@@ -48,13 +48,13 @@ export class LoaderPage {
             // headers.append('access_token', data);
             console.log(headers);
 
-            options = new RequestOptions({ headers: headers });
+            options = new RequestOptions({ headers: headers, params: {} });
             console.log(options);
-            this.apip.apicall(method, url, options, this.loaderCallback);
+            this.apip.apicall(method, url, options, {}, this.loaderCallback);
 
         } else {
             var header = new Headers({ 'access_token': data1 });
-            this.apip.apicall(method, url, { 'access_token': data1 }, this.loaderCallback);
+            this.apip.apicall(method, url, { 'access_token': data1 }, {}, this.loaderCallback);
         }
         // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
         // // headers.append('access_token', data);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, InfiniteScroll } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, InfiniteScroll, ToastController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -30,7 +30,7 @@ export class ProductsPage {
     reActiveInfinite: any;
 
     // public rating: any = [];
-    constructor(public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public toastCtrl: ToastController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
 
     }
 
@@ -53,35 +53,38 @@ export class ProductsPage {
         console.log(headers);
         this.tileCallback = this.tileCallback.bind(this);
         var options = new RequestOptions({ headers: headers, params: { 'product_category_id': this.data, 'limit': this.limit, 'page': this.page } });
-        return this.apip.apicall(method, url, options, this.tileCallback);
+        // return this.apip.apicall(method, url, options, this.tileCallback);
         // console.log(this.data);
+        if (this.platform.is('mobileweb')) {
+            this.apip.apicall(method, url, options, {}, this.tileCallback);
+        } else { this.apip.apicall(method, url, {}, { 'product_category_id': this.data, 'limit': JSON.stringify(this.limit), 'page': JSON.stringify(this.page) }, this.tileCallback); }
 
     }
     tileCallback(response) {
         // console.log(response._body);
-        // if (this.platform.is('mobileweb')) {
-        var a = JSON.parse(response._body);
+        if (this.platform.is('mobileweb')) {
+            var a = JSON.parse(response._body);
 
-        console.log(a);
-        console.log(response);
+            console.log(a);
+            console.log(response);
 
 
-        // }
-        // else {
-        //     var a = (response);
-        //     console.log("asdasd");
-        //     console.log(response.data);
-        //     console.log(JSON.parse(response.data).data.access_token)
-        //     // // console.log(JSON.parse(response.data.access_token));
-        //     // console.log(JSON.parse(response.data.data));
-        //     // console.log(JSON.parse(response.data.data.access_token));
-        //     // console.log(JSON.parse(a.data))
-        //     // // console.log(JSON.parse(a.data.access_token));
-        //     // // console.log("json" + response.data.access_token.JSON);
+        }
+        else {
+            var a = JSON.parse(response.data);
+            console.log("asdasd");
+            console.log(response.data);
+            // console.log(JSON.parse(response.data).data.access_token)
+            //     // // console.log(JSON.parse(response.data.access_token));
+            //     // console.log(JSON.parse(response.data.data));
+            //     // console.log(JSON.parse(response.data.data.access_token));
+            //     // console.log(JSON.parse(a.data))
+            //     // // console.log(JSON.parse(a.data.access_token));
+            //     // // console.log("json" + response.data.access_token.JSON);
 
-        //     // console.log(a.data.access_token);
-        //     // console.log(a.headers.data.access_token);
-        // };
+            //     // console.log(a.data.access_token);
+            //     // console.log(a.headers.data.access_token);
+        };
         // console.log(a);
         // console.log(a.status);
         if (a.status == 200) {
@@ -100,7 +103,7 @@ export class ProductsPage {
             // this.alertp.presentAlert(a.statusText);
         }
 
-
+        this.presentToast();
     }
 
     doInfinite(infiniteScroll: any) {
@@ -129,10 +132,17 @@ export class ProductsPage {
             id: id
         })
 
+    };
+    presentToast() {
+        let toast = this.toastCtrl.create({
+            message: 'showing' + this.abcd.length + "out of" + this.abcd.length,
+            duration: 3000,
+            position: 'bottom'
+
+        });
+        toast.present();
+
     }
-
-
 }
-
 
 
