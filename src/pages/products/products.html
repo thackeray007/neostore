@@ -19,7 +19,9 @@
 <ion-content>
     <ion-content class="home">
         <ion-list>
-            <ion-item *ngFor="let ab of abcd">
+
+            <button ion-item id="abcd.id" (click)=fun(this.id) *ngFor="let ab of abcd">
+
                 <!-- <ion-avatar class="a1" item-left> -->
                 <img item-left class="img" src={{ab.product_images}}>
                 <!-- </ion-avatar> -->
@@ -37,7 +39,7 @@
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span> -->
 
-            </ion-item>
+            </button>
 
         </ion-list>
         <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

@@ -5,6 +5,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { toObservable } from '../../../node_modules/@angular/forms/src/validators';
 import { watchFile } from 'fs';
+import { ProductDetailsPage } from '../product-details/product-details';
 
 /**
  * Generated class for the ProductsPage page.
@@ -34,7 +35,7 @@ export class ProductsPage {
     }
 
     ionViewDidLoad() {
-        // this.postdata = this.postdata.bind(this);
+        this.postdata = this.postdata.bind(this);
         console.log('ionViewDidLoad ProductsPage');
         this.data = JSON.stringify(this.navParams.get('id'));
         console.log("data" + this.data);
@@ -53,7 +54,7 @@ export class ProductsPage {
         this.tileCallback = this.tileCallback.bind(this);
         var options = new RequestOptions({ headers: headers, params: { 'product_category_id': this.data, 'limit': this.limit, 'page': this.page } });
         return this.apip.apicall(method, url, options, this.tileCallback);
-        console.log(this.data);
+        // console.log(this.data);
 
     }
     tileCallback(response) {
@@ -110,9 +111,10 @@ export class ProductsPage {
         this.page = +1;
         // this.postdata();
         setTimeout(() => {
+
             this.reActiveInfinite = infiniteScroll;
             this.postdata();
-            // this.postdata().then(() => {
+
             infiniteScroll.enable(false);
             // infiniteScroll.complete();
             // });
@@ -120,6 +122,12 @@ export class ProductsPage {
 
         });
 
+
+    }
+    fun(id) {
+        this.navCtrl.push(ProductDetailsPage, {
+            id: id
+        })
 
     }
 

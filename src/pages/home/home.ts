@@ -121,6 +121,6 @@ export class HomePage {
         this.navCtrl.setRoot(LoaderPage);
     }
     new_pass() {
-        this.navCtrl.setRoot(ForgotPasswordPage);
+        this.navCtrl.push(ForgotPasswordPage);
     }
 }

@@ -14,8 +14,13 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.content{
+    height: 100%;
+    margin-bottom: 0px;
+};
+
 .slideout{
-    //background-color: black;
+    // background-color: black;
     color: map-get($colors , font11 );
 
 }
@@ -28,4 +33,36 @@
     color: white;
     font-family: 'gotham';
     font-size: 12px;
+
 };
+.head{ 
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: map-get($colors , afont1 ) !important ;
+
+
+};
+.avatar {
+    margin-top: 65px;
+    vertical-align: middle;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%!important;
+    border-color: map-get($colors , afont1)!important ;
+    border:solid 2px;
+// margin-left: 40%
+};
+.name{
+font-size: 16px;
+    font-weight: 500;
+color:map-get($colors , afont1 )
+};
+.email{
+
+font-size: 12px;
+font-weight: 500;
+color:map-get($colors , afont1 )
+};
+
+
