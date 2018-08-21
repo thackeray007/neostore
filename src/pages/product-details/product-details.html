@@ -13,25 +13,46 @@
 </ion-header>
 
 
-<ion-content padding>
-    <p class="detail-title" id="title">tables</p>
-    <p class="category" id="category">category- tables</p>
-    <p class="vendors" id="vendor">patel agros</p>
-    <p class="price" id="price">10000$</p>
-    <img src="/assets/imgs/slide-1.jpg">
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <img src="/assets/imgs/slide-1.jpg">
-            </ion-col>
-            <ion-col>
-                <img src="/assets/imgs/slide-1.jpg">
-            </ion-col>
-            <ion-col>
-                <img src="/assets/imgs/slide-1.jpg">
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+<ion-content padding ng-bind="let details for details">
 
+    <p class="detail-title" id="title">{{title}}</p>
+    <p class="category" id="category">category- tables</p>
+    <p class="star">
+        <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
+        <p class="vendors" id="vendor">{{vendor}}</p>
+
+        <h6 class="price" id="price">Rs.{{price}}</h6>
+
+
+        <img src="/assets/imgs/slide-1.jpg">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <img src="assets/imgs/slide-1.jpg">
+                </ion-col>
+                <ion-col>
+                    <img src="assets/imgs/slide-1.jpg">
+                </ion-col>
+                <ion-col>
+                    <img src="assets/imgs/slide-1.jpg">
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <p class="detail-title" id="title">DESCRIPTION</p>
+        <p class="description" id="vendor">{{description}}</p>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <button class="buy">
+                        BUY NOW
+                    </button>
+                </ion-col>
+                <ion-col>
+                    <button class="rate">
+                        RATE
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
 </ion-content>

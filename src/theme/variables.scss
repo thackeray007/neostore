@@ -111,21 +111,24 @@ darken(#ffffff, 0%)
   font-family:'Gotham-Medium';
   font-style:normal;
   font-weight: normal;
-  src:url('../Gotham-Medium/Gotham-Medium.ttf');
+  src:url('../assets/fonts/Gotham Medium Regular.ttf');
   
 }
 
 @font-face{
-  font-family:'gotham-bold';
+  font-family:'Gotham-Bold';
   font-style:normal;
   font-weight: normal;
-  src:url('../Gotham-Bold/Gotham-Bold.ttf');
+  src:url('../assets/fonts/Gotham Bold.otf');
   
 }
 @font-face{
-  font-family:'gotham-book';
+  font-family:'Gotham-Book';
   font-style:normal;
   font-weight: normal;
-  src:url('../Gotham-Book/Gotham-Book.ttf');
-  
-}
+  src:url('../assets/fonts/Gotham Book Regular.otf');
+}  
+
+//changing menu color
+
+$toolbar-background:red;

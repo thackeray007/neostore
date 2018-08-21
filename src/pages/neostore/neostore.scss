@@ -1,15 +1,19 @@
 page-neostore {
 .navbar{
-    background-color: map-get($colors , primary );
+    background-color: map-get($colors , red1 );
     
-}
+    
+};
     .title{
-    // text-align: center;
-    font-family: 'gotham';
-    font-size: 12px;
+    
+    
+    font-family: 'gotham-medium';
+    font-size: 30px;
     font-weight:500;
         color: white;
         // background-color: red;
+        position: absolute;
+       
 };
 .content{
     height: 100%;
@@ -24,14 +28,14 @@ page-neostore {
 }
 
 .grid-full{
-    margin-top: 10%;
+    margin-top: 5%;
     height: 100%;
     width:100%;
     overflow: hidden;
 }
 
 .tile1{
-    background-color:map-get($colors , primary) !important;
+    background-color:map-get($colors , red1) !important;
     height: calc(100%);
     width:100%;
 };
@@ -41,20 +45,20 @@ page-neostore {
     width:100%;
 };
 .tile3{
-    background-color:map-get($colors , red2) !important;
+    background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
 };
 .tile4{
-    background-color:map-get($colors ,danger) !important;
+    background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
 };
 
 
 .a{
-font-family:'gotham-medium' ;
-    font-size: 24px;
+font-family:'Gotham-Medium' ;
+    font-size: 30px;
     color:white;
 
 };

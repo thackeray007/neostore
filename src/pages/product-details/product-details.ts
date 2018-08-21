@@ -23,6 +23,9 @@ export class ProductDetailsPage {
     vendor: any;
     category: any;
     price: any;
+    rating: any;
+    id1: any;
+    description: any;
     constructor(public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
     }
 
@@ -43,7 +46,7 @@ export class ProductDetailsPage {
 
         console.log(headers);
         this.detailsCallback = this.detailsCallback.bind(this);
-        var options = new RequestOptions({ headers: headers, params: { 'product_id': "1" } });
+        var options = new RequestOptions({ headers: headers, params: { 'product_id': this.data } });
         return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
 
@@ -82,9 +85,22 @@ export class ProductDetailsPage {
 
             this.title = a.data.name;
             this.vendor = a.data.producer;
-            this.category = a.data;
-            // this.price = this.details.price;
-            console.log(this.details);
+            this.price = a.data.cost;
+            this.rating = a.data.rating;
+            this.id1 = a.data.product_images;
+            this.description = a.data.description;
+            console.log(this.id1);
+
+            // this.category = a.data.;
+
+
+            console.log(this.title);
+            // setTimeout(() => {
+            //     document.getElementById('title').innerHTML = "asd";
+            // }, 0);
+            // document.getElementById('title').innerText = "asd";
+
+
             console.log(this.vendor);
             console.log(this.category);
             console.log("final");

@@ -1,6 +1,6 @@
-<ion-menu class="slideout" color="font11" [content]="content">
+<ion-menu class="slideout" [content]="content">
     <ion-header class="head">
-        <ion-toolbar color="font11">
+        <ion-toolbar color="font6">
 
             <img class="avatar" src="/assets/imgs/Android_Master_bg.jpg">
 
@@ -18,11 +18,11 @@
             <ion-label center>shubham thakare</ion-label>
             <ion-content class="slideout"></ion-content>
     </ion-header> -->
-    <ion-content class="slideout">
+    <ion-content class="slideout menuColor">
         <!-- <ion-avatar style="align-content: center" class="avatar">
             <img src="#">
         </ion-avatar> -->
-        <ion-list>
+        <ion-list style="height: 100%;">
 
             <!-- <ion-label center>shubham thakare</ion-label>
                 <ion-content class="slideout"></ion-content> -->
@@ -30,7 +30,7 @@
 
             <button full ion-item menuToggle="left">
                 <i style="padding-right: 20px" class="fa fa-shopping-cart"></i>My Cart</button>
-            <button full ion-item menuToggle="left">
+            <button class="listitem" full ion-item menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icons" name="lock"></ion-icon>Tables</button>
             <button full ion-item menuToggle="left">
                 <i style="padding-right: 20px" class="fa fa-wheelchair"></i>Sofa</button>
@@ -46,7 +46,7 @@
                 <ion-icon style="padding-right: 20px" class="icons" name="person"></ion-icon>My Orders</button>
             <button full ion-item (click)=logout() menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icons" name="person"></ion-icon>Logout</button>
-            <hr>
+
         </ion-list>
     </ion-content>
 </ion-menu>

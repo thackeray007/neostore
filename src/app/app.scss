@@ -14,26 +14,32 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+//menu color change
+.menuColor{
+    background-color: map-get($colors , font6 )!important;
+    color: black !important;
+}
 .content{
-    height: 100%;
+   
     margin-bottom: 0px;
 };
 
 .slideout{
     // background-color: black;
-    color: map-get($colors , font11 );
+    color: map-get($colors , font6 );
+    
 
 }
 .slideout.list{
-    background-color:map-get($colors , font11 );
+    color:map-get($colors , font6 );
     
 }
 .slideout .list .item{
-    background-color: map-get($colors , font11 );
+    background-color: map-get($colors , font6 );
     color: white;
-    font-family: 'gotham';
-    font-size: 12px;
-
+    font-family: 'Gotham-Medium';
+    font-size: 16px;
+    font-weight: 500;
 };
 .head{ 
     align-items: center;
@@ -64,5 +70,8 @@ font-size: 12px;
 font-weight: 500;
 color:map-get($colors , afont1 )
 };
-
+// .content-md {
+ 
+//     background-color:map-get($colors , font6 );
+// }
 

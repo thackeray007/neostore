@@ -7,7 +7,7 @@ page-home {
     align-content: center;
     text-align: center;
     display: block;
-    font-family: 'gotahm-bold';
+    font-family: 'gotaham-bold';
     color:  map-get($colors, afont1);
     font-size: 40px;
     font-style: bold;
@@ -17,7 +17,7 @@ page-home {
 .inputfield{
     border:1.5px solid;
     width: 80%;
-    font-family: 'gotham-medium';
+     font-family: 'gotham-medium';
     height:15px;
     margin-left:10% ;
     color:map-get($colors , afont1 );
