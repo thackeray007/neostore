@@ -23,6 +23,7 @@ export class UrlProvider {
     public forgot_pass = this.baseUrl + "users/forgot";
     public loader = this.baseUrl + "users/getUserData";
     public tile = this.baseUrl + "products/getList";
+    public details = this.baseUrl + "products/getDetail";
 }
 
 
