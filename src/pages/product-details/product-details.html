@@ -21,27 +21,31 @@
         <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
         <p class="vendors" id="vendor">{{vendor}}</p>
 
-        <h6 class="price" id="price">Rs.{{price}}</h6>
+        <ion-card>
+            <ion-card-content>
+                <h6 class="price" id="price">Rs.{{price}}</h6>
 
 
-        <img src={{link1}}>
-        <ion-list>
-            <ion-grid>
-                <ion-row>
-                    <ion-col *ngFor="let data of links">
-                        <ion-avatar>
-                            <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
-                        </ion-avatar>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-list>
+                <img src={{link1}}>
+                <ion-list>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col *ngFor="let data of links">
+                                <ion-avatar>
+                                    <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+                                </ion-avatar>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-list>
 
-        <p class="detail-title" id="title">DESCRIPTION</p>
-        <p class="description">{{description}}</p>
-
+                <p class="detail-title" id="title">DESCRIPTION</p>
+                <p class="description">{{description}}</p>
+            </ion-card-content>
+        </ion-card>
 
 </ion-content>
+
 <ion-footer>
 
     <ion-grid>
