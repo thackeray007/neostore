@@ -4,17 +4,26 @@ page-neostore {
     
     
 };
-    .title{
+ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  };
+//     .title{
     
     
-    font-family: 'gotham-medium';
-    font-size: 30px;
-    font-weight:500;
-        color: white;
-        // background-color: red;
-        position: absolute;
+//     font-family: 'gotham-medium';
+//     font-size: 30px;
+//     font-weight:500;
+//         color: white;
+//         // background-color: red;
+//         position: absolute;
        
-};
+// };
 .content{
     height: 100%;
 };

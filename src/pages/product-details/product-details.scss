@@ -1,5 +1,15 @@
 page-product-details {
 
+
+ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  };
 .detail-title{
     margin-top: 5px;
     font-family: 'gotham-bold';
@@ -70,6 +80,9 @@ width: 100%;
     // color:map-get($colors , primary );
 // background-color:map-get($colors ,afont1 );
 font-size: 20px;
+};
+.button{
+    border: 0px;
+    border-color: white
 }
-
 }

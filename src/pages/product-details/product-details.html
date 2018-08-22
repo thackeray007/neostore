@@ -24,17 +24,23 @@
         <h6 class="price" id="price">Rs.{{price}}</h6>
 
 
-        <img src="/assets/imgs/slide-1.jpg">
+        <img src={{link1}}>
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <img src="assets/imgs/slide-1.jpg">
+
+                    <img (click)="pic(1)" src={{link2}}>
+
                 </ion-col>
                 <ion-col>
-                    <img src="assets/imgs/slide-1.jpg">
+
+                    <img src={{link3}}>
+
                 </ion-col>
                 <ion-col>
-                    <img src="assets/imgs/slide-1.jpg">
+
+                    <img src={{link4}}>
+
                 </ion-col>
             </ion-row>
         </ion-grid>

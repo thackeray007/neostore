@@ -59,7 +59,7 @@ export class NeostorePage {
 
         if (this.platform.is('mobileweb')) {
             this.images = JSON.parse(response._body).data.product_categories;
-            console.log("a" + a);
+            console.log("a" + this.images);
 
         }
         else {
@@ -83,9 +83,9 @@ export class NeostorePage {
 
 
     }
-    table() {
+    table(abcd) {
         this.navCtrl.push(ProductsPage, {
-            id: 1
+            id: abcd
         })
         // this.postdata(data);
     }

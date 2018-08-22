@@ -90,7 +90,7 @@ export class ProductsPage {
         if (a.status == 200) {
             console.log("asda", a.data);
             // this.navCtrl.setRoot(LoaderPage);
-            this.abcd = a.data;
+            this.abcd = this.abcd.concat(a.data);
             // this.rating = this.abcd.rating;
             // this.abcd = a.data;
             console.log("asdasdasd", this.abcd);
@@ -109,9 +109,9 @@ export class ProductsPage {
     doInfinite(infiniteScroll: any) {
 
         console.log('doInfinite, start is currently ' + this.limit);
-        this.limit += 5;
+        // this.limit += 5;
 
-        this.page = +1;
+        this.page++;
         // this.postdata();
         setTimeout(() => {
 
