@@ -22,12 +22,15 @@
 
             <!-- <ion-avatar class="a1" item-left> -->
             <img item-left class="img" src={{ab.product_images}}>
+
             <!-- </ion-avatar> -->
             <h2 class="product-title">{{ab.name}}</h2>
             <p style="position: absolute;right: 10px;float: right;padding-top: 5px;  color:#fec300;">
                 <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < ab.rating ? 'star' : 'star-outline'"></ion-icon>
                 <p class="product-subtitle">{{ab.producer}}</p>
-
+                <!-- <rating [(ngModel)]="abcd.rating" [max]="5" iconClass="fa-star" fullIcon="★" emptyIcon="☆" [readonly]="false" [disabled]="false"
+                    [required]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">
+                </rating> -->
                 <h5 ion-row class="product-price">RS.{{ab.cost}}
                     <!-- <star-rating-comp rating="3"></star-rating-comp> -->
 

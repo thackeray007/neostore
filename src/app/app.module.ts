@@ -20,6 +20,7 @@ import { Device } from '@ionic-native/device';
 import { Platform } from 'ionic-angular';
 import { LoaderPage } from '../pages/loader/loader';
 import { Component } from '@angular/core';
+import { RatingModule } from "ngx-rating";
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import { Component } from '@angular/core';
     ],
     imports: [
         BrowserModule,
-
+        RatingModule,
         HttpModule,
         IonicModule.forRoot(MyApp)
     ],

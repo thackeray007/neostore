@@ -2,6 +2,15 @@ page-signup {
     .myview{
         background-image:url('/assets/imgs/Android_Master_bg.jpg');
     };
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      };
     .neo-logo{
         align-content: center;
         text-align: center;
@@ -22,13 +31,17 @@ page-signup {
         color:map-get($colors , afont1 );
         background-color: red;
     margin-top: 10px;
+    };  .text-input::-webkit-input-placeholder{
+        color:white;
+        font-size: 16px;
+        font-weight: 600;   
     };
     .icons{
         color: map-get($colors , afont1 );
     };
     .button1{
+        font-family:'gotham-medium' ;
         
-        padding-top:10px ;
         background-color:map-get($colors ,afont1 );
         color:#e91c1a;
         font-size: 23px;
@@ -36,11 +49,13 @@ page-signup {
         margin-top: 30px;
         margin-left: 10%;
         width:80%;
-    }
-    .button1:hover{
-        
-        background-color:map-get($colors , font3);
+        height:50px ;
+        padding-top: 16px;
     };
+    .button1:hover{
+        background-color: map-get($colors , afont2 );
+    };
+    
     
     
     .a1{
@@ -69,11 +84,11 @@ page-signup {
     
     .text-input::-webkit-input-placeholder{
         color:white;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
     };
     .text-input{
-            font-size:18px; //sets placeholder font size
+            font-size:16px; //sets placeholder font size
             color: white;
             font-weight:600
        };

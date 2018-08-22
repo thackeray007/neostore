@@ -18,25 +18,32 @@ page-home {
     border:1.5px solid;
     width: 80%;
      font-family: 'gotham-medium';
-    height:15px;
+    height:20px;
     margin-left:10% ;
     color:map-get($colors , afont1 );
     background-color: red;
 margin-top: 10px;
+};
+  .text-input::-webkit-input-placeholder{
+    color:white;
+    font-size: 16px;
+    font-weight: 600;   
 };
 .icons{
     color: map-get($colors , afont1 );
 };
 .button1{
     font-family:'gotham-medium' ;
-    padding-top:10px ;
+    
     background-color:map-get($colors ,afont1 );
     color:#e91c1a;
-    font-size: 23px;
+    font-size: 26px;
     border-radius: 10px;
     margin-top: 30px;
     margin-left: 10%;
     width:80%;
+    height:50px ;
+    
 };
 .button1:hover{
     background-color: map-get($colors , afont2 );
@@ -63,7 +70,7 @@ margin-top: 10px;
     color:map-get($colors , afont1 );
     
     background-color: map-get($colors, red3);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 };
 

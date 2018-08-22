@@ -14,7 +14,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <ion-slides pager="true " autoplay="5000 " loop="true " speed="3000 " style="height: 40%;padding-top: 10px ">
+    <ion-slides padding-bottom="5px" pager="true " autoplay="5000 " loop="true " speed="3000 " style="height:45%">
         <ion-slide *ngFor="let icon of images ">
             <img src="{{icon.icon_image}} ">
         </ion-slide>
@@ -27,7 +27,7 @@
     </ion-slides>
     <hr>
 
-    <ion-grid style="position: absolute;overflow:hidden;bottom:0px ">
+    <ion-grid style="position: absolute;overflow:hidden;bottom:5px ">
         <ion-row>
             <ion-col>
                 <button class="tile3 " (click)=table(1);>

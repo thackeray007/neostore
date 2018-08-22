@@ -25,40 +25,38 @@
 
 
         <img src={{link1}}>
-        <ion-grid>
-            <ion-row>
-                <ion-col>
+        <ion-list>
+            <ion-grid>
+                <ion-row>
+                    <ion-col *ngFor="let data of links">
+                        <ion-avatar>
+                            <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+                        </ion-avatar>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
 
-                    <img (click)="pic(1)" src={{link2}}>
-
-                </ion-col>
-                <ion-col>
-
-                    <img src={{link3}}>
-
-                </ion-col>
-                <ion-col>
-
-                    <img src={{link4}}>
-
-                </ion-col>
-            </ion-row>
-        </ion-grid>
         <p class="detail-title" id="title">DESCRIPTION</p>
-        <p class="description" id="vendor">{{description}}</p>
-        <ion-grid>
-            <ion-row>
-                <ion-col>
-                    <button class="buy">
-                        BUY NOW
-                    </button>
-                </ion-col>
-                <ion-col>
-                    <button class="rate">
-                        RATE
-                    </button>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+        <p class="description">{{description}}</p>
+
 
 </ion-content>
+<ion-footer>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <button (click)='buy()' class="buy">
+                    BUY NOW
+                </button>
+            </ion-col>
+            <ion-col>
+                <button class="rate">
+                    RATE
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-footer>

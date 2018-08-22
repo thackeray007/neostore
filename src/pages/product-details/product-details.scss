@@ -38,16 +38,16 @@ ion-title {
     margin-top: 10px;
     margin-bottom: 0px;
     font-size: 30px;
-    color: map-get($colors ,primary )
+    color: map-get($colors ,red3 )
 };
 .description{
     margin-top: 5px;
-    font-family: 'gotham-medium';
-    font-size:16px ;
+    font-family: 'gotham-book';
+    font-size:12px ;
     font-weight: 200;
 
     color:map-get($colors ,font11 );
-    margin-bottom: 0px;
+  
     
 };
 .star{
@@ -62,10 +62,10 @@ ion-title {
 .buy{
     position: relative;
     bottom: 0px;
-background-color:map-get($colors , primary );
+background-color:map-get($colors , red3 );
 color:map-get($colors ,afont1 );
 font-size: 20px;
-border: 2px solid map-get($colors , primary );
+border: 2px solid map-get($colors , red3 );
 border-radius: 5px;
 height:40px;
 width: 100%;
@@ -84,5 +84,8 @@ font-size: 20px;
 .button{
     border: 0px;
     border-color: white
+};
+.buy:hover{background-color: map-get($colors , red2 )
+    
 }
 }

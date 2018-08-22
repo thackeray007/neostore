@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -30,7 +30,7 @@ export class ProductDetailsPage {
     link3: any;
     link4: any;
     description: any;
-    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
@@ -97,9 +97,7 @@ export class ProductDetailsPage {
             this.link1 = a.data.product_images[0].image;
             console.log("aaaa", this.link1);
             // console.log(a.data.product_images[0].image);
-            this.link2 = a.data.product_images[1].image;
-            this.link3 = a.data.product_images[2].image;
-            this.link4 = a.data.product_images[3].image;
+
             // this.category = a.data.;
 
 
@@ -131,26 +129,46 @@ export class ProductDetailsPage {
 
 
     };
-    pic(id) {
-        var a;
-        if (id == "1") {
-            a = this.link1;
-            this.link1 = this.link2;
-            this.link2 = a;
-        } else {
-            if (id == "2") {
-                a = this.link1;
-                this.link1 = this.link3;
-                this.link3 = a;
-            } else {
-                if (id == "3") {
-                    a = this.link1;
-                    this.link1 = this.link4;
-                    this.link4 = a;
-                }
-            }
-        }
 
+    pic1(image) {
+        this.link1 = image;
+    }
+
+    buy() {
+        this.presentPrompt(this.data);
+    }
+    presentPrompt(id) {
+        let alert = this.alertCtrl.create({
+            title: this.title,
+
+            inputs: [
+                {
+                    name: 'Enter Quentity',
+                    placeholder: 'enter quentity'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'submit',
+                    role: 'submit',
+                    handler: data => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                // {
+                //   text: 'Login',
+                //   handler: data => {
+                //     if (User.isValid(data.username, data.password)) {
+                //       // logged in!
+                //     } else {
+                //       // invalid login
+                //       return false;
+                //     }
+                //   }
+                // }
+            ]
+        });
+        alert.present();
     }
 
 }
