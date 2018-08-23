@@ -36,6 +36,7 @@ export class ApiintegrateProvider {
 
 
             if (method == 'post') {
+                console.log('data :', data);
                 this.http.post(url, data).subscribe(data => {
                     callback(data);
                 }, error => {

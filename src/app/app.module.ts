@@ -21,7 +21,8 @@ import { Platform } from 'ionic-angular';
 import { LoaderPage } from '../pages/loader/loader';
 import { Component } from '@angular/core';
 import { RatingModule } from "ngx-rating";
-
+import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
+import { ModalratePage } from '../pages/modalrate/modalrate';
 @NgModule({
     declarations: [
         MyApp,
@@ -31,12 +32,15 @@ import { RatingModule } from "ngx-rating";
         LoaderPage,
         ProductsPage,
         ProductDetailsPage,
-        ForgotPasswordPage
+        ForgotPasswordPage,
+        ModalbuyPage,
+        ModalratePage
     ],
     imports: [
         BrowserModule,
         RatingModule,
         HttpModule,
+
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
@@ -48,7 +52,9 @@ import { RatingModule } from "ngx-rating";
         NeostorePage,
         ProductsPage,
         ProductDetailsPage,
-        ForgotPasswordPage
+        ForgotPasswordPage,
+        ModalbuyPage,
+        ModalratePage
     ],
     providers: [
         StatusBar,
@@ -61,6 +67,8 @@ import { RatingModule } from "ngx-rating";
         HttpClient,
         ApiintegrateProvider,
         UrlProvider,
+        ModalbuyPage,
+        ModalratePage
 
     ]
 })

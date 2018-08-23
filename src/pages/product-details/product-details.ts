@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, AlertController, ModalController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
-
+import { ModalbuyPage } from '../../pages/modalbuy/modalbuy'
+import { ModalratePage } from '../modalrate/modalrate';
 /**
  * Generated class for the ProductDetailsPage page.
  *
@@ -30,13 +31,15 @@ export class ProductDetailsPage {
     link3: any;
     link4: any;
     description: any;
-    constructor(public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
+    id: any;
+    constructor(public modalCtrl: ModalController, public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
         // console.log('ionViewDidLoad ProductDetailsPage');
         // this.data = JSON.stringify(this.navParams.get('id'));
         this.data = JSON.stringify(this.navParams.get('id'));
+        this.id = this.navParams.get('id');
         console.log("data" + this.data);
 
         this.getdata();
@@ -135,7 +138,11 @@ export class ProductDetailsPage {
     }
 
     buy() {
-        this.presentPrompt(this.data);
+        this.presentProfileModal1();
+        // this.presentPrompt(this.data);
+    }
+    rate() {
+        this.presentProfileModal2();
     }
     presentPrompt(id) {
         let alert = this.alertCtrl.create({
@@ -170,6 +177,13 @@ export class ProductDetailsPage {
         });
         alert.present();
     }
-
+    presentProfileModal1() {
+        let profileModal = this.modalCtrl.create(ModalbuyPage, { id: this.id, title: this.title, pic: this.link1 }, { cssClass: "my-modal", enableBackdropDismiss: true });
+        profileModal.present();
+    }
+    presentProfileModal2() {
+        let profileModal = this.modalCtrl.create(ModalratePage, { id: this.id, title: this.title, pic: this.link1 }, { cssClass: "my-modal", enableBackdropDismiss: true });
+        profileModal.present();
+    }
 }
 

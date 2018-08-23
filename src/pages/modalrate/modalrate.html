@@ -1,0 +1,21 @@
+<!--
+  Generated template for the ModalratePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+    <div style="text-align: center">
+        <ion-label class="modalTitle">{{title}}</ion-label>
+
+
+        <!-- <div class="modal image-modal transparent" ng-click="openImageController.closeModal()"> -->
+        <!-- <ion-pane class="transparent"> -->
+        <img src={{image}} class="image" />
+        <!-- </ion-pane> -->
+        <div class="stars">
+            <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
+        </div>
+        <button ion-button class="modalButton" (click)="addtocart();">RATE NOW</button>
+    </div>
+</ion-content>

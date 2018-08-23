@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>product-details</ion-title>
+        <ion-title>{{title}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -17,32 +17,38 @@
 
     <p class="detail-title" id="title">{{title}}</p>
     <p class="category" id="category">category- tables</p>
-    <p class="star">
+    <div class="star">
         <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
-        <p class="vendors" id="vendor">{{vendor}}</p>
+    </div>
+    <p class="vendors" id="vendor">{{vendor}}</p>
 
-        <ion-card>
-            <ion-card-content>
-                <h6 class="price" id="price">Rs.{{price}}</h6>
+    <ion-card>
+        <ion-card-content>
+            <ion-row>
+                <div class="price" id="price">Rs.{{price}}
 
+                    <!-- <i class="fa fa-share-alt share" aria-hidden="true"></i> -->
 
-                <img src={{link1}}>
-                <ion-list>
-                    <ion-grid>
-                        <ion-row>
-                            <ion-col *ngFor="let data of links">
-                                <ion-avatar>
-                                    <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
-                                </ion-avatar>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
-                </ion-list>
+                </div>
+            </ion-row>
 
-                <p class="detail-title" id="title">DESCRIPTION</p>
-                <p class="description">{{description}}</p>
-            </ion-card-content>
-        </ion-card>
+            <img src={{link1}}>
+            <ion-list>
+                <ion-grid>
+                    <ion-row style="height: 78px;">
+                        <ion-col *ngFor="let data of links">
+                            <ion-avatar>
+                                <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+                            </ion-avatar>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+
+            <p class="detail-title" id="title">DESCRIPTION</p>
+            <p class="description">{{description}}</p>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>
 
@@ -51,12 +57,12 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <button (click)='buy()' class="buy">
+                <button ion-button (click)='buy()' class="buy">
                     BUY NOW
                 </button>
             </ion-col>
             <ion-col>
-                <button class="rate">
+                <button ion-button (click)='rate()' class="rate">
                     RATE
                 </button>
             </ion-col>

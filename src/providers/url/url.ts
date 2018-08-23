@@ -24,6 +24,7 @@ export class UrlProvider {
     public loader = this.baseUrl + "users/getUserData";
     public tile = this.baseUrl + "products/getList";
     public details = this.baseUrl + "products/getDetail";
+    public add = this.baseUrl + "addToCart";
 }
 
 

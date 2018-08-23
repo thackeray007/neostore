@@ -1,0 +1,48 @@
+page-modalbuy {
+.modalTitle{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-family: 'gotham-medium';
+};
+.modalImage{
+    height: 258px;
+    width:178px;
+
+};
+.modalQnt{
+    font-family: 'gotham-book';
+    font-size: 20px;
+
+};
+.modalinputbox{
+    height:43px;
+    width:30%;
+    border-radius: 5px;
+     border: 1px solid map-get($colors , font4 );
+     align-self: center;
+     display: block;
+     left: 32.5%;
+     font-family: 'gotham-medium';
+     font-size: 20px;
+
+
+
+}
+
+.modalButton{
+    height:47px;
+    width: 198px;
+    font-family:'gotham-medium' ;
+    
+    color:map-get($colors ,afont1 );
+    background-color:#e91c1a;
+    font-size: 26px;
+    border-radius: 10px;
+    margin-top: 30px;
+    // margin-left: 5%;
+}
+
+       
+      }
+   
