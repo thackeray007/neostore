@@ -35,6 +35,8 @@ export class ModalbuyPage {
         console.log(this.image);
         console.log(this.id);
         this.token = localStorage.getItem("access_token");
+        console.log(this.token);
+
 
     }
 
@@ -43,16 +45,19 @@ export class ModalbuyPage {
         var method = "post";
         var url = this.url.add;
         console.log(this.data);
-        var headers = new Headers({ "access_token": this.token });
+        var headers = new Headers({ 'access_token': this.token, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
 
         console.log(headers);
         this.addCallback = this.addCallback.bind(this);
-        var options = new RequestOptions({ headers: headers, params: { product_id: 1, quantity: 1 } });
+        var options = new RequestOptions({ headers: headers, params: data });
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
-            return this.apip.apicall(method, url, options, {}, this.addCallback);
-        } else { this.apip.apicall(method, url, options, { product_id: 1, quantity: 1 }, this.addCallback); }
+            var data = new FormData();
+            data.append('product_id', '1');
+            data.append('quantity', '1');
+            return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
+        } else { this.apip.apicall(method, url, { headers: headers }, { 'product_id': '1', 'quantity': '1' }, this.addCallback); }
 
 
 
@@ -75,7 +80,7 @@ export class ModalbuyPage {
     addCallback(response) {
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
-            localStorage.setItem("access_token", (a.data.access_token));
+
             console.log(a.data.access_token);
 
         }
@@ -96,7 +101,7 @@ export class ModalbuyPage {
 
             // console.log(a.data.access_token);
             // console.log(a.headers.data.access_token);
-            localStorage.setItem("access_token", JSON.parse(response.data).data.access_token);
+
         };
         console.log(a);
         console.log(a.status);
@@ -108,6 +113,8 @@ export class ModalbuyPage {
             0
         } else {
             console.log(a.statusText);
+            console.log("fail in callback");
+
 
             // this.alertp.presentAlert(a.statusText);
         }

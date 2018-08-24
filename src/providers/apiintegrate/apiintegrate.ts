@@ -36,8 +36,10 @@ export class ApiintegrateProvider {
 
 
             if (method == 'post') {
+                console.log("params", params);
+
                 console.log('data :', data);
-                this.http.post(url, data).subscribe(data => {
+                this.http.post(url, data, params).subscribe(data => {
                     callback(data);
                 }, error => {
                     var a = JSON.parse(error._body);
