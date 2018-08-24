@@ -85,7 +85,11 @@ color:map-get($colors , afont1 )
     // border:2px solid black !important;
     box-shadow: 0 16px 20px rgba(0,0,0,.4);
     // background-color: transparent;
-  }
+  };
+  .inupt-wrapper {
+    // padding-right: 8px;
+    border-bottom: 1px solid black !important;
+}
 // $list-md-border-color:#7f7f7f;
 // .content-md {
  

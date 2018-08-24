@@ -35,14 +35,15 @@
             <img src={{link1}}>
             <ion-list>
                 <ion-grid>
-                    <ion-scroll scrollX="true"></ion-scroll>
-                    <ion-row style="height: 78px;">
-                        <ion-col *ngFor="let data of links">
+
+                    <ion-row>
+                        <div class="contentimgs" *ngFor="let data of links">
                             <ion-avatar>
-                                <img id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+                                <img style="height: 45px;width:60px" id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
                             </ion-avatar>
-                        </ion-col>
+                        </div>
                     </ion-row>
+
                 </ion-grid>
             </ion-list>
 

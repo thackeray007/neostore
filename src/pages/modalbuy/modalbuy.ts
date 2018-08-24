@@ -45,7 +45,7 @@ export class ModalbuyPage {
         var method = "post";
         var url = this.url.add;
         console.log(this.data);
-        var headers = new Headers({ 'access_token': this.token, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
+        var headers = new Headers({ 'access_token': this.token });
 
         console.log(headers);
         this.addCallback = this.addCallback.bind(this);
@@ -54,10 +54,10 @@ export class ModalbuyPage {
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
-            data.append('product_id', '1');
+            data.append('product_id', this.id);
             data.append('quantity', '1');
             return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
-        } else { this.apip.apicall(method, url, { headers: headers }, { 'product_id': '1', 'quantity': '1' }, this.addCallback); }
+        } else { this.apip.apicall(method, url, { 'product_id': '1', 'quantity': '1' }, { 'access_token': this.token }, this.addCallback); }
 
 
 

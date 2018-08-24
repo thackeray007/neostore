@@ -47,6 +47,7 @@ margin-top: 10px;
 };
 .button1:hover{
     background-color: map-get($colors , afont2 );
+    color: map-get($colors, afont1 );
 };
 
 

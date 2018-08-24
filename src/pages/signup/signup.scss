@@ -29,7 +29,7 @@ page-signup {
         height:5px;
         margin-left:10% ;
         color:map-get($colors , afont1 );
-        background-color: red;
+        background-color: transparent;
     margin-top: 10px;
     };  .text-input::-webkit-input-placeholder{
         color:white;
@@ -69,7 +69,7 @@ page-signup {
     };
     .a2{
         color: white;
-        background-color: red;
+        background-color: transparent;
     };
     .a3{
         align-content: center;
