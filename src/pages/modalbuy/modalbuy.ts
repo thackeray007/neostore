@@ -49,7 +49,7 @@ export class ModalbuyPage {
 
         console.log(headers);
         this.addCallback = this.addCallback.bind(this);
-        var options = new RequestOptions({ headers: headers, params: data });
+
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {

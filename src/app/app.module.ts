@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController, NavControllerBase } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP } from '@ionic-native/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,6 +23,8 @@ import { Component } from '@angular/core';
 import { RatingModule } from "ngx-rating";
 import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../pages/modalrate/modalrate';
+import { MycartPage } from '../pages/mycart/mycart';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -34,7 +36,8 @@ import { ModalratePage } from '../pages/modalrate/modalrate';
         ProductDetailsPage,
         ForgotPasswordPage,
         ModalbuyPage,
-        ModalratePage
+        ModalratePage,
+        MycartPage
     ],
     imports: [
         BrowserModule,
@@ -54,13 +57,14 @@ import { ModalratePage } from '../pages/modalrate/modalrate';
         ProductDetailsPage,
         ForgotPasswordPage,
         ModalbuyPage,
-        ModalratePage
+        ModalratePage,
+        MycartPage
     ],
     providers: [
         StatusBar,
-
         // Platform,
         HTTP,
+
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         AlerttProvider,
