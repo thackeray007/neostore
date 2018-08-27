@@ -17,17 +17,14 @@ page-modalbuy {
 };
 .modalinputbox{
     height:43px;
-    width:30%;
+    width:100%;
     border-radius: 5px;
      border: 1px solid map-get($colors , font4 );
      align-self: center;
-     display: block;
-     left: 32.5%;
+     margin-left: 0px;
+     margin-right: 0px;
      font-family: 'gotham-medium';
      font-size: 20px;
-
-
-
 }
 
 .modalButton{

@@ -7,15 +7,26 @@
 
 <ion-content>
     <div style="text-align: center">
-        <ion-label class="modalTitle">{{title}}</ion-label>
+        <ion-label class="modalTitle">{{title}}
 
+        </ion-label>
 
-        <!-- <div class="modal image-modal transparent" ng-click="openImageController.closeModal()"> -->
-        <!-- <ion-pane class="transparent"> -->
-        <img src={{image}} class="image" />
-        <!-- </ion-pane> -->
-        <ion-label class="modalQnt">Enter Qnt</ion-label>
-        <ion-input type="number" name="Qnt" class="modalinputbox" [(ngModel)]="Qnt"></ion-input>
-        <button ion-button class="modalButton" (click)="addtocart();">SUBMIT</button>
+        <form ng-submit="addtocart();">
+            <!-- <div class="modal image-modal transparent" ng-click="openImageController.closeModal()"> -->
+            <!-- <ion-pane class="transparent"> -->
+            <img src={{image}} class="image" />
+            <!-- </ion-pane> -->
+            <ion-label class="modalQnt">Enter Qty</ion-label>
+            <ion-grid>
+                <ion-row>
+                    <ion-col></ion-col>
+                    <ion-col>
+                        <ion-input type="number" name="Qnt" class="modalinputbox" placeholder="1" [(ngModel)]="Qnt"></ion-input>
+                    </ion-col>
+                    <ion-col></ion-col>
+                </ion-row>
+            </ion-grid>
+            <button ion-button class="modalButton" (click)="addtocart();">SUBMIT</button>
+        </form>
     </div>
 </ion-content>

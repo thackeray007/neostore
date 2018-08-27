@@ -23,7 +23,7 @@
 
                 <!-- </ion-avatar> -->
                 <h2 class="product-title">{{ab.product.name}}</h2>
-                <p class="product-subtitle">{{ab.product.product_category}}</p>
+                <p class="product-subtitle">({{ab.product.product_category}})</p>
                 <!-- <rating [(ngModel)]="abcd.rating" [max]="5" iconClass="fa-star" fullIcon="★" emptyIcon="☆" [readonly]="false" [disabled]="false"
                             [required]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">
                         </rating> -->
@@ -45,7 +45,7 @@
                     <!-- <div>
                         {{ab.quantity}}
                     </div> -->
-                    <select class="itemno">
+                    <!-- <select [(ngModel)]="itemss" (ionChange)="changed($event)" class="itemno">
                         <option selected value="ab.quantity" disabled>{{ab.quantity}}
                             <ion-icon name="arrow-down"></ion-icon>
                         </option>
@@ -58,11 +58,22 @@
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
-                    </select>
+                    </select> -->
 
+                    <ion-item class="dropdown">
+                        <ion-select [(ngModel)]="ab.quantity" (ionChange)="onSelectChange($event,ab.product_id)">
+                            <ion-option *ngFor="let number of [1,2,3,4,5,6,7,8]" [value]="number">{{number}}</ion-option>
 
-                    <h5 class="product-price">
-                        <i class="fa fa-rupee"></i>{{ab.product.cost}}</h5>
+                        </ion-select>
+                    </ion-item>
+                    <!-- <ion-item>
+                    <ion-label class="itemno">{{ab.quantity}}</ion-label>
+                    <ion-select [(ngModel)]="itemss" (ionChange)="changed(ab.product_id)">
+                        <ion-option *ngFor="let number of [1,2,3,4,5,6,7,8]" [value]="number">{{number}}</ion-option>
+                    </ion-select>
+</ion-item> -->
+                    <div class="product-price">
+                        <i class="fa fa-rupee"></i>{{ab.product.cost}}</div>
                 </label>
             </ion-item>
             <ion-item-options side="right">
@@ -73,11 +84,15 @@
             </ion-item-options>
         </ion-item-sliding>
         <ion-item>
-            <ion-label ion-row class="total">TOTAL
+            <ion-row>
+                <div class="total">TOTAL</div>
                 <div class="price">
-                    <i class="fa fa-rupee"></i>{{total}}</div>
-            </ion-label>
+                    <i class="fa fa-rupee"></i>{{total}}
+                </div>
+            </ion-row>
         </ion-item>
+        <button ion-button (click)="orderNow()" class="button1" full>ORDER NOW
+        </button>
     </ion-list>
 
 </ion-content>

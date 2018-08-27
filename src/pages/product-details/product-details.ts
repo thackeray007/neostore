@@ -5,6 +5,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { ModalbuyPage } from '../../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../modalrate/modalrate';
+import { SocialSharing } from '@ionic-native/social-sharing';
 /**
  * Generated class for the ProductDetailsPage page.
  *
@@ -32,7 +33,7 @@ export class ProductDetailsPage {
     link4: any;
     description: any;
     id: any;
-    constructor(public modalCtrl: ModalController, public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public modalCtrl: ModalController, public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public socialshare: SocialSharing) {
     }
 
     ionViewDidLoad() {
@@ -178,12 +179,24 @@ export class ProductDetailsPage {
         alert.present();
     }
     presentProfileModal1() {
-        let profileModal = this.modalCtrl.create(ModalbuyPage, { id: this.id, title: this.title, pic: this.link1 }, { cssClass: "my-modal", enableBackdropDismiss: true });
+        let profileModal = this.modalCtrl.create(ModalbuyPage, { id: this.id, title: this.title, pic: this.link1 }, { enableBackdropDismiss: true, cssClass: "my-modal" });
         profileModal.present();
     }
     presentProfileModal2() {
         let profileModal = this.modalCtrl.create(ModalratePage, { id: this.id, title: this.title, pic: this.link1 }, { cssClass: "my-modal", enableBackdropDismiss: true });
         profileModal.present();
+    }
+    share() {
+        this.socialshare.share("Ae Mavshi", "subject", "image", "url").then(() => {
+            // Sharing via email is possible
+            console.log("success");
+
+        }).catch(() => {
+            // Sharing via email is not possible
+            console.log("fail");
+
+        });
+
     }
 }
 

@@ -25,11 +25,14 @@
     <ion-card>
         <ion-card-content>
             <ion-row>
-                <div class="price" id="price">Rs.{{price}}
+                <ion-label class="price" id="price">Rs.{{price}}
+                    <button (click)="share()" class="share">
+                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    </button>
 
                     <!-- <i class="fa fa-share-alt share" aria-hidden="true"></i> -->
 
-                </div>
+                </ion-label>
             </ion-row>
 
             <img src={{link1}}>

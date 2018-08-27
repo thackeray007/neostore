@@ -20,6 +20,7 @@ page-mycart {
         color:#333333;
         position:absolute;
         right:0px ;
+        padding-top:12px
         
     };
     .img{
@@ -44,14 +45,44 @@ page-mycart {
         margin-top: 10%;
         border-radius: 50%;
         };
-        total{
+        .total{
+            flex: 1;
+            font-family:'gotham-medium';
+            font-size:15px;
+            color: #333333;
+            width: 100px;
+
+        };
+        .price{
+            float:right;
+          position: absolute;
+          right: 0px;
+          flex: 1;
+
             font-family:'gotham-medium';
             font-size:15px;
             color: #333333;
         };
-        .price{
-            position: absolute;
-            right: 0px;
+        .button1{
+            font-family:'gotham-medium' ;
+            
+            color:map-get($colors ,afont1 );
+            background-color:#db1514;
+            font-size: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+
+            width:100%;
+            height:50px ;
+            
+        };
+        .button1:hover{
+            background-color: map-get($colors , primary );
+            color: map-get($colors, afont1 );
+        };
+        .dropdown{
+            width: 200px
         }
+        
 
 }

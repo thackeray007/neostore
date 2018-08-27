@@ -42,12 +42,12 @@ export class ApiintegrateProvider {
                 this.http.post(url, data, params).subscribe(data => {
                     callback(data);
                 }, error => {
-                    // var a = JSON.parse(error._body);
-                    // console.log(a);
+                    var a = JSON.parse(error._body);
+                    console.log(a);
 
-                    // this.alertp.presentAlert(a.user_msg);
-                    // console.log(error);
-                    // var ab = a.access_token;
+                    this.alertp.presentAlert(a.user_msg);
+                    console.log(error);
+                    var ab = a.access_token;
 
 
 

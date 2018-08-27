@@ -20,6 +20,7 @@ export class MycartPage {
     token: any;
     abcd: any;
     total: any;
+    itemss: any;
     constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
     }
 
@@ -131,13 +132,87 @@ export class MycartPage {
 
         }
 
+
     }
 
+    orderNow() {
+        console.log("ordered");
+
+    }
+
+    changed(id, itemss) {
+        console.log(id);
+        console.log(itemss);
 
 
+    }
+    onSelectChange(selectedValue: any, id) {
+        console.log('Selected', selectedValue);
+        console.log(id);
+
+        console.log(selectedValue);
+
+        var method = "post";
+        var url = this.url.edit;
+        console.log(this.data);
+        var headers = new Headers({ 'access_token': this.token });
+
+        console.log(headers);
+        this.editCallback = this.editCallback.bind(this);
+
+        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+        // console.log(this.data);
+        if (this.platform.is('mobileweb')) {
+            var data = new FormData();
+            data.append('product_id', id);
+            data.append('quantity', selectedValue);
+            return this.apip.apicall(method, url, data, { headers: headers }, this.editCallback);
+        } else { this.apip.apicall(method, url, { 'product_id': '1', 'quantity': '1' }, { 'access_token': this.token }, this.editCallback); }
+    }
+
+    editCallback(response) {
+        if (this.platform.is('mobileweb')) {
+            var a = JSON.parse(response._body);
+
+            console.log(a.data.access_token);
+
+        }
+        else {
+            var a = (response);
+            console.log("asdasd");
+
+            console.log(response.data);
+
+            console.log(JSON.parse(response.data).data.access_token)
+            // // console.log(JSON.parse(response.data.access_token));
+            // console.log(JSON.parse(response.data.data));
+            // console.log(JSON.parse(response.data.data.access_token));
+            // console.log(JSON.parse(a.data))
+            // // console.log(JSON.parse(a.data.access_token));
+            // // console.log("json" + response.data.access_token.JSON);
 
 
+            // console.log(a.data.access_token);
+            // console.log(a.headers.data.access_token);
 
+        };
+        console.log(a);
+        console.log(a.status);
+
+        if (a.status == 200) {
+            console.log(a.status);
+
+            console.log(a.status);
+            0
+        } else {
+            console.log(a.statusText);
+            console.log("fail in callback");
+
+
+            // this.alertp.presentAlert(a.statusText);
+        }
+
+    }
 
 }
 

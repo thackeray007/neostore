@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, Platform, ViewCon
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
+import { AlerttProvider } from '../../providers/alertt/alertt'
 
 
 /**
@@ -23,7 +24,8 @@ export class ModalbuyPage {
     id: any;
     token: any;
     public data: any;
-    constructor(public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
+    Qnt: any;
+    constructor(public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
     }
 
     ionViewDidLoad() {
@@ -42,6 +44,11 @@ export class ModalbuyPage {
 
     addtocart() {
 
+        console.log(this.Qnt);
+
+        // if (this.Qnt > 8 || this.Qnt < 1) {
+        //     this.alertp.presentAlert("only upto 8 items are deliverable")
+        // } else {
         var method = "post";
         var url = this.url.add;
         console.log(this.data);
@@ -55,7 +62,7 @@ export class ModalbuyPage {
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
             data.append('product_id', this.id);
-            data.append('quantity', '1');
+            data.append('quantity', this.Qnt);
             return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
         } else { this.apip.apicall(method, url, { 'product_id': '1', 'quantity': '1' }, { 'access_token': this.token }, this.addCallback); }
 
@@ -76,6 +83,7 @@ export class ModalbuyPage {
         // this.apip.apicall(method, url, this.data, {}, this.addCallback);
         // // console.log(data);
 
+        // }
     }
     addCallback(response) {
         if (this.platform.is('mobileweb')) {
@@ -114,8 +122,8 @@ export class ModalbuyPage {
         } else {
             console.log(a.statusText);
             console.log("fail in callback");
-
-
+            this.alertp.presentAlert("only upto 8 items are deliverable")
+            this.viewcontroller.dismiss();
             // this.alertp.presentAlert(a.statusText);
         }
 

@@ -24,6 +24,7 @@ import { RatingModule } from "ngx-rating";
 import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../pages/modalrate/modalrate';
 import { MycartPage } from '../pages/mycart/mycart';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
     declarations: [
@@ -37,14 +38,13 @@ import { MycartPage } from '../pages/mycart/mycart';
         ForgotPasswordPage,
         ModalbuyPage,
         ModalratePage,
-        MycartPage
+        MycartPage,
     ],
     imports: [
         BrowserModule,
         RatingModule,
         HttpModule,
-
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp),
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -58,10 +58,12 @@ import { MycartPage } from '../pages/mycart/mycart';
         ForgotPasswordPage,
         ModalbuyPage,
         ModalratePage,
-        MycartPage
+        MycartPage,
+
     ],
     providers: [
         StatusBar,
+        SocialSharing,
         // Platform,
         HTTP,
 
@@ -72,7 +74,8 @@ import { MycartPage } from '../pages/mycart/mycart';
         ApiintegrateProvider,
         UrlProvider,
         ModalbuyPage,
-        ModalratePage
+        ModalratePage,
+
 
     ]
 })
