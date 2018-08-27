@@ -16,14 +16,14 @@
 <ion-content padding>
     <ion-list>
         <ion-item-sliding #item *ngFor="let ab of abcd">
-            <ion-item>
+            <ion-item style="height: 100px;">
 
                 <!-- <ion-avatar class="a1" item-left> -->
                 <img item-left class="img" src={{ab.product.product_images}}>
 
                 <!-- </ion-avatar> -->
                 <h2 class="product-title">{{ab.product.name}}</h2>
-                <p class="product-subtitle">{{ab.producer}}</p>
+                <p class="product-subtitle">{{ab.product.product_category}}</p>
                 <!-- <rating [(ngModel)]="abcd.rating" [max]="5" iconClass="fa-star" fullIcon="★" emptyIcon="☆" [readonly]="false" [disabled]="false"
                             [required]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">
                         </rating> -->
@@ -33,34 +33,51 @@
                 <ion-option value="10">10</ion-option>
                 <ion-option value="20">20</ion-option>
             </ion-select> -->
+                <!-- 
+                <ion-label>
+                    <ion-label>Gender</ion-label>
+                    <ion-select interface="" [(ngModel)]="gender">
+                        <ion-option value="f">Female</ion-option>
+                        <ion-option value="m">Male</ion-option>
+                    </ion-select> -->
 
-                <!-- <div ion-item>
-                <ion-label>Gender</ion-label>
-                <ion-select [(ngModel)]="gender">
-                    <ion-option value="f">Female</ion-option>
-                    <ion-option value="m">Male</ion-option>
-                </ion-select>
-            </div> -->
-                <label class="item item-input item-select">
-                    <div class="input-label">
+                <label ion-row>
+                    <!-- <div>
                         {{ab.quantity}}
-                    </div>
-                    <select>
+                    </div> -->
+                    <select class="itemno">
+                        <option selected value="ab.quantity" disabled>{{ab.quantity}}
+                            <ion-icon name="arrow-down"></ion-icon>
+                        </option>
 
-                        <option>Green</option>
-                        <option>Red</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
-                </label>
 
-                <h5 ion-row class="product-price">RS.{{ab.product.cost}}</h5>
+
+                    <h5 class="product-price">
+                        <i class="fa fa-rupee"></i>{{ab.product.cost}}</h5>
+                </label>
             </ion-item>
             <ion-item-options side="right">
-                <button ion-button style="height: 50px;margin-top: 40px;border-radius: 50%" (click)="delete()">
+                <button ion-button class="deletebutton" (click)="delete(ab.product_id)">
                     <i style="color: white;border-radius: 50%" class="fa fa-trash" aria-hidden="true"></i>
                     <!-- <ion-icon style="padding-right: 20px;height:20px;color: white" class="icons" name="person"></ion-icon> -->
                 </button>
             </ion-item-options>
         </ion-item-sliding>
+        <ion-item>
+            <ion-label ion-row class="total">TOTAL
+                <div class="price">
+                    <i class="fa fa-rupee"></i>{{total}}</div>
+            </ion-label>
+        </ion-item>
     </ion-list>
 
 </ion-content>

@@ -1,27 +1,57 @@
 page-mycart {
     .product-title{
-        font-family:'gotham-medium';
-        font-size:15px ;
-        color: map-get($colors , dark )
+        font-family:'gotham-book';
+        font-size:23px ;
+        padding-top: 10px;
+        color: #131313;
 
     };
     .product-subtitle{
 
         font-family:'gotham-book';
         margin-top:8px;
-        font-size:10px ;
+        font-size:15px ;
         color: map-get($colors , dark )
     };
 
     .product-price{
-        margin-top: 8px;
-        font-family:'gotham-medium';
-        font-size:20px;
-        color:#fe4040;
+        font-family:'gotham-book';
+        font-size:15px;
+        color:#333333;
+        position:absolute;
+        right:0px ;
         
     };
     .img{
         width: 44px;
         height: 44px;
     };
+    
+    .iteml{height: 90px;};
+
+    .deletebutton{
+        height: 50px;
+        margin-top: 40px;
+        border-radius: 50%;};
+    
+        .itemno{
+            border: 1px solid #333333;
+            border-radius: 5px;
+        };
+        .list-md ion-item-options .button {
+            height: 45px;
+            width: 45px;
+        margin-top: 10%;
+        border-radius: 50%;
+        };
+        total{
+            font-family:'gotham-medium';
+            font-size:15px;
+            color: #333333;
+        };
+        .price{
+            position: absolute;
+            right: 0px;
+        }
+
 }

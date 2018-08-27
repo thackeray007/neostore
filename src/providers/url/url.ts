@@ -26,6 +26,7 @@ export class UrlProvider {
     public details = this.baseUrl + "products/getDetail";
     public add = this.baseUrl + "addToCart";
     public cart = this.baseUrl + "cart";
+    public deleteCart = this.baseUrl + "deleteCart";
 }
 
 

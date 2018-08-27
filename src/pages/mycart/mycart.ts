@@ -19,7 +19,7 @@ export class MycartPage {
     data: any;
     token: any;
     abcd: any;
-
+    total: any;
     constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
     }
 
@@ -47,7 +47,7 @@ export class MycartPage {
         if (this.platform.is('mobileweb')) {
 
             return this.apip.apicall(method, url, { headers: headers }, {}, this.cartCallback);
-        } else { this.apip.apicall(method, url, {}, { 'access_token': this.token }, this.cartCallback); }
+        } else { this.apip.apicall(method, url, { 'access_token': this.token }, {}, this.cartCallback); }
     }
     cartCallback(response) {
         // console.log(response._body);
@@ -63,23 +63,16 @@ export class MycartPage {
             var a = JSON.parse(response.data);
             console.log("asdasd");
             console.log(response.data);
-            // console.log(JSON.parse(response.data).data.access_token)
-            //     // // console.log(JSON.parse(response.data.access_token));
-            //     // console.log(JSON.parse(response.data.data));
-            //     // console.log(JSON.parse(response.data.data.access_token));
-            //     // console.log(JSON.parse(a.data))
-            //     // // console.log(JSON.parse(a.data.access_token));
-            //     // // console.log("json" + response.data.access_token.JSON);
 
-            //     // console.log(a.data.access_token);
-            //     // console.log(a.headers.data.access_token);
         };
-        // console.log(a);
-        // console.log(a.status);
+
         if (a.status == 200) {
+            console.log(response);
+
             console.log("asda", a.data);
             this.abcd = a.data;
-            console.log(this.abcd);
+            console.log("data", this.abcd);
+            this.total = a.total;
 
             // this.navCtrl.setRoot(LoaderPage);
 
@@ -97,6 +90,48 @@ export class MycartPage {
 
 
     }
+    delete(id) {
+        console.log(id);
+        var method = "post";
+        var url = this.url.deleteCart;
+
+        var headers = new Headers({ 'access_token': this.token });
+        this.deleteCallback = this.deleteCallback.bind(this);
+        console.log(headers);
+        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+        // console.log(this.data);
+        if (this.platform.is('mobileweb')) {
+            var data = new FormData();
+            data.append('product_id', id);
+            return this.apip.apicall(method, url, data, { headers: headers }, this.deleteCallback);
+        } else { this.apip.apicall(method, url, { 'product_id': id }, { 'access_token': this.token }, this.deleteCallback); }
+
+    }
+    deleteCallback(response) {
+        if (this.platform.is('mobileweb')) {
+            var a = JSON.parse(response._body);
+
+
+
+        }
+        else {
+            var a = JSON.parse(response.data);
+
+
+        };
+
+        if (a.status == 200) {
+            console.log(response);
+            this.postdata();
+
+
+        } else {
+            console.log(a.statusText);
+
+
+        }
+
+    }
 
 
 
@@ -104,7 +139,7 @@ export class MycartPage {
 
 
 
-};
+}
 
 
 
