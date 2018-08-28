@@ -27,6 +27,7 @@ import { MycartPage } from '../pages/mycart/mycart';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { AddaddressPage } from '../pages/addaddress/addaddress';
 import { AddresslistPage } from '../pages/addresslist/addresslist';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { AddresslistPage } from '../pages/addresslist/addresslist';
         ModalratePage,
         MycartPage,
         AddaddressPage,
-        AddresslistPage
+        AddresslistPage,
+        MyOrdersPage,
     ],
     imports: [
         BrowserModule,
@@ -64,7 +66,8 @@ import { AddresslistPage } from '../pages/addresslist/addresslist';
         ModalratePage,
         MycartPage,
         AddaddressPage,
-        AddresslistPage
+        AddresslistPage,
+        MyOrdersPage,
 
     ],
     providers: [

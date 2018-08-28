@@ -139,7 +139,7 @@ export class MycartPage {
 
     orderNow() {
         console.log("ordered");
-        this.navCtrl.setRoot(AddresslistPage)
+        this.navCtrl.push(AddresslistPage)
     }
 
     changed(id, itemss) {
@@ -169,7 +169,7 @@ export class MycartPage {
             data.append('product_id', id);
             data.append('quantity', selectedValue);
             return this.apip.apicall(method, url, data, { headers: headers }, this.editCallback);
-        } else { this.apip.apicall(method, url, { 'product_id': '1', 'quantity': '1' }, { 'access_token': this.token }, this.editCallback); }
+        } else { this.apip.apicall(method, url, { 'product_id': id, 'quantity': selectedValue }, { 'access_token': this.token }, this.editCallback); }
     }
 
     editCallback(response) {
@@ -205,7 +205,7 @@ export class MycartPage {
             console.log(a.status);
 
             console.log(a.status);
-            0
+
         } else {
             console.log(a.statusText);
             console.log("fail in callback");

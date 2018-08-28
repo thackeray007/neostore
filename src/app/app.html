@@ -40,7 +40,7 @@
                 <ion-icon style="padding-right: 20px" class="icons" name="person"></ion-icon>MY Account</button>
             <button full ion-item menuToggle="left">
                 <i style="padding-right: 20px" class="fa fa-map-marker"></i>Store Locator</button>
-            <button full ion-item menuToggle="left">
+            <button full (click)='myOrders()' ion-item menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icons" name="person"></ion-icon>My Orders</button>
             <button full ion-item (click)='logout()' menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icons" name="person"></ion-icon>Logout</button>

@@ -36,8 +36,8 @@
             </ion-row>
 
             <img src={{link1}}>
-            <!-- <ion-scroll scrollX="true">
-                <img *ngFor="let data of links" src={{data.image}} height="50px" />
+            <!-- <ion-scroll scrollX="true" class="wide-as-needed">
+                <img *ngFor="let data of links" src={{data.image}} height="250px" />
             </ion-scroll> -->
 
             <ion-list>
@@ -45,11 +45,14 @@
                 <ion-grid>
 
                     <ion-row>
+                        <!-- <ion-scroll scrollX="true" class="wide-as-needed"> -->
                         <div class="contentimgs" *ngFor="let data of links">
-                            <ion-avatar>
-                                <img style="height: 45px;width:60px" id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
-                            </ion-avatar>
+
+                            <img style="height: 45px;width:60px" id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+
                         </div>
+                        <!-- </ion-scroll> -->
+
                     </ion-row>
 
                 </ion-grid>

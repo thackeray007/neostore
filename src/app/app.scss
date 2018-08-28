@@ -90,6 +90,9 @@ color:map-get($colors , afont1 )
     // padding-right: 8px;
     border-bottom: 1px solid black !important;
 }
+.list-md .item-block .item-inner {
+    border-bottom: 2px solid map-get($colors , font10 );
+}
 // $list-md-border-color:#7f7f7f;
 // .content-md {
  

@@ -23,7 +23,14 @@ export class AlerttProvider {
         alert.present();
     };
 
-
+    presentAlert1(mess) {
+        let alert = this.alertcontroller.create({
+            title: 'THANK YOU',
+            subTitle: mess,
+            buttons: ['Dismiss']
+        });
+        alert.present();
+    };
 
 
 }

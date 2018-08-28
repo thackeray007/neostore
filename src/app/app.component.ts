@@ -10,6 +10,7 @@ import { platform, homedir } from 'os';
 import { MycartPage } from '../pages/mycart/mycart';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { ProductsPage } from '../pages/products/products';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
 @Component({
     templateUrl: 'app.html'
 })
@@ -33,7 +34,11 @@ export class MyApp {
 
     };
     cart() {
-        this.nav.setRoot(MycartPage);
+        this.nav.push(MycartPage);
+
+    };
+    myOrders() {
+        this.nav.push(MyOrdersPage);
 
     };
 }

@@ -7,7 +7,14 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>Address List</ion-title>
+        <ion-row>
+            <ion-title>Address List</ion-title>
+            <div class="addaddress">
+                <button (click)="add()" class="add">
+                    <ion-icon name="add"></ion-icon>
+                </button>
+            </div>
+        </ion-row>
     </ion-navbar>
 
 </ion-header>
@@ -15,14 +22,16 @@
 
 <ion-content padding>
     <div class="shipping">Shipping Address</div>
-    <ion-list>
+    <ion-list radio-group [(ngModel)]="abcd">
         <ion-item *ngFor="let add of address">
-            <div style="height: 20px;width: 20px">
-                <ion-radio value={{add.address}}></ion-radio>
-            </div>
+
             <div class="name">{{name}}</div>
             <p>{{add.address}}</p>
-
+            <!-- <div style="height: 20px;width: 20px">
+                <ion-radio class="rb" style="padding-top: 13px;padding-right: 8px;"></ion-radio>
+            </div> -->
         </ion-item>
     </ion-list>
+    <button ion-button class="placeOrder" (click)=placeOrder(); style="margin-top: 30px" full>Place Order
+    </button>
 </ion-content>

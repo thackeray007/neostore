@@ -64,7 +64,7 @@ export class ModalbuyPage {
             data.append('product_id', this.id);
             data.append('quantity', this.Qnt);
             return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
-        } else { this.apip.apicall(method, url, { 'product_id': '1', 'quantity': '1' }, { 'access_token': this.token }, this.addCallback); }
+        } else { this.apip.apicall(method, url, { 'product_id': this.id, 'quantity': this.Qnt }, { 'access_token': this.token }, this.addCallback); }
 
 
 
