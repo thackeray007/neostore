@@ -1,0 +1,57 @@
+page-addaddress {
+    .background{
+        background-color: #ededed;
+    }
+.medium{
+    font-family: "gotham-medium";
+    font-size:16px;
+    color: #333333;
+    margin-top: 26px;
+    margin-bottom: 16px;
+};
+.address{
+    height: 100px;
+    width: 100%;
+    font-family: "gotham-book";
+    font-size: 16px;
+    color: #333333;
+}
+.inputbox{
+    font-family: "gotham-book";
+    font-size: 16px;
+    color: #333333;
+    background-color: white;
+}
+.flex1{
+    
+    flex: 1;
+}
+.flex2{
+    flex-wrap: wrap;
+    flex: 1;
+    // margin-left:13px;
+padding-left: 13px;
+}
+.flexbox{
+    flex: 1;
+}
+.saveAddress{
+    font-family:'gotham-medium' ;
+    
+    color:map-get($colors ,afont1 );
+    background-color:#db1514;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+
+    width:100%;
+    height:80px ;
+    
+}
+
+.saveAddress:hover{
+    background-color: map-get($colors , primary );
+    color: map-get($colors, afont1 );
+};
+
+}

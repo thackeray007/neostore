@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
+import { AddaddressPage } from '../addaddress/addaddress';
 /**
  * Generated class for the MycartPage page.
  *
@@ -137,7 +138,7 @@ export class MycartPage {
 
     orderNow() {
         console.log("ordered");
-
+        this.navCtrl.setRoot(AddaddressPage)
     }
 
     changed(id, itemss) {

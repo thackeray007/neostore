@@ -25,6 +25,8 @@ import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../pages/modalrate/modalrate';
 import { MycartPage } from '../pages/mycart/mycart';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { AddaddressPage } from '../pages/addaddress/addaddress';
+import { AddresslistPage } from '../pages/addresslist/addresslist';
 
 @NgModule({
     declarations: [
@@ -39,6 +41,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         ModalbuyPage,
         ModalratePage,
         MycartPage,
+        AddaddressPage,
+        AddresslistPage
     ],
     imports: [
         BrowserModule,
@@ -59,6 +63,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         ModalbuyPage,
         ModalratePage,
         MycartPage,
+        AddaddressPage,
+        AddresslistPage
 
     ],
     providers: [
