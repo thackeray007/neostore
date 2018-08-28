@@ -4,6 +4,7 @@ import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AddaddressPage } from '../addaddress/addaddress';
+import { AddresslistPage } from '../addresslist/addresslist';
 /**
  * Generated class for the MycartPage page.
  *
@@ -138,7 +139,7 @@ export class MycartPage {
 
     orderNow() {
         console.log("ordered");
-        this.navCtrl.setRoot(AddaddressPage)
+        this.navCtrl.setRoot(AddresslistPage)
     }
 
     changed(id, itemss) {

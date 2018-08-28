@@ -23,7 +23,7 @@ export class AddaddressPage {
     zip: any;
     country: any;
     add: any;
-    local: any;
+    local: any = [];
     constructor(public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
     }
 
@@ -49,7 +49,8 @@ export class AddaddressPage {
                             if (this.country == "" || this.country == null) {
                                 this.alertp.presentAlert("landmark cant be blank");
                             } else {
-                                this.local = localStorage.getItem("address")
+                                this.local = (JSON.parse(localStorage.getItem("address")));
+                                console.log(this.local);
                                 // console.log(JSON.parse(this.local));
                                 // if (this.local == null) {
                                 //     this.add = this.address;
@@ -62,14 +63,21 @@ export class AddaddressPage {
                                 //     console.log(JSON.parse(this.local));
                                 // }
                                 if (this.local == null) {
-                                    this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
-                                    localStorage.setItem("address", (this.add));
-                                } else {
-                                    this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
-                                    this.local = this.local.concat((this.add))
-                                    localStorage.setItem("address", this.local);
+                                    this.add = [{ address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country }];
+
+                                    // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
+                                    localStorage.setItem("address", JSON.stringify(this.add));
                                     this.navCtrl.setRoot(AddresslistPage);
-                                    console.log(JSON.parse(this.local));
+                                } else {
+                                    console.log(this.local);
+
+                                    this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
+
+                                    // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
+                                    this.local.push(this.add);
+                                    localStorage.setItem("address", JSON.stringify(this.local));
+                                    this.navCtrl.setRoot(AddresslistPage);
+                                    // console.log(JSON.parse(this.local));
                                 }
                                 // this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
                                 // this.local = this.local.concat(JSON.stringify(this.add))

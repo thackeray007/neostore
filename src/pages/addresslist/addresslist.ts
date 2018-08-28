@@ -16,6 +16,7 @@ import { getScrollData } from '../../../node_modules/ionic-angular/umd/component
 })
 export class AddresslistPage {
     address: any;
+    name = "shubham thackeray";
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.getData();
@@ -24,12 +25,13 @@ export class AddresslistPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad AddresslistPage');
-
+        this.getData();
     }
     getData() {
-        this.address = localStorage.getItem("address");
+        this.address = JSON.parse(localStorage.getItem("address"));
         console.log(this.address);
-        console.log(JSON.stringify(this.address));
+        // console.log(JSON.parse(address));
+        // console.log(JSON.stringify(this.address));
 
     }
 }
