@@ -95,5 +95,10 @@ page-mycart {
             width: 200px
         }
         
-
+        .list-md .item-block .item-inner {
+            border-bottom: none;
+        }
+        .item-md{
+            border-bottom: 1px solid map-get($colors ,font5 );
+        }
 }

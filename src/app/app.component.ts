@@ -41,5 +41,9 @@ export class MyApp {
         this.nav.push(MyOrdersPage);
 
     };
+    table(abcd) {
+        this.nav.push(ProductsPage, {
+            id: abcd
+        })
+    };
 }
-

@@ -30,6 +30,8 @@ export class UrlProvider {
     public edit = this.baseUrl + "editCart";
     public order = this.baseUrl + "order";
     public orderList = this.baseUrl + "orderList";
+    public track = this.baseUrl + "orderDetail";
+
 }
 
 

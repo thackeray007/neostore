@@ -15,16 +15,32 @@
 
 <ion-content padding>
     <ion-list *ngFor="let product of abcd">
-        <ion-item>
-            <div class="product-id">Order ID:{{product.id}}
+        <button ion-item (click)="trackid(product.id)">
+            <!-- <div class="product-id">Order ID:{{product.id}}
             </div>
 
-            <div class="cost">{{product.cost}} </div>
+            <div class="cost">
+                <i class="fa fa-rupee"></i>{{product.cost}} </div>
 
-            <div class="date">{{product.created}}</div>
+            <div class="date">{{product.created}}</div> -->
 
 
-
-        </ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-row>
+                            <div class="product-id">Order ID:{{product.id}}</div>
+                        </ion-row>
+                        <ion-row>
+                            <div class="date">Ordered Date:{{product.created}}</div>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col>
+                        <div class="cost">
+                            <i class="fa fa-rupee"></i>{{product.cost}} </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </button>
     </ion-list>
 </ion-content>

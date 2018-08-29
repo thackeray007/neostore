@@ -1,17 +1,19 @@
 page-my-orders {
 .product-id{
     font-family: "gotham-book";
-    padding-top:20px;
+    
+    padding-top:0px;
     font-size:20px;
     color: #1c1c1c;
     padding-bottom:10px; 
+    border-bottom: 1px solid map-get($colors , font5 );
 
 };
 .cost{
     position: absolute;
     right:0px;
     font-family: "gotham-book";
-   
+   margin-top:20px;
     font-size:20px;
     color: #1c1c1c;
 };
@@ -20,5 +22,14 @@ page-my-orders {
     padding-top:20px;
     font-size:12px;
     color: #4F4F4F;
+};
+.col1{
+    flex:1;
+};
+.col2{
+    flex:1;
+};
+.item-md{
+    border-bottom: 1px solid map-get($colors ,font5 );
 }
 }

@@ -82,9 +82,10 @@ color:map-get($colors , afont1 )
     left: 5% !important;
     right: 5% !important;
     margin: auto !important;
-    // border:2px solid black !important;
+    // border:2px solid red !important;
     box-shadow: 0 16px 20px rgba(0,0,0,.4);
-    // background-color: transparent;
+    background-color: black !important;
+    background-size: 100%;
   };
   .inupt-wrapper {
     // padding-right: 8px;

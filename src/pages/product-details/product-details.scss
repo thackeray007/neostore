@@ -111,14 +111,16 @@ font-size:20px;
 };
 .contentimgs{
     margin-left: 10px;
-    margin-right:10px;   };
+    margin-right:10px; 
+  };
     .ion-scroll {
         white-space: nowrap;
         height: 250px;
     };
     .wide-as-needed{
-        overflow: scroll;
+        overflow: hidden;
         white-space: nowrap;
+        height: 150px;
     }
 
 }

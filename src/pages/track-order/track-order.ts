@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { UrlProvider } from '../../providers/url/url';
+import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
-import { TrackOrderPage } from '../track-order/track-order';
+
 /**
- * Generated class for the MyOrdersPage page.
+ * Generated class for the TrackOrderPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,38 +13,45 @@ import { TrackOrderPage } from '../track-order/track-order';
 
 @IonicPage()
 @Component({
-    selector: 'page-my-orders',
-    templateUrl: 'my-orders.html',
+    selector: 'page-track-order',
+    templateUrl: 'track-order.html',
 })
-export class MyOrdersPage {
+export class TrackOrderPage {
+    id: any;
     token: any;
     abcd: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider) {
+
+    constructor(public navCtrl: NavController, public navParams: NavParams, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform) {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad MyOrdersPage');
+        this.id = this.navParams.get('id');
+        console.log(this.id);
+
         this.token = localStorage.getItem("access_token");
-        this.orderList();
+        console.log(this.token);
+
+        console.log('ionViewDidLoad TrackOrderPage');
+        this.trackOrder();
     }
-    orderList() {
+    trackOrder() {
 
         var method = "get";
-        var url = this.url.orderList;
+        var url = this.url.track;
         var headers = new Headers({ 'access_token': this.token, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
-
+        var options = new RequestOptions({ headers: headers, params: { 'order_id': this.id } });
 
         console.log("headeresw", headers);
-        this.orderListCallback = this.orderListCallback.bind(this);
+        this.trackCallback = this.trackCallback.bind(this);
 
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
 
-            return this.apip.apicall(method, url, { headers: headers }, {}, this.orderListCallback);
-        } else { this.apip.apicall(method, url, { 'access_token': this.token }, {}, this.orderListCallback); }
+            return this.apip.apicall(method, url, options, {}, this.trackCallback);
+        } else { this.apip.apicall(method, url, { 'access_token': this.token }, { 'order_id': this.id }, this.trackCallback); }
     }
-    orderListCallback(response) {
+    trackCallback(response) {
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
@@ -65,7 +72,7 @@ export class MyOrdersPage {
             console.log(response);
 
             console.log("asda", a.data);
-            this.abcd = a.data;
+            this.abcd = a;
 
 
             // this.navCtrl.setRoot(LoaderPage);
@@ -82,12 +89,6 @@ export class MyOrdersPage {
             // this.alertp.presentAlert(a.statusText);
         }
 
-
     }
-    trackid(id) {
-        this.navCtrl.push(TrackOrderPage, {
-            id: id
-        })
 
-    }
 }

@@ -40,7 +40,7 @@ export class AddresslistPage {
 
     }
     add() {
-        this.navCtrl.setRoot(AddaddressPage);
+        this.navCtrl.push(AddaddressPage);
     };
     placeOrder() {
 

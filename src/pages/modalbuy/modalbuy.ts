@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Platform, ViewController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
@@ -25,7 +25,8 @@ export class ModalbuyPage {
     token: any;
     public data: any;
     Qnt: any;
-    constructor(public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
+    constructor(public renderer: Renderer, public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
+        this.renderer.setElementClass(viewcontroller.pageRef().nativeElement, 'filters-modal', true);
     }
 
     ionViewDidLoad() {
