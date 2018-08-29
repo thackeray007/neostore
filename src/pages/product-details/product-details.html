@@ -44,16 +44,24 @@
 
                 <ion-grid>
 
+                    <!-- <ion-row>
+                        <ion-scroll scrollX="true" class="wide-as-needed">
+                            <div class="contentimgs" *ngFor="let data of links">
+
+                                <img style="height: 45px;width:60px" id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+
+                            </div>
+                        </ion-scroll> -->
                     <ion-row>
-                        <!-- <ion-scroll scrollX="true" class="wide-as-needed"> -->
-                        <div class="contentimgs" *ngFor="let data of links">
+                        <ion-item no-lines>
+                            <ion-scroll scrollX="true" scroll-avatar>
 
-                            <img style="height: 45px;width:60px" id={{data.id}} (click)="pic1(data.image)" src={{data.image}}/>
+                                <img *ngFor="let data of links" (click)="pic1(data.image)" src={{data.image}} class="scroll-item" />
 
-                        </div>
-                        <!-- </ion-scroll> -->
-
+                            </ion-scroll>
+                        </ion-item>
                     </ion-row>
+                    <!-- </ion-row> -->
 
                 </ion-grid>
             </ion-list>

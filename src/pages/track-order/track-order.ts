@@ -20,7 +20,8 @@ export class TrackOrderPage {
     id: any;
     token: any;
     abcd: any;
-
+    total: any;
+    cost: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform) {
     }
 
@@ -49,15 +50,15 @@ export class TrackOrderPage {
         if (this.platform.is('mobileweb')) {
 
             return this.apip.apicall(method, url, options, {}, this.trackCallback);
-        } else { this.apip.apicall(method, url, { 'access_token': this.token }, { 'order_id': this.id }, this.trackCallback); }
+        } else { this.apip.apicall(method, url, { 'access_token': this.token }, { 'order_id': JSON.stringify(this.id) }, this.trackCallback); }
     }
     trackCallback(response) {
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 
-            console.log(a);
-            console.log(response);
+            console.log("JSON", a);
+            console.log("response", response);
 
 
         }
@@ -72,8 +73,8 @@ export class TrackOrderPage {
             console.log(response);
 
             console.log("asda", a.data);
-            this.abcd = a;
-
+            this.abcd = a.data.order_details;
+            this.cost = a.data.cost;
 
             // this.navCtrl.setRoot(LoaderPage);
 
@@ -89,6 +90,8 @@ export class TrackOrderPage {
             // this.alertp.presentAlert(a.statusText);
         }
 
+
     }
+
 
 }

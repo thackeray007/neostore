@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>trackOrder</ion-title>
+        <ion-title>Order ID:{{id}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -17,36 +17,31 @@
     <ion-list>
         <ion-item-sliding #item *ngFor="let ab of abcd">
             <ion-item style="height: 100px;">
-                <img item-left class="img" src={{ab.product.product_images}}>
+                <img item-left class="img" src={{ab.prod_image}}>
 
-                <h2 class="product-title">{{ab.product.name}}</h2>
-                <p class="product-subtitle">({{ab.product.product_category}})</p>
+                <h2 class="product-title">{{ab.prod_name}}</h2>
+                <p class="product-subtitle">({{ab.prod_cat_name}})</p>
 
 
                 <label ion-row>
 
-
+                    <div class="qty">QTY:{{ab.quantity}}</div>
 
                     <div class="product-price">
-                        <i class="fa fa-rupee"></i>{{ab.product.cost}}</div>
+                        <i class="fa fa-rupee"></i>{{ab.total}}</div>
                 </label>
             </ion-item>
-            <ion-item-options side="right">
-                <button ion-button class="deletebutton" (click)="delete(ab.product_id)">
-                    <i style="color: white;border-radius: 50%" class="fa fa-trash" aria-hidden="true"></i>
-                    <!-- <ion-icon style="padding-right: 20px;height:20px;color: white" class="icons" name="person"></ion-icon> -->
-                </button>
-            </ion-item-options>
+
         </ion-item-sliding>
         <ion-item>
             <ion-row>
+
                 <div class="total">TOTAL</div>
                 <div class="price">
-                    <i class="fa fa-rupee"></i>{{total}}
+                    <i class="fa fa-rupee"></i>{{cost}}
                 </div>
             </ion-row>
         </ion-item>
-        <button ion-button (click)="orderNow()" class="button1" full>ORDER NOW
-        </button>
+
     </ion-list>
 </ion-content>

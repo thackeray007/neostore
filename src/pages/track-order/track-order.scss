@@ -1,3 +1,113 @@
 page-track-order {
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        
+      };
+      
+    .product-title{
+        font-family:'gotham-book';
+        font-size:20px ;
+        padding-top:15px;
+        color: #1c1c1c;
 
+    };
+    .product-subtitle{
+
+        font-family:'gotham-book';
+        font-style: italic;
+        margin-top:6px;
+        font-size:15px ;
+        color: map-get($colors , dark )
+    };
+
+    .product-price{
+        font-family:'gotham-book';
+        font-size:15px;
+        color:#333333;
+        position:absolute;
+        right:0px ;
+        padding-top:12px;
+        margin-bottom:15px;
+        
+    };
+    .img{
+        width: 44px;
+        height: 44px;
+    };
+    .qty{
+        font-family:'gotham-book';
+        font-size:13px;
+        color:#333333;
+        padding-top:12px;
+        margin-bottom:15px;
+    }
+    
+    .iteml{height: 90px;};
+
+    .deletebutton{
+        height: 50px;
+        margin-top: 40px;
+        border-radius: 50%;};
+    
+        .itemno{
+            border: 1px solid #333333;
+            border-radius: 5px;
+        };
+        .list-md ion-item-options .button {
+            height: 45px;
+            width: 45px;
+        margin-top: 10%;
+        border-radius: 50%;
+        };
+        .total{
+            flex: 1;
+            font-family:'gotham-medium';
+            font-size:15px;
+            color: #333333;
+            width: 100px;
+
+        };
+        .price{
+            float:right;
+          position: absolute;
+          right: 0px;
+          flex: 1;
+
+            font-family:'gotham-medium';
+            font-size:15px;
+            color: #333333;
+        };
+        .button1{
+            font-family:'gotham-medium' ;
+            
+            color:map-get($colors ,afont1 );
+            background-color:#db1514;
+            font-size: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+
+            width:100%;
+            height:50px ;
+            
+        };
+        .button1:hover{
+            background-color: map-get($colors , primary );
+            color: map-get($colors, afont1 );
+        };
+        .dropdown{
+            width: 200px
+        }
+        
+        .list-md .item-block .item-inner {
+            border-bottom: none;
+        }
+        .item-md{
+            border-bottom: 1px solid map-get($colors ,font5 );
+        }
 }

@@ -47,44 +47,44 @@ export class ModalbuyPage {
 
         console.log(this.Qnt);
 
-        // if (this.Qnt > 8 || this.Qnt < 1) {
-        //     this.alertp.presentAlert("only upto 8 items are deliverable")
-        // } else {
-        var method = "post";
-        var url = this.url.add;
-        console.log(this.data);
-        var headers = new Headers({ 'access_token': this.token });
+        if (this.Qnt > 8 || this.Qnt < 1 || this.Qnt == null || this.Qnt == "" || this.Qnt == undefined) {
+            this.alertp.presentAlert("only upto 8 items are deliverable")
+        } else {
+            var method = "post";
+            var url = this.url.add;
+            console.log(this.data);
+            var headers = new Headers({ 'access_token': this.token });
 
-        console.log(headers);
-        this.addCallback = this.addCallback.bind(this);
+            console.log(headers);
+            this.addCallback = this.addCallback.bind(this);
 
-        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
-        // console.log(this.data);
-        if (this.platform.is('mobileweb')) {
-            var data = new FormData();
-            data.append('product_id', this.id);
-            data.append('quantity', this.Qnt);
-            return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
-        } else { this.apip.apicall(method, url, { 'product_id': this.id, 'quantity': this.Qnt }, { 'access_token': this.token }, this.addCallback); }
+            // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+            // console.log(this.data);
+            if (this.platform.is('mobileweb')) {
+                var data = new FormData();
+                data.append('product_id', this.id);
+                data.append('quantity', this.Qnt);
+                return this.apip.apicall(method, url, data, { headers: headers }, this.addCallback);
+            } else { this.apip.apicall(method, url, { 'product_id': this.id, 'quantity': this.Qnt }, { 'access_token': this.token }, this.addCallback); }
 
 
 
-        // if (this.platform.is('mobileweb')) {
-        //     this.data = new FormData();
-        //     this.data.append('access_token', this.token);
+            // if (this.platform.is('mobileweb')) {
+            //     this.data = new FormData();
+            //     this.data.append('access_token', this.token);
 
-        // }
-        // else {
-        //     this.data = { 'access_token': this.token };
-        // };
+            // }
+            // else {
+            //     this.data = { 'access_token': this.token };
+            // };
 
-        // var method = "post";
-        // var url = this.url.add;
-        // console.log(this.data);
-        // this.apip.apicall(method, url, this.data, {}, this.addCallback);
-        // // console.log(data);
+            // var method = "post";
+            // var url = this.url.add;
+            // console.log(this.data);
+            // this.apip.apicall(method, url, this.data, {}, this.addCallback);
+            // // console.log(data);
 
-        // }
+        }
     }
     addCallback(response) {
         if (this.platform.is('mobileweb')) {

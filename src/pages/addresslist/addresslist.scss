@@ -13,11 +13,13 @@ page-addresslist {
     font-family: "gotham-book";
     font-size:22px;
     color:#333333;
+    border-bottom:1px solid map-get($colors , font5 ) 
 
 };
 .name{
     font-family: "gotham-medium";
     font-size: 22px;
+    margin-top:10px;
 color:#333333;
 };
 .addaddress{
@@ -51,5 +53,26 @@ background-color: transparent;
     background-color: map-get($colors , primary );
     color: map-get($colors, afont1 );
 };
+.radio1{
+    flex: 1 !important;
+    margin-top:22px;
 
+}
+.nonradio{
+    flex: 7 !important;
+    height:86px ;
+}
+.addressView{
+    font-family: "gotham-book";
+    font-size: 15px;
+    color:#333333;
+    margin-top: 12px;
+};
+   
+.list-md .item-block .item-inner {
+    border-bottom: none;
+}
+.item-md{
+    border-bottom: 1px solid map-get($colors ,font5 );
+}
 }

@@ -111,7 +111,7 @@ font-size:20px;
 };
 .contentimgs{
     margin-left: 10px;
-    margin-right:10px; 
+    
   };
     .ion-scroll {
         white-space: nowrap;
@@ -120,7 +120,50 @@ font-size:20px;
     .wide-as-needed{
         overflow: hidden;
         white-space: nowrap;
-        height: 150px;
+        
+    };
+    .input-wrapper{
+        height: 80px;
     }
-
+    ion-scroll[scrollX] {
+        width: 100%;
+        white-space: nowrap;
+        height: 110px;
+        overflow: hidden;
+     
+        .scroll-item {
+          display: inline-block;
+          width: 100px !important;
+          height: 75px !important;
+          padding: 1px;
+          margin-left:10px;
+          border:1px solid map-get($colors , font5 );
+          border-radius:5px;
+            
+        }
+    
+        .selectable-icon{
+          margin: 10px 20px 10px 20px;
+          color: red;
+          font-size: 100px;
+        }
+    
+        .ion-avatar img{
+          margin: 10px;
+        }
+      }
+    
+      .ion-scroll[scroll-avatar]{
+        height: 60px;
+      }
+    
+      /* Hide ion-content scrollbar */
+      ::-webkit-scrollbar{
+        display:none;
+      };
+      .item-md {
+          padding-left: 0px;
+          
+      };
+    
 }

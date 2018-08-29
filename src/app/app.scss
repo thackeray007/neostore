@@ -92,7 +92,7 @@ color:map-get($colors , afont1 )
     border-bottom: 1px solid black !important;
 }
 .list-md .item-block .item-inner {
-    border-bottom: 2px solid map-get($colors , font10 );
+    border-bottom: 1px solid map-get($colors , dark );
 }
 // $list-md-border-color:#7f7f7f;
 // .content-md {

@@ -20,7 +20,7 @@ import { Device } from '@ionic-native/device';
 import { Platform } from 'ionic-angular';
 import { LoaderPage } from '../pages/loader/loader';
 import { Component } from '@angular/core';
-import { RatingModule } from "ngx-rating";
+
 import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../pages/modalrate/modalrate';
 import { MycartPage } from '../pages/mycart/mycart';
@@ -46,11 +46,11 @@ import { TrackOrderPage } from '../pages/track-order/track-order';
         AddaddressPage,
         AddresslistPage,
         MyOrdersPage,
-        TrackOrderPage
+        TrackOrderPage,
     ],
     imports: [
         BrowserModule,
-        RatingModule,
+
         HttpModule,
         IonicModule.forRoot(MyApp),
     ],
@@ -70,7 +70,7 @@ import { TrackOrderPage } from '../pages/track-order/track-order';
         AddaddressPage,
         AddresslistPage,
         MyOrdersPage,
-        TrackOrderPage
+        TrackOrderPage,
 
     ],
     providers: [

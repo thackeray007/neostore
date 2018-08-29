@@ -22,6 +22,7 @@ export class AddresslistPage {
     address: any;
     name = "shubham thackeray";
     token: any;
+    address1: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alertp: AlerttProvider) {
         this.getData();
     }
@@ -43,6 +44,7 @@ export class AddresslistPage {
         this.navCtrl.push(AddaddressPage);
     };
     placeOrder() {
+        console.log(this.address1);
 
         var method = "post";
         var url = this.url.order;
@@ -57,7 +59,7 @@ export class AddresslistPage {
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
-            data.append('address', 'Unit No 501, Sigma IT Park, Plot No R-203,204, Midc TTC Industrial Area. Rabale, Navi Mumbai, Maharashtra 400701');
+            data.append('address', this.address1);
 
             return this.apip.apicall(method, url, data, { headers: headers }, this.orderCallback);
         } else { this.apip.apicall(method, url, { 'address': 'Unit No 501, Sigma IT Park, Plot No R-203,204, Midc TTC Industrial Area. Rabale, Navi Mumbai, Maharashtra 400701' }, { 'access_token': this.token }, this.orderCallback); }
