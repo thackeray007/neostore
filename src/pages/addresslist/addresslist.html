@@ -14,20 +14,24 @@
 </ion-header>
 
 
-<ion-content padding>
-    <div class="shipping">Shipping Address</div>
+<ion-content>
+
     <ion-list radio-group [(ngModel)]="abcd">
-        <ion-item *ngFor="let add of address">
+        <div class="shipping">Shipping Address</div>
+        <ion-item *ngFor="let add of address; let i=index">
             <ion-row>
                 <div class="radio1">
                     <label>
-                        <input type="radio" [(ngModel)]="address1" value="{{add.address}}" name="group1" />
+                        <input type="radio" [(ngModel)]="index1" value={{i}} name="group1" />
 
                         <i class="radio-icon ion-checkmark"></i>
                     </label>
                 </div>
                 <div class="nonradio">
                     <!-- <input type="radio" formControlName="field" value="{{option}}"> -->
+                    <div class="delete">
+                        <ion-icon (click)="delete(i)" name="close"></ion-icon>
+                    </div>
                     <div class="name">{{name}}</div>
                     <div class="addressView">{{add.address}}</div>
                     <!-- <div style="height: 20px;width: 20px">

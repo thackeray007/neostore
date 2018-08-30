@@ -29,7 +29,7 @@ import { AddaddressPage } from '../pages/addaddress/addaddress';
 import { AddresslistPage } from '../pages/addresslist/addresslist';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { TrackOrderPage } from '../pages/track-order/track-order';
-// import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
+
 import { MapPage } from '../pages/map/map';
 
 @NgModule({

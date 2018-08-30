@@ -23,6 +23,8 @@ export class AddresslistPage {
     name = "shubham thackeray";
     token: any;
     address1: any;
+    address2: any;
+    index1: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alertp: AlerttProvider) {
         this.getData();
     }
@@ -43,13 +45,14 @@ export class AddresslistPage {
         this.navCtrl.push(AddaddressPage);
     };
     placeOrder() {
-        console.log(this.address1);
+        console.log("address", this.index1);
 
         var method = "post";
         var url = this.url.order;
         console.log("token", this.token);
-
+        this.address2 = this.address[this.index1];
         var headers = new Headers({ 'access_token': this.token });
+        console.log(this.address2);
 
         console.log(headers);
         this.orderCallback = this.orderCallback.bind(this);
@@ -58,7 +61,7 @@ export class AddresslistPage {
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
-            data.append('address', this.address1);
+            data.append('address', this.address2);
 
             return this.apip.apicall(method, url, data, { headers: headers }, this.orderCallback);
         } else { this.apip.apicall(method, url, data, { 'access_token': this.token }, this.orderCallback); }
@@ -97,6 +100,12 @@ export class AddresslistPage {
         }
 
 
+    }
+    delete(i) {
+        console.log(i);
+
+        this.address.splice(i, 1);
+        localStorage.setItem("address", JSON.stringify(this.address))
     }
 }
 

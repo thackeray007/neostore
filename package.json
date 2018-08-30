@@ -63,15 +63,7 @@
             "cordova-plugin-ionic-webview": {},
             "cordova-plugin-ionic-keyboard": {},
             "cordova-plugin-advanced-http": {},
-            "cordova-plugin-x-socialsharing": {},
-            "cordova-plugin-googlemaps": {
-                "API_KEY_FOR_ANDROID": "(AIzaSyAEX80KzSkp869KiPDb7Y4sCcxiGhWFp6A)",
-                "API_KEY_FOR_IOS": "(AIzaSyDyubVzojayyBmqD7she84pW7fpRPL-4ys)",
-                "PLAY_SERVICES_VERSION": "15.0.1",
-                "ANDROID_SUPPORT_V4_VERSION": "27.+",
-                "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
-                "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-            }
+            "cordova-plugin-x-socialsharing": {}
         },
         "platforms": [
             "ios",
