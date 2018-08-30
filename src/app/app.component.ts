@@ -11,6 +11,7 @@ import { MycartPage } from '../pages/mycart/mycart';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { ProductsPage } from '../pages/products/products';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
+import { MapPage } from '../pages/map/map';
 @Component({
     templateUrl: 'app.html'
 })
@@ -45,5 +46,8 @@ export class MyApp {
         this.nav.push(ProductsPage, {
             id: abcd
         })
+    };
+    map() {
+        this.nav.push(MapPage)
     };
 }

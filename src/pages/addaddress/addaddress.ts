@@ -83,7 +83,6 @@ export class AddaddressPage {
                                 // this.local = this.local.concat(JSON.stringify(this.add))
                                 // localStorage.setItem("address", this.address);
                                 // console.log((this.add).JSON);
-
                             }
                         }
                     }

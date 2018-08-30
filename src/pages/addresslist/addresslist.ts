@@ -38,7 +38,6 @@ export class AddresslistPage {
         console.log(this.address);
         // console.log(JSON.parse(address));
         // console.log(JSON.stringify(this.address));
-
     }
     add() {
         this.navCtrl.push(AddaddressPage);
@@ -62,7 +61,7 @@ export class AddresslistPage {
             data.append('address', this.address1);
 
             return this.apip.apicall(method, url, data, { headers: headers }, this.orderCallback);
-        } else { this.apip.apicall(method, url, { 'address': 'Unit No 501, Sigma IT Park, Plot No R-203,204, Midc TTC Industrial Area. Rabale, Navi Mumbai, Maharashtra 400701' }, { 'access_token': this.token }, this.orderCallback); }
+        } else { this.apip.apicall(method, url, data, { 'access_token': this.token }, this.orderCallback); }
 
     }
     orderCallback(response) {
@@ -70,7 +69,6 @@ export class AddresslistPage {
             var a = JSON.parse(response._body);
 
             // console.log(a.data.access_token);
-
         }
         else {
             var a = (response);
@@ -79,7 +77,6 @@ export class AddresslistPage {
             console.log(response.data);
 
             // console.log(JSON.parse(response.data).data.access_token)
-
 
         };
         console.log(a);
@@ -102,3 +99,6 @@ export class AddresslistPage {
 
     }
 }
+
+
+

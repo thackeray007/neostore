@@ -14,8 +14,8 @@
         <img src={{image}} class="image" />
         <!-- </ion-pane> -->
         <div class="stars">
-            <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
+            <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline' " (click)="changeRating(i)"></ion-icon>
         </div>
-        <button ion-button class="modalButton" (click)="addtocart();">RATE NOW</button>
+        <button ion-button class="modalButton" (click)="Rating();">RATE NOW</button>
     </div>
 </ion-content>

@@ -183,7 +183,7 @@ export class ProductDetailsPage {
         profileModal.present();
     }
     presentProfileModal2() {
-        let profileModal = this.modalCtrl.create(ModalratePage, { id: this.id, title: this.title, pic: this.link1 }, { cssClass: "my-modal", enableBackdropDismiss: true });
+        let profileModal = this.modalCtrl.create(ModalratePage, { id: this.id, title: this.title, pic: this.link1, rating: this.rating }, { cssClass: "my-modal", enableBackdropDismiss: true });
         profileModal.present();
     }
     share() {

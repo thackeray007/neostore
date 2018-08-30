@@ -74,5 +74,9 @@ background-color: transparent;
 }
 .item-md{
     border-bottom: 1px solid map-get($colors ,font5 );
+};
+.delete{
+    position: absolute;
+    right: 0px;
 }
 }

@@ -77,6 +77,14 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.4.1">
+        <variable name="API_KEY_FOR_ANDROID" value="(AIzaSyAEX80KzSkp869KiPDb7Y4sCcxiGhWFp6A)" />
+        <variable name="API_KEY_FOR_IOS" value="(AIzaSyDyubVzojayyBmqD7she84pW7fpRPL-4ys)" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+    </plugin>
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.0.0" />
 </widget>
