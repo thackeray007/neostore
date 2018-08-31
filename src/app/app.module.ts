@@ -34,6 +34,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { DatePicker } from '@ionic-native/date-picker';
+import { AccountDetailsPage } from '../pages/account-details/account-details';
 @NgModule({
     declarations: [
         MyApp,
@@ -53,6 +54,7 @@ import { DatePicker } from '@ionic-native/date-picker';
         TrackOrderPage,
         MapPage,
         MyAccountPage,
+        AccountDetailsPage
 
     ],
     imports: [
@@ -80,6 +82,7 @@ import { DatePicker } from '@ionic-native/date-picker';
         TrackOrderPage,
         MapPage,
         MyAccountPage,
+        AccountDetailsPage
 
 
     ],
@@ -100,6 +103,7 @@ import { DatePicker } from '@ionic-native/date-picker';
         ImagePicker,
         Camera,
         DatePicker,
+
 
 
 

@@ -13,6 +13,7 @@ import { ProductsPage } from '../pages/products/products';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
+import { AccountDetailsPage } from '../pages/account-details/account-details';
 @Component({
     templateUrl: 'app.html'
 })
@@ -52,6 +53,6 @@ export class MyApp {
         this.nav.push(MapPage)
     };
     myAccount() {
-        this.nav.push(MyAccountPage)
+        this.nav.push(AccountDetailsPage);
     };
 }
