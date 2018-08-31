@@ -1,0 +1,143 @@
+page-my-account {
+    
+        .myview{
+            background-image:url('/assets/imgs/Android_Master_bg.jpg');
+        };
+    
+    .neo-logo{
+        align-content: center;
+        text-align: center;
+        display: block;
+        font-family: 'gotaham-bold';
+        color:  map-get($colors, afont1);
+        font-size: 40px;
+        font-style: bold;
+        font-weight: 900;
+        margin-top: 40%;
+    };
+    .inputfield{
+        border:1.5px solid;
+        width: 80%;
+         font-family: 'gotham-medium';
+        height:22px;
+        margin-left:10% ;
+        color:map-get($colors , afont1 );
+        background-color:transparent;
+    margin-top: 10px;
+    
+    font-size: 18px;
+    };
+    page-home .text-input {
+        font-size: 16px;
+        color: white;
+        font-weight: 600;
+    }
+      .text-input::-webkit-input-placeholder{
+        color:white;
+        font-size: 16px;
+        font-weight: 600;   
+    };
+    .icons{
+        color: map-get($colors , afont1 );
+    };
+    .button1{
+        font-family:'gotham-medium' ;
+        
+        background-color:map-get($colors ,afont1 );
+        color:#e91c1a;
+        font-size: 26px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10%;
+        width:80%;
+        height:50px ;
+        
+    };
+    .button1:hover{
+        background-color: map-get($colors , afont2 );
+        color: map-get($colors, afont1 );
+    };
+    
+    
+    .a1{
+        align-content: center;
+        text-align: center;
+        display: block;
+        color:map-get($colors , afont1 );
+        
+        background-color: map-get($colors, primary);
+    
+    };
+    .a2{
+        color: white;
+        background-color: red;
+    };
+    .a3{font-family: 'gotham-medium';
+        align-content: center;
+        text-align: center;
+        display: block;
+        color:map-get($colors , afont1 );
+        
+        background-color: map-get($colors, red3);
+        font-size: 16px;
+        font-weight: 600;
+    };
+    
+    .text-input::-webkit-input-placeholder{
+        color:white;
+        font-size: 20px;
+        font-weight: 600;   
+    };
+    .text-input{
+            font-size:20px; //sets placeholder font size
+            color: white;
+            font-weight:600
+       };
+       .buttonadd{
+           color: map-get($colors , afont1);
+        padding:10px 10px ;
+        position:fixed;
+        right:15px;
+        bottom: 15px;
+        opacity: 0.8;
+        background-color :maroon;
+        font-size: 40px
+       }
+       .buttonadd:hover{
+           color: map-get($colors ,font3 );
+           
+           //background-color:;
+       };
+    .s4{ font-family: 'gotham-medium';
+        display: inline-block;
+        color:white; 
+        font-weight: 700;
+       
+    };
+    .avatar {
+        margin-top: 20px;
+        vertical-align: middle;
+        width: 134px;
+        height: 134px;
+        border-radius: 50%!important;
+        border-color: map-get($colors , afont1)!important ;
+        border: 2px solid map-get($colors , afont1) !important;
+    // margin-left: 40%
+
+    };
+    .flex1{
+width: 30%;
+
+    }
+    .flex2{
+        flex: 1;
+        width:40%;
+    }
+    
+    
+    }
+      
+    
+    
+    
+

@@ -32,7 +32,7 @@ export class UrlProvider {
     public orderList = this.baseUrl + "orderList";
     public track = this.baseUrl + "orderDetail";
     public rate = this.baseUrl + "products/setRating";
-
+    public userDetails = this.baseUrl + "users/getUserData";
 }
 
 

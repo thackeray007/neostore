@@ -12,6 +12,7 @@ import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { ProductsPage } from '../pages/products/products';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { MapPage } from '../pages/map/map';
+import { MyAccountPage } from '../pages/my-account/my-account';
 @Component({
     templateUrl: 'app.html'
 })
@@ -49,5 +50,8 @@ export class MyApp {
     };
     map() {
         this.nav.push(MapPage)
+    };
+    myAccount() {
+        this.nav.push(MyAccountPage)
     };
 }

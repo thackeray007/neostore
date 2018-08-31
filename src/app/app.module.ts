@@ -29,8 +29,9 @@ import { AddaddressPage } from '../pages/addaddress/addaddress';
 import { AddresslistPage } from '../pages/addresslist/addresslist';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { TrackOrderPage } from '../pages/track-order/track-order';
-
+import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { MapPage } from '../pages/map/map';
+import { MyAccountPage } from '../pages/my-account/my-account';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { MapPage } from '../pages/map/map';
         AddresslistPage,
         MyOrdersPage,
         TrackOrderPage,
-        MapPage
+        MapPage,
+        MyAccountPage
     ],
     imports: [
         BrowserModule,
@@ -75,6 +77,7 @@ import { MapPage } from '../pages/map/map';
         MyOrdersPage,
         TrackOrderPage,
         MapPage,
+        MyAccountPage,
 
 
     ],
@@ -92,6 +95,8 @@ import { MapPage } from '../pages/map/map';
         UrlProvider,
         ModalbuyPage,
         ModalratePage,
+        ImagePicker,
+
 
 
 

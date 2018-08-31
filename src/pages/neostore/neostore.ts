@@ -42,7 +42,7 @@ export class NeostorePage {
     }
 
     slider_pics() {
-        var url: any = "http://staging.php-dev.in:8844/trainingapp/api/users/getUserData";
+        var url = this.url.userDetails;
         var method = "get";
         var data = "";
         var data1 = localStorage.getItem("access_token");
@@ -60,12 +60,13 @@ export class NeostorePage {
         if (this.platform.is('mobileweb')) {
             this.images = JSON.parse(response._body).data.product_categories;
             console.log("a" + this.images);
-
+            localStorage.setItem("userDetails", response._body);
         }
         else {
             var a = JSON.parse(response.data);
             console.log("a" + a);
             this.images = a.data.product_categories;
+            localStorage.setItem("userDetails", response.data);
         };
         console.log("a" + a);
         console.log(a);
