@@ -20,6 +20,7 @@ import { Device } from '@ionic-native/device';
 import { Platform } from 'ionic-angular';
 import { LoaderPage } from '../pages/loader/loader';
 import { Component } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { ModalbuyPage } from '../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../pages/modalrate/modalrate';
@@ -32,7 +33,7 @@ import { TrackOrderPage } from '../pages/track-order/track-order';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
-
+import { DatePicker } from '@ionic-native/date-picker';
 @NgModule({
     declarations: [
         MyApp,
@@ -51,7 +52,8 @@ import { MyAccountPage } from '../pages/my-account/my-account';
         MyOrdersPage,
         TrackOrderPage,
         MapPage,
-        MyAccountPage
+        MyAccountPage,
+
     ],
     imports: [
         BrowserModule,
@@ -96,7 +98,8 @@ import { MyAccountPage } from '../pages/my-account/my-account';
         ModalbuyPage,
         ModalratePage,
         ImagePicker,
-
+        Camera,
+        DatePicker,
 
 
 

@@ -78,8 +78,10 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
     <plugin name="cordova-plugin-telerik-imagepicker" spec="^2.2.2">
-        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="NEOSTORE WILLL LIKE TO ACCESS YOUR GALLERY" />
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.0.0" />
 </widget>
