@@ -62,7 +62,9 @@ background-color: transparent;
 }
 .nonradio{
     flex: 7 !important;
-    height:86px ;
+    height:auto;
+    width: 80%;
+    min-height:87px ;
     border: 1px solid map-get($colors , font5 );
     border-radius:5px;
 }

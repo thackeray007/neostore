@@ -18,6 +18,12 @@ import { AccountDetailsPage } from '../pages/account-details/account-details';
     templateUrl: 'app.html'
 })
 export class MyApp {
+    data: any;
+    name: any;
+    email: any;
+    cart_no: any;
+    dp: any;
+    total_cart: any;
     @ViewChild(Nav) nav: Nav;
     rootPage: any = LoaderPage;
 
@@ -27,7 +33,12 @@ export class MyApp {
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
+
         });
+
+        // console.log("userDetails", data1);
+        this.userData()
+
 
     }
     logout() {
@@ -55,4 +66,19 @@ export class MyApp {
     myAccount() {
         this.nav.push(AccountDetailsPage);
     };
+    userData() {
+        this.data = localStorage.getItem("userDetails");
+        if (this.data == null || this.data == undefined) {
+            setTimeout(() => {
+                this.userData()
+            }, 2500);
+        } else {
+
+            this.name = JSON.parse(this.data).data.user_data.first_name + " " + JSON.parse(this.data).data.user_data.last_name;
+            console.log("name", this.name);
+            this.email = JSON.parse(this.data).data.user_data.email;
+
+            this.total_cart = JSON.parse(this.data).data.total_carts;
+        }
+    }
 }

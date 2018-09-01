@@ -23,8 +23,11 @@ import { ProductsPage } from '../products/products';
 export class NeostorePage {
     public products: any;
     public images: any = [];
+    data: any;
     constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider) {
 
+        this.data = localStorage.getItem("userDetails");
+        console.log("important", this.data);
 
     }
     @ViewChild(Slides) slides: Slides;

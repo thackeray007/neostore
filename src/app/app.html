@@ -2,13 +2,13 @@
     <ion-header class="head">
         <ion-toolbar color="font6">
 
-            <img class="avatar" src="/assets/imgs/Android_Master_bg.jpg">
+            <img class="avatar" src={{dp}}>
 
 
-            <ion-label class="name">SHUBHAM THACKERAY</ion-label>
+            <ion-label class="name">{{name}}</ion-label>
 
 
-            <ion-label class="email">shubhamrthakare@gmail.com</ion-label>
+            <ion-label class="email">{{email}}</ion-label>
 
         </ion-toolbar>
     </ion-header>
@@ -22,12 +22,16 @@
         <!-- <ion-avatar style="align-content: center" class="avatar">
             <img src="#">
         </ion-avatar> -->
-        <ion-list style="height: 100%;">
+        <ion-list>
 
             <!-- <ion-label center>shubham thakare</ion-label>
                 <ion-content class="slideout"></ion-content> -->
             <button full ion-item (click)='cart()' menuToggle="left">
-                <i style="padding-right: 20px" class="fa fa-shopping-cart"></i>My Cart</button>
+                <ion-row>
+                    <i style="padding-right: 20px" class="fa fa-shopping-cart"></i>My Cart
+                    <div class="cart_items">{{total_cart}}</div>
+                </ion-row>
+            </button>
             <button full (click)='table(1)' ion-item menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icons" name="lock"></ion-icon>Tables</button>
             <button full ion-item (click)='table(2)' menuToggle="left">
