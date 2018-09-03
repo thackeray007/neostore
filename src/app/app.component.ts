@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, Refresher, Nav, Events } from 'ionic-angular';
+import { Platform, NavController, Refresher, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -25,9 +25,9 @@ export class MyApp {
     dp: any;
     total_cart: any;
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = LoaderPage;
+    rootPage: any = HomePage;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private events: Events) {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, ) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -35,28 +35,12 @@ export class MyApp {
             splashScreen.hide();
 
         });
-        this.userData()
-        events.subscribe('cart:cart', (cart_items) => {
-            // user and time are the same arguments passed in `events.publish(user, time)`
-            this.total_cart = cart_items;
-            console.log(this.total_cart);
-
-
-        });
-        this.events.subscribe('details:updated', (f_name, l_name, email, dob, number, dp) => {
-            this.name = f_name + " " + l_name;
-            this.email = email;
-            this.dp = dp;
-
-        });
 
         // console.log("userDetails", data1);
-
+        this.userData()
 
 
     }
-
-
     logout() {
         localStorage.clear();
         console.log("logout");
@@ -99,5 +83,4 @@ export class MyApp {
 
         }
     }
-
 }

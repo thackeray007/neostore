@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Events, AlertController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -23,9 +23,9 @@ export class MycartPage {
     abcd: any;
     total: any;
     itemss: any;
-    a = false;
+    a: any;
     cart_items: any;
-    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public events: Events) {
+    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public events: Events, public alertCtrl: AlertController) {
     }
 
     ionViewDidLoad() {
@@ -78,12 +78,13 @@ export class MycartPage {
             this.abcd = a.data;
             console.log("data", this.abcd);
             this.total = a.total;
-            this.cart_items = a.count;
+            if (a.count != undefined) { this.cart_items = a.count; }
+            else { this.cart_items = 0; }
             this.events.publish('cart:cart', this.cart_items);
 
-            if (a.data == null) {
-                a = true;
-            }
+            // if (a.data == "null") {
+            //     a = true;
+            // } else { a = false };
             // this.navCtrl.setRoot(LoaderPage);
 
             // this.rating = this.abcd.rating;
@@ -101,6 +102,9 @@ export class MycartPage {
 
     }
     delete(id) {
+        this.presentConfirm(id);
+    }
+    delete1(id) {
         console.log(id);
         var method = "post";
         var url = this.url.deleteCart;
@@ -120,9 +124,6 @@ export class MycartPage {
     deleteCallback(response) {
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
-
-
-
         }
         else {
             var a = JSON.parse(response.data);
@@ -222,6 +223,31 @@ export class MycartPage {
         }
 
     }
+
+    presentConfirm(id) {
+        let alert = this.alertCtrl.create({
+            title: 'Remove',
+            message: 'Do you really want to delete this from your Cart',
+            buttons: [
+                {
+                    text: 'NO',
+                    role: 'NO',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Delete',
+                    handler: () => {
+                        this.delete1(id);
+                        console.log('Buy clicked');
+                    }
+                }
+            ]
+        });
+        alert.present();
+    }
+
 
 
 }

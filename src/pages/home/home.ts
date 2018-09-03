@@ -12,6 +12,7 @@ import { UrlProvider } from '../../providers/url/url';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { LoaderPage } from '../loader/loader';
+import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 
 @Component({
     selector: 'page-home',
@@ -24,6 +25,39 @@ export class HomePage {
     constructor(public navCtrl: NavController, public alertp: AlerttProvider, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider) {
         console.log(this.url.login);
         this.loginCallback = this.loginCallback.bind(this);
+        this.loaderCallback = this.loaderCallback.bind(this);
+
+
+
+        console.log('ionViewDidLoad LoaderPage');
+        var data1 = localStorage.getItem("access_token");
+        if (data1 == undefined || data1 == null) {
+            this.navCtrl.setRoot(HomePage);
+        }
+        // if (data1 == undefined) {
+        //     localStorage.setItem("aceess_token", "");
+        // }
+        var method = "get";
+        var Url = this.url.loader;
+        console.log(data1);
+        //  var data = data1;
+        console.log("before get fn");
+        var options;
+        // console.log(data);
+        if (this.platform.is('mobileweb')) {
+            var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
+            // headers.append('access_token', data);
+            console.log(headers);
+
+            options = new RequestOptions({ headers: headers, params: {} });
+            console.log(options);
+            this.apip.apicall(method, Url, options, {}, this.loaderCallback);
+
+        } else {
+            var header = new Headers({ 'access_token': data1 });
+            this.apip.apicall(method, Url, { 'access_token': data1 }, {}, this.loaderCallback);
+        }
+
 
     }
     validate() {
@@ -122,5 +156,43 @@ export class HomePage {
     }
     new_pass() {
         this.navCtrl.push(ForgotPasswordPage);
+    }
+    loaderCallback(response) {
+        console.log("loader" + response);
+
+        console.log(response);
+        // console.log(JSON.parse(response));
+
+        // console.log(response.JSON);
+
+
+        if (this.platform.is('mobileweb')) {
+            console.log(response._body);
+            console.log(JSON.stringify(response));
+            var a = response;
+
+
+            // var a = JSON.parse(response._body)
+            // console.log(response._body);
+
+        }
+        else {
+            var a = response;
+            console.log("a" + a);
+        };
+        console.log(response);
+        console.log(a.status);
+
+        if (a.status == 200) {
+            // console.log(a.status);
+            this.navCtrl.setRoot(NeostorePage);
+            // console.log(a.status);
+
+        } else {
+            // console.log(a.statusText);
+            this.navCtrl.setRoot(HomePage);
+
+        }
+
     }
 }
