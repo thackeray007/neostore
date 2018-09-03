@@ -27,7 +27,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = LoaderPage;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events: Events) {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private events: Events) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -41,6 +41,13 @@ export class MyApp {
             this.total_cart = cart_items;
             console.log(this.total_cart);
 
+
+        });
+        this.events.subscribe('details:updated', (f_name, l_name, email, dob, number, dp) => {
+            this.name = f_name + " " + l_name;
+            this.email = email;
+            this.dp = dp;
+
         });
 
         // console.log("userDetails", data1);
@@ -48,9 +55,8 @@ export class MyApp {
 
 
     }
-    ionViewWillEnter() {
 
-    }
+
     logout() {
         localStorage.clear();
         console.log("logout");
@@ -93,4 +99,5 @@ export class MyApp {
 
         }
     }
+
 }

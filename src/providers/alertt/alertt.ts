@@ -38,14 +38,7 @@ export class AlerttProvider {
         let alert = this.alertcontroller.create({
             title: title,
             subTitle: mess,
-            buttons: [{
-                text: 'OK',
-                role: 'OK',
-                handler: data => {
-                    // this.nav.setRoot(NeostorePage)
-                }
-            },
-            ]
+            buttons: ['Dismiss']
         });
         alert.present();
     };

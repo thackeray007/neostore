@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, Platform, Events } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -7,6 +7,7 @@ import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AlerttProvider } from '../../providers/alertt/alertt';
+import { NeostorePage } from '../neostore/neostore';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -32,7 +33,7 @@ export class MyAccountPage {
     pickedImage: any;
     token: any;
     buttonStatus = "Edit profile";
-    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public events: Events) {
     }
 
     ionViewDidLoad() {
@@ -52,7 +53,7 @@ export class MyAccountPage {
         this.email = this.data.data.user_data.email;
         this.number = this.data.data.user_data.phone_no;
         this.dp = this.data.data.user_data.profile_pic;
-        this.dob = new Date(this.data.data.user_data.dob).toDateString;
+        this.dob = new Date(this.data.data.user_data.dob).toISOString();
         console.log("DOB-", this.dob);
 
     }
@@ -144,12 +145,15 @@ export class MyAccountPage {
     //     );
 
     // }
-    editProfile() {
+    editProfile($event) {
+        $event.buttonDisabled = true;
         console.log(this.f_name);
         console.log(this.l_name);
         console.log(this.email);
         console.log(this.dob);
         console.log(this.dp);
+        console.log(this.dp);
+
         var method = "post";
         var url = this.url.update;
         console.log(this.data);
@@ -222,9 +226,11 @@ export class MyAccountPage {
 
         if (a.status == 200) {
             console.log(a);
-            this.alertp.presentAlert1("account updated successfully!");
+            // this.alertp.presentAlert1("account updated successfully!");
             console.log(a.status);
-            // this.alertp.presentAlertt("account edited", "account edited successfully")
+            this.alertp.presentAlertt("account edited", "account edited successfully");
+            this.navCtrl.setRoot(NeostorePage);
+            this.events.publish('details:updated', this.f_name, this.l_name, this.email, this.dob, this.number, this.dp);
 
         } else {
             console.log(a.statusText);

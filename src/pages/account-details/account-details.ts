@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { MyAccountPage } from '../my-account/my-account';
 
 /**
@@ -26,14 +26,24 @@ export class AccountDetailsPage {
     pickedImage: any;
     token: any;
     buttonStatus = "Edit profile";
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad MyAccountPage');
         this.getData();
         this.token = localStorage.getItem("access_token");
-    }
+        this.events.subscribe('details:updated', (f_name, l_name, email, dob, number, dp) => {
+            this.f_name = f_name;
+
+            this.l_name = l_name;
+            this.email = email;
+            this.number = number;
+            this.dp = dp;
+            this.dob = dob;
+
+        });
+    };
     getData() {
         this.data = JSON.parse(localStorage.getItem("userDetails"));
         console.log("parsed from loocal storage", this.data);

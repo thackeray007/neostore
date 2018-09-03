@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, Events } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -23,7 +23,9 @@ export class MycartPage {
     abcd: any;
     total: any;
     itemss: any;
-    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams) {
+    a = false;
+    cart_items: any;
+    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public events: Events) {
     }
 
     ionViewDidLoad() {
@@ -76,7 +78,12 @@ export class MycartPage {
             this.abcd = a.data;
             console.log("data", this.abcd);
             this.total = a.total;
+            this.cart_items = a.count;
+            this.events.publish('cart:cart', this.cart_items);
 
+            if (a.data == null) {
+                a = true;
+            }
             // this.navCtrl.setRoot(LoaderPage);
 
             // this.rating = this.abcd.rating;
