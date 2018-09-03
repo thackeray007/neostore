@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slide, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slide, Platform, MenuController } from 'ionic-angular';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
@@ -24,7 +24,7 @@ export class NeostorePage {
     public products: any;
     public images: any = [];
     data: any;
-    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider) {
+    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider, public menuCtrl: MenuController) {
 
         this.data = localStorage.getItem("userDetails");
         console.log("important", this.data);
@@ -32,7 +32,9 @@ export class NeostorePage {
     }
     @ViewChild(Slides) slides: Slides;
     //this.slides.slideto(2,500);
-
+    // ionViewDidEnter() {
+    //     this.menuCtrl.enable(true, "hamburger-menu");
+    // }
     ionViewDidLoad() {
         // console.log('ionViewDidLoad NeostorePage');
         // var url="http://staging.php-dev.in:8844/trainingapp/api/products/getList";
@@ -41,7 +43,7 @@ export class NeostorePage {
         // console.log(data);
 
         this.slider_pics();
-
+        // this.menuCtrl.enable(true, "hamburger-menu");
     }
 
     slider_pics() {

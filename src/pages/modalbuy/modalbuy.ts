@@ -1,9 +1,11 @@
 import { Component, Renderer } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Platform, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Platform, ViewController, AlertController, Events, App } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AlerttProvider } from '../../providers/alertt/alertt'
+import { NeostorePage } from '../neostore/neostore';
+import { MycartPage } from '../mycart/mycart';
 
 
 /**
@@ -25,7 +27,7 @@ export class ModalbuyPage {
     token: any;
     public data: any;
     Qnt: any;
-    constructor(public renderer: Renderer, public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
+    constructor(public renderer: Renderer, public viewcontroller: ViewController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider, public alertcontroller: AlertController, public events: Events, public appCtrl: App) {
         this.renderer.setElementClass(viewcontroller.pageRef().nativeElement, 'filters-modal', true);
     }
 
@@ -94,7 +96,7 @@ export class ModalbuyPage {
 
         }
         else {
-            var a = (response);
+            var a = JSON.parse(response.data);
             console.log("asdasd");
 
             console.log(response.data);
@@ -117,9 +119,12 @@ export class ModalbuyPage {
 
         if (a.status == 200) {
             console.log(a.status);
-            this.viewcontroller.dismiss();
-            console.log(a.status);
-            0
+            this.presentAlertt("success", "added successfully to cart")
+            this.cart_data(a.total_carts);
+            console.log(a.total_carts);
+
+
+
         } else {
             console.log(a.statusText);
             console.log("fail in callback");
@@ -130,6 +135,28 @@ export class ModalbuyPage {
 
     }
 
+    presentAlertt(title, mess) {
+        let alert = this.alertcontroller.create({
+            title: title,
+            subTitle: mess,
+            buttons: [{
+                text: 'OK',
+                role: 'OK',
+                handler: data => {
+                    this.viewcontroller.dismiss();
+                    // this.navCtrl.setRoot(NeostorePage);
+                    // this.navCtrl.popToRoot();
+                    // this.navCtrl.popTo(this.navCtrl.getByIndex(1));   //pops two pages from stack
+                }
+            },
+            ]
+        });
+        alert.present();
+    };
+    cart_data(cart_items) {
+        console.log('User created!')
+        this.events.publish('cart:cart', cart_items);
+    }
 
 }
 

@@ -6,6 +6,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
+import { AlerttProvider } from '../../providers/alertt/alertt';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -31,13 +32,15 @@ export class MyAccountPage {
     pickedImage: any;
     token: any;
     buttonStatus = "Edit profile";
-    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad MyAccountPage');
-        this.getData();
+
         this.token = localStorage.getItem("access_token");
+        console.log(this.token);
+        this.getData();
     }
     getData() {
         this.data = JSON.parse(localStorage.getItem("userDetails"));
@@ -49,7 +52,7 @@ export class MyAccountPage {
         this.email = this.data.data.user_data.email;
         this.number = this.data.data.user_data.phone_no;
         this.dp = this.data.data.user_data.profile_pic;
-        this.dob = new Date(this.data.data.user_data.dob).toISOString();
+        this.dob = new Date(this.data.data.user_data.dob).toDateString;
         console.log("DOB-", this.dob);
 
     }
@@ -192,7 +195,7 @@ export class MyAccountPage {
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 
-            console.log(a.data.access_token);
+            // console.log(a.data.access_token);
 
         }
         else {
@@ -201,7 +204,7 @@ export class MyAccountPage {
 
             console.log(response.data);
 
-            console.log(JSON.parse(response.data).data.access_token)
+            // console.log(JSON.parse(response.data).data.access_token)
             // // console.log(JSON.parse(response.data.access_token));
             // console.log(JSON.parse(response.data.data));
             // console.log(JSON.parse(response.data.data.access_token));
@@ -218,9 +221,10 @@ export class MyAccountPage {
         console.log(a.status);
 
         if (a.status == 200) {
+            console.log(a);
+            this.alertp.presentAlert1("account updated successfully!");
             console.log(a.status);
-
-            console.log(a.status);
+            // this.alertp.presentAlertt("account edited", "account edited successfully")
 
         } else {
             console.log(a.statusText);

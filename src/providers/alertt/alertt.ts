@@ -1,6 +1,7 @@
 
-import { Injectable } from '@angular/core';
-import { AlertController, Platform } from 'ionic-angular';
+import { Injectable, ViewChild } from '@angular/core';
+import { AlertController, Platform, NavController } from 'ionic-angular';
+import { NeostorePage } from '../../pages/neostore/neostore';
 
 /*
   Generated class for the AlerttProvider provider.
@@ -10,6 +11,8 @@ import { AlertController, Platform } from 'ionic-angular';
 */
 @Injectable()
 export class AlerttProvider {
+    // @ViewChild('myNav') nav: NavController
+    // public rootPage = NeostorePage;
     public platf: any;
     constructor(public alertcontroller: AlertController, public platform: Platform) {
         console.log('Hello AlerttProvider Provider');
@@ -31,6 +34,20 @@ export class AlerttProvider {
         });
         alert.present();
     };
-
+    presentAlertt(title, mess) {
+        let alert = this.alertcontroller.create({
+            title: title,
+            subTitle: mess,
+            buttons: [{
+                text: 'OK',
+                role: 'OK',
+                handler: data => {
+                    // this.nav.setRoot(NeostorePage)
+                }
+            },
+            ]
+        });
+        alert.present();
+    };
 
 }

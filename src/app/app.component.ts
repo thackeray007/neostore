@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, Refresher, Nav } from 'ionic-angular';
+import { Platform, NavController, Refresher, Nav, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -27,7 +27,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = LoaderPage;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, ) {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events: Events) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -35,10 +35,20 @@ export class MyApp {
             splashScreen.hide();
 
         });
+        this.userData()
+        events.subscribe('cart:cart', (cart_items) => {
+            // user and time are the same arguments passed in `events.publish(user, time)`
+            this.total_cart = cart_items;
+            console.log(this.total_cart);
+
+        });
 
         // console.log("userDetails", data1);
-        this.userData()
 
+
+
+    }
+    ionViewWillEnter() {
 
     }
     logout() {
@@ -77,8 +87,10 @@ export class MyApp {
             this.name = JSON.parse(this.data).data.user_data.first_name + " " + JSON.parse(this.data).data.user_data.last_name;
             console.log("name", this.name);
             this.email = JSON.parse(this.data).data.user_data.email;
-
             this.total_cart = JSON.parse(this.data).data.total_carts;
+            this.dp = JSON.parse(this.data).data.user_data.profile_pic;
+            this.dp = JSON.parse(this.data).data.user_data.profile_pic;
+
         }
     }
 }
