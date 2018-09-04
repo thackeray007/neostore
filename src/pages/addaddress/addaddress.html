@@ -16,27 +16,27 @@
 <ion-content class="background" padding>
     <form ng-submit="save()">
         <div class="medium">ADDRESS</div>
-        <textarea class="address" [(ngModel)]="address" name="address" placeholder="ADDRESS"></textarea>
+        <textarea class="address" [(ngModel)]="address" name="address" placeholder={{address1}}></textarea>
         <div class="medium">LANDMARK</div>
-        <ion-input class="inputbox" name="landmark" [(ngModel)]="landmark" placeholder="LANDMARK"></ion-input>
+        <ion-input class="inputbox" name="landmark" [(ngModel)]="landmark" placeholder={{landmark1}}></ion-input>
         <div ion-row class="flexbox">
             <div class="flex1">
                 <div class="medium">CITY</div>
-                <ion-input class="inputbox" name="city" [(ngModel)]="city" placeholder="CITY"></ion-input>
+                <ion-input class="inputbox" name="city" [(ngModel)]="city" placeholder={{city1}}></ion-input>
             </div>
             <div class="flex2">
                 <div class="medium">STATE</div>
-                <ion-input class="inputbox" name="state" [(ngModel)]="state" placeholder="STATE"></ion-input>
+                <ion-input class="inputbox" name="state" [(ngModel)]="state" placeholder={{state1}}></ion-input>
             </div>
         </div>
         <div ion-row class="flexbox">
             <div class="flex1">
                 <div class="medium">ZIP CODE</div>
-                <ion-input class="inputbox" name="zip" [(ngModel)]="zip" placeholder="ZIP CODE"></ion-input>
+                <ion-input class="inputbox" type="number" name="zip" [(ngModel)]="zip" placeholder={{zip1}}></ion-input>
             </div>
             <div class="flex2">
                 <div class="medium">COUNTRY</div>
-                <ion-input name="country" class="inputbox" [(ngModel)]="country" placeholder="COUNTRY"></ion-input>
+                <ion-input name="country" class="inputbox" [(ngModel)]="country" placeholder={{nation1}}></ion-input>
             </div>
         </div>
         <button ion-button class="saveAddress" (click)=save(); style="margin-top: 30px" full>SAVE ADDRESS

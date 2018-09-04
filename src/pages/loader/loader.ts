@@ -56,37 +56,13 @@ export class LoaderPage {
             var header = new Headers({ 'access_token': data1 });
             this.apip.apicall(method, url, { 'access_token': data1 }, {}, this.loaderCallback);
         }
-        // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
-        // // headers.append('access_token', data);
-        // console.log(headers);
 
-        // var options = new RequestOptions({ headers: headers });
-        // console.log(options);
-
-        // var headers = new Headers({ 'access_token': data1, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
-        // // headers.append('access_token', data);
-        // console.log(headers);
-
-        // var options = new RequestOptions({ headers : headers });
-        // console.log(options);
-
-        // if (this.platform.is('mobileweb')) {
-        //     data = new FormData();
-
-        //     console.log(typeof (data1));
-
-        // }
-        // else {
-        //     data = { 'access_token': data1 };
-        // };
-
-        // console.log(data);
 
     }
 
     loaderCallback(response) {
         console.log("loader" + response);
-        // console.log(JSON.parse(response));
+
         console.log(response);
         // console.log(JSON.parse(response));
 

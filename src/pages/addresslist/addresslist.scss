@@ -23,6 +23,8 @@ page-addresslist {
     font-size: 22px;
     margin-top:10px;
 color:#333333;
+padding-left: 5px;
+
 };
 .addaddress{
     flex:1;
@@ -73,14 +75,16 @@ background-color: transparent;
     font-size: 15px;
     color:#333333;
     margin-top: 12px;
+    margin-bottom: 5px;
     text-overflow: none;
+    padding-left: 5px;
 };
    
 .list-md .item-block .item-inner {
     border-bottom: none;
 }
 .item-md{
-    border-bottom: 1px solid map-get($colors ,font5 );
+    // border-bottom: 1px solid map-get($colors ,font5 );
 };
 .delete{
     position: relative;

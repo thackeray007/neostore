@@ -20,7 +20,8 @@ import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 })
 export class AddresslistPage {
     address: any;
-    name = "shubham thackeray";
+    name: any;
+    user_details: any;
     token: any;
     address1: any;
     address2: any;
@@ -38,6 +39,10 @@ export class AddresslistPage {
     getData() {
         this.address = JSON.parse(localStorage.getItem("address"));
         console.log(this.address);
+        this.user_details = localStorage.getItem("userDetails");
+        this.name = JSON.parse(this.user_details).data.user_data.first_name + " " + JSON.parse(this.user_details).data.user_data.last_name;
+
+
         // console.log(JSON.parse(address));
         // console.log(JSON.stringify(this.address));
     }
@@ -88,7 +93,8 @@ export class AddresslistPage {
         if (a.status == 200) {
             console.log(a.status);
             var mess = a.message;
-            this.alertp.presentAlert1(mess);
+            var usr_mess = a.user_msg;
+            this.alertp.presentAlertt(mess, usr_mess);
             console.log(a.status);
 
         } else {
@@ -106,6 +112,12 @@ export class AddresslistPage {
 
         this.address.splice(i, 1);
         localStorage.setItem("address", JSON.stringify(this.address))
+    }
+    edit(i) {
+        this.navCtrl.push(AddaddressPage, {
+            address: this.address[i], i: i
+        })
+
     }
 }
 

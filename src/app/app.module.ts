@@ -35,6 +35,7 @@ import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { DatePicker } from '@ionic-native/date-picker';
 import { AccountDetailsPage } from '../pages/account-details/account-details';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 @NgModule({
     declarations: [
         MyApp,
@@ -59,7 +60,7 @@ import { AccountDetailsPage } from '../pages/account-details/account-details';
     ],
     imports: [
         BrowserModule,
-
+        IonicImageViewerModule,
         HttpModule,
         IonicModule.forRoot(MyApp),
     ],

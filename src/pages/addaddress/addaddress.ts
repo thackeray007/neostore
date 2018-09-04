@@ -22,13 +22,36 @@ export class AddaddressPage {
     state: any;
     zip: any;
     country: any;
+    address1 = "Address";
+    landmark1 = "Landmark";
+    city1 = "City";
+    state1 = "State";
+    zip1 = "zip";
+    country1 = "Country";
     add: any;
     local: any = [];
+    data: any;
+    index: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public alertp: AlerttProvider) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad AddaddressPage');
+        this.data = (this.navParams.get('address'));
+        this.index = (this.navParams.get('i'));
+        console.log("i", this.index);
+
+
+        console.log(this.data);
+        if (this.data != undefined) {
+            this.address = this.data.address;
+            this.landmark = this.data.landmark;
+            this.city = this.data.city;
+            this.state = this.data.state;
+            this.zip = this.data.zip;
+            this.country = this.data.country;
+        }
+
     }
     save() {
         if (this.address == null || this.address == "") {
@@ -69,15 +92,20 @@ export class AddaddressPage {
                                     localStorage.setItem("address", JSON.stringify(this.add));
                                     this.navCtrl.setRoot(AddresslistPage);
                                 } else {
-                                    console.log(this.local);
+                                    if (this.index == undefined) {
+                                        console.log(this.local);
 
-                                    this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
+                                        this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
 
-                                    // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
-                                    this.local.push(this.add);
-                                    localStorage.setItem("address", JSON.stringify(this.local));
-                                    this.navCtrl.setRoot(AddresslistPage);
-                                    // console.log(JSON.parse(this.local));
+                                        // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
+                                        this.local.push(this.add);
+                                        localStorage.setItem("address", JSON.stringify(this.local));
+                                        this.navCtrl.popTo(AddresslistPage);
+                                        // console.log(JSON.parse(this.local));
+                                    } else {
+                                        this.local[this.index] = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
+                                        localStorage.setItem("address", JSON.stringify(this.local));
+                                    }
                                 }
                                 // this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
                                 // this.local = this.local.concat(JSON.stringify(this.add))
