@@ -11,6 +11,7 @@ export class MapPage {
     @ViewChild('map') mapElement: ElementRef;
     map: any;
     latlng: any;
+    locations = [{ name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }];
     constructor(public navCtrl: NavController, public navParams: NavParams, ) {
 
     }
@@ -26,7 +27,7 @@ export class MapPage {
 
         let mapOptions = {
             center: latLng,
-            zoom: 15,
+            zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
@@ -35,10 +36,20 @@ export class MapPage {
     }
     addmarker() {
         var latLng = new google.maps.LatLng(19.157934, 72.993477);
-        this.marker(latLng);
+        var loc = "NAVI MUMBAI";
+        this.marker(latLng, loc);
+        var latLng1 = new google.maps.LatLng(19.023371, 72.839545);
+        var loc1 = "MUMBAI(HQ)";
+        this.marker(latLng1, loc1);
+        var latLng2 = new google.maps.LatLng(19.013514, 72.826486);
+        var loc2 = "MUMBAI";
+        this.marker(latLng2, loc2);
+        var latLng3 = new google.maps.LatLng(18.591626, 73.737803);
+        var loc3 = "PUNE";
+        this.marker(latLng3, loc3);
 
     }
-    marker(latlng) {
+    marker(latlng, loc) {
 
 
 
@@ -48,7 +59,7 @@ export class MapPage {
             animation: google.maps.Animation.DROP,
             position: latlng,
         });
-        let content = 'you are here';
+        let content = loc;
         this.addinfowindow(marker, content);
     }
     addinfowindow(marker, content) {
