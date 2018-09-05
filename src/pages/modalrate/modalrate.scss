@@ -16,13 +16,12 @@ page-modalrate {
     
     };
 .stars{
-    font-size: 30px;
-    color: yellow;
+  margin-top:15px;
 }
     
     .modalButton{
         height:47px;
-        width: 198px;
+        width:70%;
         font-family:'gotham-medium' ;
         
         color:map-get($colors ,afont1 );
@@ -31,6 +30,17 @@ page-modalrate {
         border-radius: 10px;
         margin-top: 30px;
         // margin-left: 5%;
+    }
+    .filled-star{
+        padding:5px; 
+        font-size: 40px;
+       color: #ffba00; 
+    }
+    .starr{
+        padding:5px; 
+
+        font-size: 40px;
+        color:#7f7f7f;
     }
    
 }

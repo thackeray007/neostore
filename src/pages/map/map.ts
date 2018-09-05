@@ -11,7 +11,8 @@ export class MapPage {
     @ViewChild('map') mapElement: ElementRef;
     map: any;
     latlng: any;
-    locations = [{ name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }, { name: 'mumbai', address: 'ruby_office' }];
+    locations = [{ name: 'NEOSOFT SOFTWARE', address: 'The Ruby, Dadar, Mumbai-400 028, INDIA', lat: 19.157934, lng: 72.993477 }, { name: 'NEOSOFT SOFTWARE', address: '124 Unique Estate, Mumbai - 400 025, INDIA', lat: 19.013514, lng: 72.826486 }, { name: 'NEOSOFT SOFTWARE', address: 'Sigma IT Park, Navi Mumbai-400 701, INDIA', lat: 19.137048, lng: 73.006706 }, { name: 'NEOSOFT SOFTWARE', address: 'Infotech Park, Hinjewadi, Pune-411 057', lat: 18.591626, lng: 73.737803 }];
+    co_ord = [{ lat: 19.157934, lng: 72.993477 },];
     constructor(public navCtrl: NavController, public navParams: NavParams, ) {
 
     }
@@ -35,18 +36,25 @@ export class MapPage {
 
     }
     addmarker() {
-        var latLng = new google.maps.LatLng(19.157934, 72.993477);
-        var loc = "NAVI MUMBAI";
-        this.marker(latLng, loc);
-        var latLng1 = new google.maps.LatLng(19.023371, 72.839545);
-        var loc1 = "MUMBAI(HQ)";
-        this.marker(latLng1, loc1);
-        var latLng2 = new google.maps.LatLng(19.013514, 72.826486);
-        var loc2 = "MUMBAI";
-        this.marker(latLng2, loc2);
-        var latLng3 = new google.maps.LatLng(18.591626, 73.737803);
-        var loc3 = "PUNE";
-        this.marker(latLng3, loc3);
+        let i;
+        for (i = 0; i < this.locations.length; i++) {
+            var latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
+            var loc = this.locations[i].address;
+            this.marker(latLng, loc);
+
+        }
+        // var latLng = new google.maps.LatLng(19.157934, 72.993477);
+        // var loc = "NAVI MUMBAI";
+        // this.marker(latLng, loc);
+        // var latLng1 = new google.maps.LatLng(19.023371, 72.839545);
+        // var loc1 = "MUMBAI(HQ)";
+        // this.marker(latLng1, loc1);
+        // var latLng2 = new google.maps.LatLng(19.013514, 72.826486);
+        // var loc2 = "MUMBAI";
+        // this.marker(latLng2, loc2);
+        // var latLng3 = new google.maps.LatLng(18.591626, 73.737803);
+        // var loc3 = "PUNE";
+        // this.marker(latLng3, loc3);
 
     }
     marker(latlng, loc) {
@@ -71,5 +79,17 @@ export class MapPage {
 
         });
 
+    }
+    locateto(i) {
+        let latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
+
+        let mapOptions = {
+            center: latLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        this.addmarker();
     }
 }

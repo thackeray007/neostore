@@ -20,31 +20,31 @@
         <ion-list style="align-items: center">
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="person"></ion-icon>
+                    <ion-icon class="icons icon-user"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="First Name" name="first_name" [(ngModel)]="first_name"></ion-input>
             </ion-item>
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="person"></ion-icon>
+                    <ion-icon class="icons icon-user"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="Last Name" name="last_name" [(ngModel)]="last_name"></ion-input>
             </ion-item>
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="mail"></ion-icon>
+                    <ion-icon class="icons icon-email"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="Email" name="email" [(ngModel)]="email"></ion-input>
             </ion-item>
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="unlock"></ion-icon>
+                    <ion-icon class="icons icon-lock"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="Password" name="pass" [(ngModel)]="pass"></ion-input>
             </ion-item>
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="lock"></ion-icon>
+                    <ion-icon class="icons icon-lock"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="Confirm Password" name="pass1" [(ngModel)]="pass1"></ion-input>
             </ion-item>
@@ -65,14 +65,17 @@
         <ion-list>
             <ion-item class="inputfield">
                 <ion-label color="primary">
-                    <ion-icon class="icons" name="phone-portrait"></ion-icon>
+                    <ion-icon class="icons icon-mobile"></ion-icon>
                 </ion-label>
                 <ion-input placeholder="Phone Number" name="mobile" [(ngModel)]="mobile"></ion-input>
             </ion-item>
         </ion-list>
         <ion-list>
             <ion-item class="a2" style="margin-top: 10px;width: 80%;height:5px;margin-left: 10%">
-                <ion-label>Agree Terms and conditions</ion-label>
+                <ion-label style="overflow:visible ">
+                    I agree the
+                    <u>Terms and conditions</u>
+                </ion-label>
                 <ion-checkbox></ion-checkbox>
             </ion-item>
 

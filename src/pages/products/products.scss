@@ -54,5 +54,12 @@ page-products {
     .item-md{
         border-bottom: 1px solid map-get($colors ,font5 );
     }
-
+.filled-star{
+    font-size: 12px;
+   color: #ffba00; 
+}
+.star{
+    font-size: 12px;
+    color:#7f7f7f;
+}
 }

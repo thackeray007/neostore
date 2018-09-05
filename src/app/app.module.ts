@@ -36,6 +36,7 @@ import { MyAccountPage } from '../pages/my-account/my-account';
 import { DatePicker } from '@ionic-native/date-picker';
 import { AccountDetailsPage } from '../pages/account-details/account-details';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 @NgModule({
     declarations: [
         MyApp,
@@ -55,14 +56,27 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
         TrackOrderPage,
         MapPage,
         MyAccountPage,
-        AccountDetailsPage
+        AccountDetailsPage,
+        ResetPasswordPage,
+
 
     ],
     imports: [
         BrowserModule,
         IonicImageViewerModule,
         HttpModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+
+            // backButtonIcon: 'icon-arrow-back',
+            // backButtonClass: 'icon-arrow-back',
+
+
+            modalEnter: 'modal-slide-in',
+            modalLeave: 'modal-slide-out',
+            tabsPlacement: 'bottom',
+            pageTransition: 'ios-transition'
+        }
+        ),
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -83,7 +97,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
         TrackOrderPage,
         MapPage,
         MyAccountPage,
-        AccountDetailsPage
+        AccountDetailsPage,
+        ResetPasswordPage,
 
 
     ],

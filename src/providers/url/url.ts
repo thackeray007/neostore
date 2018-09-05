@@ -34,6 +34,7 @@ export class UrlProvider {
     public rate = this.baseUrl + "products/setRating";
     public userDetails = this.baseUrl + "users/getUserData";
     public update = this.baseUrl + "users/update";
+    public editPass = this.baseUrl + "users/change";
 
 }
 

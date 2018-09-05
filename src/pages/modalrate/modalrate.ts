@@ -38,11 +38,16 @@ export class ModalratePage {
     Rating() {
 
         var method = "post";
+
         var url = this.url.rate;
-        this.data = new FormData();
-        this.data.append('product_id', "1");
-        this.data.append('rating', this.rating);
-        this.apip.apicall(method, url, this.data, {}, this.rateCallback);
+        if (this.platform.is('mobileweb')) {
+            this.data = new FormData();
+            this.data.append('product_id', this.id);
+            this.data.append('rating', this.rating);
+            this.apip.apicall(method, url, this.data, {}, this.rateCallback);
+        } else { this.apip.apicall(method, url, { 'product_id': this.id, 'rating': this.rating }, {}, this.rateCallback); }
+
+
     }
     rateCallback(response) {
         if (this.platform.is('mobileweb')) {
@@ -60,7 +65,7 @@ export class ModalratePage {
 
             this.viewcontroller.dismiss();
 
-            0
+
         } else {
             console.log(a.statusText);
 

@@ -36,8 +36,8 @@
 
                     <!-- <span id=stars></span> -->
                 </h5>
-                <p style="position: absolute;right: 10px;float: right;padding-top: 5px;  color:#fec300;">
-                    <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < ab.rating ? 'star' : 'star-outline'"></ion-icon>
+                <p style="position: absolute;right: 10px;float: right;padding-top: 5px;  ">
+                    <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [class]="i < ab.rating ? 'icon-star filled-star' : 'icon-star star'"></ion-icon>
             </ion-row>
 
 

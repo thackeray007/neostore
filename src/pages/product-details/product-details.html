@@ -18,7 +18,7 @@
     <p class="detail-title" id="title">{{title}}</p>
     <p class="category" id="category">category- tables</p>
     <div class="star">
-        <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [name]="i < rating ? 'star' : 'star-outline'"></ion-icon>
+        <ion-icon *ngFor="let n of [1, 2, 3, 4, 5]; let i = index" [class]="i < rating ? 'icon-star filled-star' : 'icon-star starr'"></ion-icon>
     </div>
     <p class="vendors" id="vendor">{{vendor}}</p>
 

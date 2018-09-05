@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { MyAccountPage } from '../my-account/my-account';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 /**
  * Generated class for the AccountDetailsPage page.
@@ -59,5 +60,8 @@ export class AccountDetailsPage {
     }
     editProfile() {
         this.navCtrl.push(MyAccountPage);
+    }
+    reset() {
+        this.navCtrl.push(ResetPasswordPage);
     }
 }
