@@ -50,7 +50,7 @@ export class ProductDetailsPage {
         var method = "get";
         var url = this.url.details;
         console.log(this.data);
-        var headers = new Headers({ 'product_id': "1" });
+        var headers = new Headers({});
 
         console.log(headers);
         this.detailsCallback = this.detailsCallback.bind(this);
@@ -58,7 +58,7 @@ export class ProductDetailsPage {
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
         if (this.platform.is('mobileweb')) {
-            return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+            return this.apip.apicall(method, url, options, {}, this.detailsCallback);
         } else { this.apip.apicall(method, url, {}, { 'product_id': this.data }, this.detailsCallback); }
 
     }

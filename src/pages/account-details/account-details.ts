@@ -43,6 +43,7 @@ export class AccountDetailsPage {
             this.dp = dp;
             this.dob = dob;
 
+
         });
     };
     getData() {
@@ -56,6 +57,14 @@ export class AccountDetailsPage {
         this.number = this.data.data.user_data.phone_no;
         this.dp = this.data.data.user_data.profile_pic;
         this.dob = this.data.data.user_data.dob;
+        console.log("data", this.dp);
+
+        setTimeout(() => {
+            if (this.dp == "") {
+                this.dp = "../assets/myAvatar.png";
+            };
+        }, 0);
+
 
     }
     editProfile() {

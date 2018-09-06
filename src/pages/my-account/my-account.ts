@@ -8,6 +8,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AlerttProvider } from '../../providers/alertt/alertt';
 import { NeostorePage } from '../neostore/neostore';
+import { TIMEOUT } from 'dns';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -42,10 +43,26 @@ export class MyAccountPage {
         this.token = localStorage.getItem("access_token");
         console.log(this.token);
         this.getData();
+        setTimeout(() => {
+            if (this.dp == "") {
+                this.dp = "../assets/myAvatar.png";
+            };
+        }, 0);
+        // this.events.subscribe('details:updated', (f_name, l_name, email, dob, number, dp) => {
+        //     this.f_name = f_name;
+
+        //     this.l_name = l_name;
+        //     this.email = email;
+        //     this.number = number;
+        //     this.dp = dp;
+        //     this.dob = JSON.parse(dob).toISOString;
+
+
+        // });
     }
     getData() {
         this.data = JSON.parse(localStorage.getItem("userDetails"));
-        console.log("parsed from loocal storage", this.data);
+        console.log("parsed from local storage", this.data);
 
         this.f_name = this.data.data.user_data.first_name;
         console.log("first name", this.f_name);
@@ -55,7 +72,9 @@ export class MyAccountPage {
         this.dp = this.data.data.user_data.profile_pic;
         this.dob = new Date(this.data.data.user_data.dob).toISOString();
         console.log("DOB-", this.dob);
-
+        // let base64Image = 'data:image/jpeg;base64,' + this.dp;
+        // console.log('may be here ', base64Image);
+        // this.dp = base64Image;
     }
     select() {
 
@@ -109,8 +128,9 @@ export class MyAccountPage {
             title: 'Upload an Image',
             buttons: [
                 {
-                    text: 'Camera',
-                    icon: 'camera',
+                    text: 'Use Camera',
+                    icon: '',
+                    cssClass: '',
                     role: 'destructive',
                     handler: () => {
                         console.log('camera clicked');
@@ -118,8 +138,9 @@ export class MyAccountPage {
                     }
                 },
                 {
-                    text: 'Gallery',
-                    icon: 'images',
+                    text: 'Upload from Gallery',
+                    icon: '',
+                    cssClass: '',
                     handler: () => {
                         console.log('Archive clicked');
                         this.picker();

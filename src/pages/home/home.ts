@@ -129,7 +129,7 @@ export class HomePage {
 
         if (a.status == 200) {
             console.log(a.status);
-            this.navCtrl.setRoot(LoaderPage);
+            this.navCtrl.setRoot(NeostorePage);
             console.log(a.status);
             0
         } else {

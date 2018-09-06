@@ -95,6 +95,11 @@ export class MyApp {
             this.total_cart = JSON.parse(this.data).data.total_carts;
             this.dp = JSON.parse(this.data).data.user_data.profile_pic;
             this.dp = JSON.parse(this.data).data.user_data.profile_pic;
+            setTimeout(() => {
+                if (this.dp == 0) {
+                    this.dp = "../assets/myAvatar.png";
+                };
+            }, 0);
 
         }
     }

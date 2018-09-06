@@ -84,6 +84,9 @@ font-family:'Gotham-Medium' ;
     background: map-get($colors , primary );
     opacity: 1;
 };
-
+.bar-button-menutoggle-md:hover{
+    color: map-get($colors , primary );
+    
+}
 
 };      
