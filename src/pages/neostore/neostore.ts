@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slide, Platform, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slide, Platform, MenuController, AlertController, ToastController } from 'ionic-angular';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
@@ -24,12 +24,30 @@ export class NeostorePage {
     public products: any;
     public images: any = [];
     data: any;
-    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider, public menuCtrl: MenuController) {
+    counter = 0;
+    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider, public menuCtrl: MenuController, public alertCtrl: AlertController, public toast: ToastController) {
 
         this.data = localStorage.getItem("userDetails");
         console.log("important", this.data);
 
+
+
+        platform.registerBackButtonAction(() => {
+            if (this.counter == 0) {
+                if (navCtrl.canGoBack()) {
+                    navCtrl.pop();
+                } else {
+                    this.counter++;
+                    this.presentToast();
+                    setTimeout(() => { this.counter = 0 }, 3000)
+                }
+            } else {
+                // console.log("exitapp");
+                platform.exitApp();
+            }
+        }, 0);
     }
+
     @ViewChild(Slides) slides: Slides;
     //this.slides.slideto(2,500);
     // ionViewDidEnter() {
@@ -95,6 +113,17 @@ export class NeostorePage {
         })
         // this.postdata(data);
     }
+    presentToast() {
+        let toast = this.toast.create({
+            message: 'Press again to exit',
+            duration: 3000,
+            position: 'bottom'
+        });
 
+        toast.onDidDismiss(() => {
+            console.log('Dismissed toast');
+        });
 
+        toast.present();
+    }
 }

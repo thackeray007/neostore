@@ -1,15 +1,10 @@
 page-mycart {
-    .ion-title {
-        position: absolute;
-        top: 0;
-        left: 0;
-        
-        width: 80%  ;
-        height: 100%;
+    //for centered page title
+    .toolbar-title-md{              
         text-align: center;
-        
-      };
+    }
       
+    //for product name styling
     .product-title{
         font-family:'gotham-book';
         font-size:23px ;
@@ -17,6 +12,8 @@ page-mycart {
         color: #131313;
 
     };
+    //for product subtitle styling
+
     .product-subtitle{
 
         font-family:'gotham-book';
@@ -24,6 +21,7 @@ page-mycart {
         font-size:15px ;
         color: map-get($colors , dark )
     };
+    //for product price styling
 
     .product-price{
         font-family:'gotham-book';
@@ -34,13 +32,16 @@ page-mycart {
         padding-top:12px
         
     };
+    //for product img in left styling
+
     .img{
         width: 44px;
         height: 44px;
     };
+    //for product list styling
     
     .iteml{height: 90px;};
-
+//for slide button styling
     .deletebutton{
         height: 50px;
         margin-top: 33px;
@@ -74,6 +75,7 @@ page-mycart {
             font-size:15px;
             color: #333333;
         };
+        //order button styling
         .button1{
             font-family:'gotham-medium' ;
             
@@ -91,14 +93,23 @@ page-mycart {
             background-color: map-get($colors , primary );
             color: map-get($colors, afont1 );
         };
+        //select ddropdown css
         .dropdown{
-            width: 200px
+         border-radius:5px;
+            border: 1px solid map-get($colors ,font5 );
+// height: 10px;
+            width: 50px;
+             margin-bottom: 5px;
         }
         
+        //overwritting the borders
         .list-md .item-block .item-inner {
             border-bottom: none;
         }
         .item-md{
-            border-bottom: 1px solid map-get($colors ,font5 );
+            border-bottom: 2px solid map-get($colors ,font5 );
+        }
+        .select-md {
+            padding: 2px 8px 2px 12px;
         }
 }

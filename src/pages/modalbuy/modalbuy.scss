@@ -1,4 +1,21 @@
 page-modalbuy {
+
+.divide{
+        position: absolute !important;
+    overflow: hidden !important;
+    max-width: 380px !important;
+    border-radius: 8px;
+    height: 80%;
+     width: 90%;
+    top: 50px !important;
+    // bottom: 50px !important;
+    left: 5% !important;
+    right: 5% !important;
+    margin: auto !important;
+    // border:2px solid black !important;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    // background-color: transparent;
+}
 .modalTitle{
     margin-top: 30px;
     margin-bottom: 30px;

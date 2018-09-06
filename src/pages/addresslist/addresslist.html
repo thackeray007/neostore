@@ -1,10 +1,23 @@
 <ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+                <ion-icon class="icon-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Address List</ion-title>
+        <ion-buttons right>
+            <button (click)="add()" ion-button navPop icon-only>
+                <ion-icon class="icon-add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
 
     <ion-navbar>
         <ion-row>
             <ion-title>Address List</ion-title>
             <div class="addaddress">
-                <button (click)="add()" class="add">
+                <button class="add">
                     <ion-icon name="add"></ion-icon>
                 </button>
             </div>

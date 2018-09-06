@@ -2,7 +2,9 @@ page-account-details {
     .myview{
         background-image:url('/assets/imgs/Android_Master_bg.jpg');
     };
-
+    .toolbar-title-md{              
+        text-align: center;
+    }
 .neo-logo{
     align-content: center;
     text-align: center;
@@ -121,7 +123,7 @@ page-home .text-input {
    
 };
 .avatar {
-    margin-top: 20px;
+    margin-top: 40px;
     vertical-align: middle;
     width: 134px;
     height: 134px;

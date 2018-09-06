@@ -6,12 +6,20 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>myAccount</ion-title>
-    </ion-navbar>
-
+    <ion-toolbar>
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+                <ion-icon class="icon-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Edit Profile</ion-title>
+        <ion-buttons right>
+            <button ion-button navPop icon-only>
+                <ion-icon class="icon-search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
-
 
 <ion-content padding class="myview">
 
@@ -29,31 +37,31 @@
         </ion-grid>
         <ion-item class="inputfield" style="margin-top:20px">
             <ion-label color="primary">
-                <ion-icon class="icons" name="person"></ion-icon>
+                <ion-icon class="icons icon-user" name="person"></ion-icon>
             </ion-label>
             <ion-input class="ipfield" [(ngModel)]="f_name" placeholder={{f_name}}></ion-input>
         </ion-item>
         <ion-item class="inputfield">
             <ion-label color="primary">
-                <ion-icon class="icons" name="person"></ion-icon>
+                <ion-icon class="icons icon-user" name="person"></ion-icon>
             </ion-label>
             <ion-input class="ipfield" [(ngModel)]="l_name" placeholder={{l_name}}></ion-input>
         </ion-item>
         <ion-item class="inputfield">
             <ion-label color="primary">
-                <ion-icon class="icons" name="mail"></ion-icon>
+                <i class="icons icon-email" name="mail"></i>
             </ion-label>
             <ion-input class="ipfield" [(ngModel)]="email" placeholder={{email}}></ion-input>
         </ion-item>
         <ion-item class="inputfield">
             <ion-label color="primary">
-                <ion-icon class="icons" name="phone-portrait"></ion-icon>
+                <ion-icon class="icons icon-mobile" name="phone-portrait"></ion-icon>
             </ion-label>
             <ion-input class="ipfield" name="email" [(ngModel)]="number" placeholder={{number}}></ion-input>
         </ion-item>
         <ion-item class="inputfield">
-            <ion-label>
-                <ion-icon class="icons" name="calendar"></ion-icon>
+            <ion-label class="icons">
+                <i class="fa fa-birthday-cake" style="color: white" name="calendar"></i>
 
             </ion-label>
             <ion-datetime displayFormat="DD MM YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="dob"></ion-datetime>
