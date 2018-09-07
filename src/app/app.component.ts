@@ -25,7 +25,7 @@ export class MyApp {
     dp: any;
     total_cart: any;
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = LoaderPage;
+    rootPage: any = HomePage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private events: Events) {
         platform.ready().then(() => {

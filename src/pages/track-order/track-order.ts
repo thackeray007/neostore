@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -22,7 +22,8 @@ export class TrackOrderPage {
     abcd: any;
     total: any;
     cost: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform) {
+    loading: any;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public loadingCtrl: LoadingController) {
     }
 
     ionViewDidLoad() {
@@ -36,7 +37,7 @@ export class TrackOrderPage {
         this.trackOrder();
     }
     trackOrder() {
-
+        this.presentLoadingDefault();
         var method = "get";
         var url = this.url.track;
         var headers = new Headers({ 'access_token': this.token, 'Access-Control-Allow-Headers': 'X-Custom-Header' });
@@ -54,6 +55,7 @@ export class TrackOrderPage {
     }
     trackCallback(response) {
         // console.log(response._body);
+        this.loading.dismiss();
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 
@@ -89,6 +91,16 @@ export class TrackOrderPage {
 
             // this.alertp.presentAlert(a.statusText);
         }
+
+
+    }
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'circles',
+            content: 'Please wait...'
+        });
+
+        this.loading.present();
 
 
     }

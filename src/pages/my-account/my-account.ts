@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, Platform, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, Platform, Events, LoadingController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -24,6 +24,7 @@ import { TIMEOUT } from 'dns';
 
 })
 export class MyAccountPage {
+    loading: any;
     data: any;
     f_name: any;
     l_name: any;
@@ -34,7 +35,7 @@ export class MyAccountPage {
     pickedImage: any;
     token: any;
     buttonStatus = "Edit profile";
-    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public events: Events) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public events: Events, public loadingCtrl: LoadingController) {
     }
 
     ionViewDidLoad() {
@@ -185,6 +186,7 @@ export class MyAccountPage {
 
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
+        this.presentLoadingDefault();
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
             data.append('first_name', this.f_name);
@@ -217,6 +219,9 @@ export class MyAccountPage {
     }
 
     profileCallback(response) {
+
+        this.loading.dismiss();
+
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 
@@ -262,6 +267,16 @@ export class MyAccountPage {
         }
 
     }
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+
+        this.loading.present();
+
+
+    }
+
 
 }
 

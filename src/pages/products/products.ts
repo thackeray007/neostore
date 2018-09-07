@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, InfiniteScroll, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, InfiniteScroll, ToastController, LoadingController } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { toObservable } from '../../../node_modules/@angular/forms/src/validators';
 import { watchFile } from 'fs';
 import { ProductDetailsPage } from '../product-details/product-details';
+import { AlerttProvider } from '../../providers/alertt/alertt';
 
 /**
  * Generated class for the ProductsPage page.
@@ -28,9 +29,10 @@ export class ProductsPage {
     public limit: any = 8;
     public page: any = 1;
     reActiveInfinite: any;
+    loading: any;
 
     // public rating: any = [];
-    constructor(public toastCtrl: ToastController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public toastCtrl: ToastController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alert: AlerttProvider) {
 
     }
 
@@ -44,7 +46,7 @@ export class ProductsPage {
     }
 
     postdata() {
-
+        this.alert.presentLoadingDefault('wait maadi');
         var method = "get";
         var url = this.url.tile;
         console.log(this.data);
@@ -61,6 +63,7 @@ export class ProductsPage {
 
     }
     tileCallback(response) {
+        this.loading.dismiss();
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
@@ -143,6 +146,6 @@ export class ProductsPage {
         toast.present();
 
     }
+
+
 }
-
-

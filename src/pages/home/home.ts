@@ -11,7 +11,7 @@ import { NeostorePage } from '../neostore/neostore';
 import { UrlProvider } from '../../providers/url/url';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
-import { LoaderPage } from '../loader/loader';
+// import { LoaderPage } from '../loader/loader';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 
 @Component({
@@ -152,7 +152,7 @@ export class HomePage {
     }
 
     a4() {
-        this.navCtrl.setRoot(LoaderPage);
+        //this.navCtrl.setRoot();
     }
     new_pass() {
         this.navCtrl.push(ForgotPasswordPage);
@@ -190,7 +190,7 @@ export class HomePage {
 
         } else {
             // console.log(a.statusText);
-            this.navCtrl.setRoot(HomePage);
+            // this.navCtrl.setRoot(HomePage);
 
         }
 

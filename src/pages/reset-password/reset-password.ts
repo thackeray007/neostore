@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { Url } from 'url';
 import { AlerttProvider } from '../../providers/alertt/alertt';
@@ -25,7 +25,9 @@ export class ResetPasswordPage {
     pass2: any;
     token: any;
     data: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alertp: AlerttProvider) {
+    loading: any;
+
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alertp: AlerttProvider, public loadingCtrl: LoadingController) {
     }
 
     ionViewDidLoad() {
@@ -40,7 +42,7 @@ export class ResetPasswordPage {
         console.log(this.pass1);
         console.log(this.pass2);
 
-
+        this.presentLoadingDefault();
         var method = "post";
         var url = this.url.editPass;
         console.log(this.data);
@@ -81,6 +83,7 @@ export class ResetPasswordPage {
     }
 
     profileCallback(response) {
+        this.loading.dismiss();
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 
@@ -124,6 +127,16 @@ export class ResetPasswordPage {
 
             this.alertp.presentAlert(a.statusText);
         }
+
+    }
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'circles',
+            content: 'password being changed'
+        });
+
+        this.loading.present();
+
 
     }
 }

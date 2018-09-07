@@ -1,7 +1,8 @@
 
 import { Injectable, ViewChild } from '@angular/core';
-import { AlertController, Platform, NavController } from 'ionic-angular';
+import { AlertController, Platform, NavController, LoadingController } from 'ionic-angular';
 import { NeostorePage } from '../../pages/neostore/neostore';
+import { bind } from '../../../node_modules/@angular/core/src/render3/instructions';
 
 /*
   Generated class for the AlerttProvider provider.
@@ -13,9 +14,12 @@ import { NeostorePage } from '../../pages/neostore/neostore';
 export class AlerttProvider {
     // @ViewChild('myNav') nav: NavController
     // public rootPage = NeostorePage;
+    loading: any;
     public platf: any;
-    constructor(public alertcontroller: AlertController, public platform: Platform) {
+
+    constructor(public alertcontroller: AlertController, public platform: Platform, public loadingCtrl: LoadingController) {
         console.log('Hello AlerttProvider Provider');
+        this.loading = this.loading.bind(this)
     }
     presentAlert(mess) {
         let alert = this.alertcontroller.create({
@@ -42,5 +46,14 @@ export class AlerttProvider {
         });
         alert.present();
     };
+    presentLoadingDefault(id) {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'circles',
+            content: id,
+        });
+
+        this.loading.present();
+
+    }
 
 }

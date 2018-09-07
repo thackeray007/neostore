@@ -34,7 +34,7 @@ ion-title {
 };
 .sliders{
     margin-top: 0px;
-     padding-top: 20px;
+    //  padding-top: 20px;
    
      margin-bottom: 0px;
      padding-bottom: 0px;
@@ -88,5 +88,8 @@ font-family:'Gotham-Medium' ;
     color: map-get($colors , primary );
     
 }
-
+.grid{
+    padding:0px;
+    
+}
 };      
