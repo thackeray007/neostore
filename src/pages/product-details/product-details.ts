@@ -6,6 +6,7 @@ import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { ModalbuyPage } from '../../pages/modalbuy/modalbuy'
 import { ModalratePage } from '../modalrate/modalrate';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { AlerttProvider } from '../../providers/alertt/alertt';
 /**
  * Generated class for the ProductDetailsPage page.
  *
@@ -33,19 +34,22 @@ export class ProductDetailsPage {
     link4: any;
     description: any;
     id: any;
-    constructor(public modalCtrl: ModalController, public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public socialshare: SocialSharing) {
+    data1: any;
+    constructor(public modalCtrl: ModalController, public alertCtrl: AlertController, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public socialshare: SocialSharing, public alert: AlerttProvider) {
     }
 
     ionViewDidLoad() {
         // console.log('ionViewDidLoad ProductDetailsPage');
         // this.data = JSON.stringify(this.navParams.get('id'));
         this.data = JSON.stringify(this.navParams.get('id'));
+        this.data1 = (this.navParams.get('title'));
         this.id = this.navParams.get('id');
         console.log("data" + this.data);
 
         this.getdata();
     }
     getdata() {
+        this.alert.presentLoadingDefault('Product Details being Fetched...');
 
         var method = "get";
         var url = this.url.details;
@@ -63,6 +67,9 @@ export class ProductDetailsPage {
 
     }
     detailsCallback(response) {
+        setTimeout(() => {
+            this.alert.loading.dismiss();
+        }, 0);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
 

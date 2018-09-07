@@ -5,6 +5,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AddaddressPage } from '../addaddress/addaddress';
 import { AddresslistPage } from '../addresslist/addresslist';
+import { AlerttProvider } from '../../providers/alertt/alertt';
 /**
  * Generated class for the MycartPage page.
  *
@@ -25,7 +26,7 @@ export class MycartPage {
     itemss: any;
     a: any;
     cart_items: any;
-    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public events: Events, public alertCtrl: AlertController) {
+    constructor(public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public navCtrl: NavController, public navParams: NavParams, public events: Events, public alertCtrl: AlertController, public alert: AlerttProvider) {
     }
 
     ionViewDidLoad() {
@@ -36,6 +37,7 @@ export class MycartPage {
         this.postdata();
     }
     postdata() {
+        this.alert.presentLoadingDefault('list being prepared');
 
         var method = "get";
         var url = this.url.cart;
@@ -55,6 +57,9 @@ export class MycartPage {
         } else { this.apip.apicall(method, url, { 'access_token': this.token }, {}, this.cartCallback); }
     }
     cartCallback(response) {
+        setTimeout(() => {
+            this.alert.loading.dismiss();
+        }, 0);
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);

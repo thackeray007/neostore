@@ -35,7 +35,7 @@ export class MyAccountPage {
     pickedImage: any;
     token: any;
     buttonStatus = "Edit profile";
-    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public events: Events, public loadingCtrl: LoadingController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public imagepic: ImagePicker, private camera: Camera, public actionsheetCtrl: ActionSheetController, private date: DatePicker, public platform: Platform, public url: UrlProvider, public apip: ApiintegrateProvider, public alertp: AlerttProvider, public events: Events, ) {
     }
 
     ionViewDidLoad() {
@@ -186,7 +186,7 @@ export class MyAccountPage {
 
         // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
         // console.log(this.data);
-        this.presentLoadingDefault();
+        this.alertp.presentLoadingDefault('Edit in progress. Please wait a while');
         if (this.platform.is('mobileweb')) {
             var data = new FormData();
             data.append('first_name', this.f_name);
@@ -265,15 +265,6 @@ export class MyAccountPage {
 
             // this.alertp.presentAlert(a.statusText);
         }
-
-    }
-    presentLoadingDefault() {
-        this.loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-
-        this.loading.present();
-
 
     }
 

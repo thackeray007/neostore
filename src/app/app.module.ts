@@ -37,6 +37,10 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { AccountDetailsPage } from '../pages/account-details/account-details';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { Network } from '@ionic-native/network';
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
+import { InvitePage } from '../pages/invite/invite';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -58,6 +62,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
         MyAccountPage,
         AccountDetailsPage,
         ResetPasswordPage,
+        InvitePage
 
 
     ],
@@ -99,6 +104,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
         MyAccountPage,
         AccountDetailsPage,
         ResetPasswordPage,
+        InvitePage
 
 
     ],
@@ -119,6 +125,11 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
         ImagePicker,
         Camera,
         DatePicker,
+        Network,
+
+        Contact,
+        Contacts,
+
 
 
 

@@ -11,8 +11,9 @@ import { NeostorePage } from '../neostore/neostore';
 import { UrlProvider } from '../../providers/url/url';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
-// import { LoaderPage } from '../loader/loader';
+import { LoaderPage } from '../loader/loader';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
+import { Network } from '../../../node_modules/@ionic-native/network';
 
 @Component({
     selector: 'page-home',
@@ -22,13 +23,16 @@ export class HomePage {
     public email: string;
     public Password: string;
     public data: string;
-    constructor(public navCtrl: NavController, public alertp: AlerttProvider, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider) {
+    constructor(public navCtrl: NavController, public alertp: AlerttProvider, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public network: Network) {
         console.log(this.url.login);
         this.loginCallback = this.loginCallback.bind(this);
         this.loaderCallback = this.loaderCallback.bind(this);
 
-
-
+        let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+            this.alertp.presentExit();
+            //console.log('network was disconnected :-(');
+        });
+        // let connectSubscription = this.network.onConnect().subscribe(() => {
         console.log('ionViewDidLoad LoaderPage');
         var data1 = localStorage.getItem("access_token");
         if (data1 == undefined || data1 == null) {
@@ -57,8 +61,8 @@ export class HomePage {
                 var header = new Headers({ 'access_token': data1 });
                 this.apip.apicall(method, Url, { 'access_token': data1 }, {}, this.loaderCallback);
             }
-
         }
+        // })
     }
     validate() {
         var data;
@@ -152,7 +156,7 @@ export class HomePage {
     }
 
     a4() {
-        //this.navCtrl.setRoot();
+        this.navCtrl.setRoot(LoaderPage);
     }
     new_pass() {
         this.navCtrl.push(ForgotPasswordPage);

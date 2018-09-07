@@ -4,6 +4,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { UrlProvider } from '../../providers/url/url';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { TrackOrderPage } from '../track-order/track-order';
+import { AlerttProvider } from '../../providers/alertt/alertt';
 /**
  * Generated class for the MyOrdersPage page.
  *
@@ -19,7 +20,7 @@ import { TrackOrderPage } from '../track-order/track-order';
 export class MyOrdersPage {
     token: any;
     abcd: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alert: AlerttProvider) {
     }
 
     ionViewDidLoad() {
@@ -28,6 +29,7 @@ export class MyOrdersPage {
         this.orderList();
     }
     orderList() {
+        this.alert.presentLoadingDefault('Orders-list being prepared');
 
         var method = "get";
         var url = this.url.orderList;
@@ -63,6 +65,7 @@ export class MyOrdersPage {
 
         if (a.status == 200) {
             console.log(response);
+            this.alert.loading.dismiss();
 
             console.log("asda", a.data);
             this.abcd = a.data;

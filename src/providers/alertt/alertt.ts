@@ -3,6 +3,7 @@ import { Injectable, ViewChild } from '@angular/core';
 import { AlertController, Platform, NavController, LoadingController } from 'ionic-angular';
 import { NeostorePage } from '../../pages/neostore/neostore';
 import { bind } from '../../../node_modules/@angular/core/src/render3/instructions';
+import { Network } from '../../../node_modules/@ionic-native/network';
 
 /*
   Generated class for the AlerttProvider provider.
@@ -17,9 +18,9 @@ export class AlerttProvider {
     loading: any;
     public platf: any;
 
-    constructor(public alertcontroller: AlertController, public platform: Platform, public loadingCtrl: LoadingController) {
+    constructor(public alertcontroller: AlertController, public platform: Platform, public loadingCtrl: LoadingController, public network: Network) {
         console.log('Hello AlerttProvider Provider');
-        this.loading = this.loading.bind(this)
+        // this.loading = this.loading.bind(this)
     }
     presentAlert(mess) {
         let alert = this.alertcontroller.create({
@@ -53,7 +54,39 @@ export class AlerttProvider {
         });
 
         this.loading.present();
+        let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+            this.loading.Dismiss();
+            setTimeout(() => {
+                this.presentExit();
+            }, 0);
+
+            //console.log('network was disconnected :-(');
+        });
 
     }
+    presentExit() {
+        let alert = this.alertcontroller.create({
+            title: 'NO Network',
+            message: 'whoooaaa no internet-access!!! Do you want to exit NeoSTORE??',
+            buttons: [
+                {
+                    text: 'Try Again',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Exit',
+                    handler: () => {
+                        console.log('Buy clicked');
+                        this.platform.exitApp();
+                    }
+                }
+            ]
+        });
+        alert.present();
+    }
+
 
 }

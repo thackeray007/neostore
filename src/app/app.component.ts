@@ -14,6 +14,7 @@ import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { AccountDetailsPage } from '../pages/account-details/account-details';
+import { InvitePage } from '../pages/invite/invite';
 @Component({
     templateUrl: 'app.html'
 })
@@ -33,6 +34,7 @@ export class MyApp {
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
+
 
         });
         this.userData()
@@ -80,6 +82,9 @@ export class MyApp {
     };
     myAccount() {
         this.nav.push(AccountDetailsPage);
+    };
+    invite() {
+        this.nav.push(InvitePage);
     };
     userData() {
         this.data = localStorage.getItem("userDetails");

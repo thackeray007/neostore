@@ -28,7 +28,7 @@
 <ion-content>
     <ion-list>
         <ion-item-sliding #item *ngFor="let ab of abcd">
-            <ion-item style="height: 100px;">
+            <ion-item>
 
                 <!-- <ion-avatar class="a1" item-left> -->
                 <img item-left class="img" src={{ab.product.product_images}}>
@@ -53,7 +53,7 @@
                         <ion-option value="m">Male</ion-option>
                     </ion-select> -->
 
-                <label ion-row>
+                <div ion-row>
                     <!-- <div>
                         {{ab.quantity}}
                     </div> -->
@@ -72,7 +72,7 @@
                         <option value="8">8</option>
                     </select> -->
 
-                    <ion-item>
+                    <ion-item class="dropdownOuter" style="border-bottom: none">
                         <ion-select class="dropdown" [(ngModel)]="ab.quantity" (ionChange)="onSelectChange($event,ab.product_id)">
                             <ion-option *ngFor="let number of [1,2,3,4,5,6,7,8]" [value]="number">{{number}}</ion-option>
 
@@ -86,17 +86,17 @@
 </ion-item> -->
                     <div class="product-price" text-right>
                         <i class="fa fa-rupee"></i>{{ab.product.cost}}</div>
-                </label>
+                </div>
             </ion-item>
             <ion-item-options side="right">
                 <button ion-button class="deletebutton" (click)="delete(ab.product_id)">
-                    <i style="color: white;border-radius: 50%" class="fa fa-trash" aria-hidden="true"></i>
+                    <i style="color: white;border-radius: 50%;font-size: 22px" class="fa fa-trash" aria-hidden="true"></i>
                     <!-- <ion-icon style="padding-right: 20px;height:20px;color: white" class="icons" name="person"></ion-icon> -->
                 </button>
             </ion-item-options>
         </ion-item-sliding>
         <ion-item>
-            <ion-row>
+            <ion-row style="width: 100%">
                 <div class="total">TOTAL</div>
                 <div class="price">
                     <i class="fa fa-rupee"></i>{{total}}

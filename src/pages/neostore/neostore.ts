@@ -7,6 +7,8 @@ import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { toObservable } from '../../../node_modules/@angular/forms/src/validators';
 import { UrlProvider } from '../../providers/url/url';
 import { ProductsPage } from '../products/products';
+import { AlerttProvider } from '../../providers/alertt/alertt';
+import { Network } from '../../../node_modules/@ionic-native/network';
 
 /**
  * Generated class for the NeostorePage page.
@@ -24,12 +26,18 @@ export class NeostorePage {
     public products: any;
     public images: any = [];
     data: any;
+    data1: any;
     counter = 0;
-    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider, public menuCtrl: MenuController, public alertCtrl: AlertController, public toast: ToastController) {
+    constructor(public url: UrlProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public apip: ApiintegrateProvider, public menuCtrl: MenuController, public alertCtrl: AlertController, public toast: ToastController, public alert: AlerttProvider, public network: Network) {
 
-        this.data = localStorage.getItem("userDetails");
-        console.log("important", this.data);
+        this.data1 = JSON.parse(localStorage.getItem("userDetails"));
+        // this.data1= localStorage.getItem("userDetails");
+        console.log("important", this.data1);
+        // let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
 
+        //     this.alert.presentExit();
+        //     //console.log('network was disconnected :-(');
+        // });
 
 
         platform.registerBackButtonAction(() => {
@@ -108,8 +116,11 @@ export class NeostorePage {
 
     }
     table(abcd) {
+        var index = this.data1.data.product_categories.findIndex(img => img.id === abcd);
+        console.log(index);
+        var type = this.data1.data.product_categories[index].name;
         this.navCtrl.push(ProductsPage, {
-            id: abcd
+            id: abcd, category: type
         })
         // this.postdata(data);
     }

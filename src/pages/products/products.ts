@@ -29,7 +29,7 @@ export class ProductsPage {
     public limit: any = 8;
     public page: any = 1;
     reActiveInfinite: any;
-    loading: any;
+    title: any;
 
     // public rating: any = [];
     constructor(public toastCtrl: ToastController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alert: AlerttProvider) {
@@ -40,13 +40,15 @@ export class ProductsPage {
         this.postdata = this.postdata.bind(this);
         console.log('ionViewDidLoad ProductsPage');
         this.data = JSON.stringify(this.navParams.get('id'));
+        this.title = this.navParams.get('category');
+
         console.log("data" + this.data);
 
         this.postdata();
     }
 
     postdata() {
-        this.alert.presentLoadingDefault('wait maadi');
+        this.alert.presentLoadingDefault('list being prepared');
         var method = "get";
         var url = this.url.tile;
         console.log(this.data);
@@ -63,7 +65,10 @@ export class ProductsPage {
 
     }
     tileCallback(response) {
-        this.loading.dismiss();
+        setTimeout(() => {
+            this.alert.loading.dismiss();
+        }, 10);
+
         // console.log(response._body);
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);
@@ -132,7 +137,7 @@ export class ProductsPage {
     }
     fun(id) {
         this.navCtrl.push(ProductDetailsPage, {
-            id: id
+            id: id, title: this.title
         })
 
     };

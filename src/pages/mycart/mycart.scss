@@ -8,7 +8,7 @@ page-mycart {
     .product-title{
         font-family:'gotham-book';
         font-size:23px ;
-        padding-top: 10px;
+        margin-top: 0px;
         color: #131313;
 
     };
@@ -29,22 +29,23 @@ page-mycart {
         color:#333333;
         position:absolute;
         right:0px ;
-        padding-top:12px
+        padding-top:15px
         
     };
     //for product img in left styling
 
     .img{
-        width: 44px;
-        height: 44px;
+        margin: 10px 10px 10px 10px !important;
+        width: 77px;
+        height: 77px;
     };
     //for product list styling
     
-    .iteml{height: 90px;};
+    // .iteml{height: 90px;};
 //for slide button styling
     .deletebutton{
-        height: 50px;
-        margin-top: 33px;
+        // height: 50px;
+        // margin-top: 33px;
         border-radius: 50%;};
     
         .itemno{
@@ -52,8 +53,8 @@ page-mycart {
             border-radius: 5px;
         };
         .list-md ion-item-options .button {
-            height: 45px;
-            width: 45px;
+            height: 55px;
+            width: 55px;
         margin-top: 10%;
         border-radius: 50%;
         };
@@ -65,7 +66,8 @@ page-mycart {
             width: 100px;
 
         };
-        .price{
+        .price{position: absolute;
+            float:right;
             right: 0px;
             font-family:'gotham-medium';
             font-size:15px;
@@ -95,7 +97,7 @@ page-mycart {
             border: 1px solid map-get($colors ,font5 );
 // height: 10px;
             width: 50px;
-             margin-bottom: 5px;
+             margin-bottom: 0px;
              margin-left: 0px !important;
              padding-left:0px;
         }
@@ -109,7 +111,7 @@ page-mycart {
             padding-left:0px;
         }
         .select-md {
-            padding: 2px 1px 2px 12px !important;
+            padding: 2px 8px 2px 12px !important;
         }
         .item-cover{
             width:60%;
