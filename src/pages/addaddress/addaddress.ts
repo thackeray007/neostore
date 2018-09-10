@@ -100,11 +100,13 @@ export class AddaddressPage {
                                         // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
                                         this.local.push(this.add);
                                         localStorage.setItem("address", JSON.stringify(this.local));
-                                        this.navCtrl.popTo(AddresslistPage);
+                                        this.navCtrl.push(AddresslistPage);
                                         // console.log(JSON.parse(this.local));
                                     } else {
                                         this.local[this.index] = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };
                                         localStorage.setItem("address", JSON.stringify(this.local));
+                                        this.navCtrl.push(AddresslistPage);
+
                                     }
                                 }
                                 // this.add = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };

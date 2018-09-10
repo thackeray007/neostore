@@ -27,11 +27,14 @@ export class HomePage {
         console.log(this.url.login);
         this.loginCallback = this.loginCallback.bind(this);
         this.loaderCallback = this.loaderCallback.bind(this);
+        setTimeout(() => {
+            let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+                this.alertp.presentExit();
+                //console.log('network was disconnected :-(');
+            });
+        }, 1);
 
-        let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-            this.alertp.presentExit();
-            //console.log('network was disconnected :-(');
-        });
+
         // let connectSubscription = this.network.onConnect().subscribe(() => {
         console.log('ionViewDidLoad LoaderPage');
         var data1 = localStorage.getItem("access_token");

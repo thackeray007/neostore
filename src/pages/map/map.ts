@@ -1,5 +1,15 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+// import {
+//     GoogleMaps,
+//     GoogleMap,
+//     GoogleMapsEvent,
+//     GoogleMapOptions,
+//     CameraPosition,
+//     MarkerOptions,
+//     Marker
+// } from '@ionic-native/google-maps';
+//   import { Component } from "@angular/core/";
 declare var google;
 
 @IonicPage()
@@ -8,12 +18,13 @@ declare var google;
     templateUrl: 'map.html',
 })
 export class MapPage {
+    // map: GoogleMap;
     @ViewChild('map') mapElement: ElementRef;
     map: any;
     latlng: any;
     locations = [{ name: 'NEOSOFT SOFTWARE', address: 'The Ruby, Dadar, Mumbai-400 028, INDIA', lat: 19.157934, lng: 72.993477 }, { name: 'NEOSOFT SOFTWARE', address: '124 Unique Estate, Mumbai - 400 025, INDIA', lat: 19.013514, lng: 72.826486 }, { name: 'NEOSOFT SOFTWARE', address: 'Sigma IT Park, Navi Mumbai-400 701, INDIA', lat: 19.137048, lng: 73.006706 }, { name: 'NEOSOFT SOFTWARE', address: 'Infotech Park, Hinjewadi, Pune-411 057', lat: 18.591626, lng: 73.737803 }];
     co_ord = [{ lat: 19.157934, lng: 72.993477 },];
-    constructor(public navCtrl: NavController, public navParams: NavParams, ) {
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     }
 
@@ -22,6 +33,34 @@ export class MapPage {
         this.loadMap();
         this.addmarker();
     }
+    // loadMap() {
+
+    //     let mapOptions: GoogleMapOptions = {
+    //         camera: {
+    //             target: {
+    //                 lat: 43.0741904,
+    //                 lng: -89.3809802
+    //             },
+    //             zoom: 18,
+    //             tilt: 30
+    //         }
+    //     };
+
+    //     this.map = GoogleMaps.create('map_canvas', mapOptions);
+
+    //     let marker: Marker = this.map.addMarkerSync({
+    //         title: 'Ionic',
+    //         icon: 'blue',
+    //         animation: 'DROP',
+    //         position: {
+    //             lat: 43.0741904,
+    //             lng: -89.3809802
+    //         }
+    //     });
+    //     // marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+    //     //     alert('clicked');
+    //     // });
+    // }
     loadMap() {
 
         let latLng = new google.maps.LatLng(19.157934, 72.993477);

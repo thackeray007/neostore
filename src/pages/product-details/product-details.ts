@@ -82,6 +82,10 @@ export class ProductDetailsPage {
             var a = JSON.parse(response.data);
             console.log("asdasd");
             console.log(response.data);
+
+            //comments to check the response
+
+
             // console.log(JSON.parse(response.data).data.access_token)
             //     // // console.log(JSON.parse(response.data.access_token));
             //     // console.log(JSON.parse(response.data.data));

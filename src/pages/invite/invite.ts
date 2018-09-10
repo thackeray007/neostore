@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
+import { SMS } from '@ionic-native/sms';
+// import { parse } from 'path';
 
 /**
  * Generated class for the InvitePage page.
@@ -15,8 +17,8 @@ import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/cont
     templateUrl: 'invite.html',
 })
 export class InvitePage {
-
-    constructor(public navCtrl: NavController, public navParams: NavParams, public contacts: Contacts, public contact: Contact) {
+    b: any;
+    constructor(public navCtrl: NavController, public navParams: NavParams, private contacts: Contacts, private contact: Contact, private sms: SMS) {
     }
 
     ionViewDidLoad() {
@@ -24,8 +26,30 @@ export class InvitePage {
     }
     search() {
         // this.contact.find(name);
-        var a = this.contacts.pickContact();
-        console.log("fetched", a);
+        this.contacts.pickContact().then((contact) => {
+            console.log("fetched", contact);
+
+            this.b = parseFloat(contact.phoneNumbers[0].value);
+            var options = {
+                replaceLineBreaks: false, // true to replace \n by a new line, false by default
+                android: {
+                    intent: 'INTENT'  // Opens Default sms app
+                    //intent: '' // Sends sms without opening default sms app
+                }
+            }
+            this.sms.send(this.b, "check out this amazing,they got the best deals...<beta testing>", options)
+                .then(() => {
+                    alert("success");
+                }, () => {
+                    alert("failed");
+                });
+
+
+            console.log("fetched", this.b);
+            // this.sms.send(this.b, "check out this amazing,they got the best deals...<beta testing>")
+        })
+
+
 
     }
 }

@@ -1,4 +1,10 @@
 page-modalbuy {
+    .icon{
+        position: absolute;
+        right: 5px;
+        float: right;
+        color:map-get($colors , font4 );
+    }
 
 .divide{
         position: absolute !important;

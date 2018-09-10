@@ -157,6 +157,8 @@ export class ModalbuyPage {
         console.log('User created!')
         this.events.publish('cart:cart', cart_items);
     }
-
+    discard() {
+        this.viewcontroller.dismiss();
+    }
 }
 

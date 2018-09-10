@@ -40,7 +40,10 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { Network } from '@ionic-native/network';
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 import { InvitePage } from '../pages/invite/invite';
-
+import { SMS } from '../../node_modules/@ionic-native/sms';
+// import { GoogleMaps } from '@ionic-native/google-maps';
+import { Stripe } from '@ionic-native/stripe';
+import { CardPage } from '../pages/card/card';
 @NgModule({
     declarations: [
         MyApp,
@@ -62,7 +65,8 @@ import { InvitePage } from '../pages/invite/invite';
         MyAccountPage,
         AccountDetailsPage,
         ResetPasswordPage,
-        InvitePage
+        InvitePage,
+        CardPage,
 
 
     ],
@@ -104,7 +108,8 @@ import { InvitePage } from '../pages/invite/invite';
         MyAccountPage,
         AccountDetailsPage,
         ResetPasswordPage,
-        InvitePage
+        InvitePage,
+        CardPage,
 
 
     ],
@@ -113,9 +118,6 @@ import { InvitePage } from '../pages/invite/invite';
         SocialSharing,
         // Platform,
         HTTP,
-
-        SplashScreen,
-        { provide: ErrorHandler, useClass: IonicErrorHandler },
         AlerttProvider,
         HttpClient,
         ApiintegrateProvider,
@@ -126,9 +128,14 @@ import { InvitePage } from '../pages/invite/invite';
         Camera,
         DatePicker,
         Network,
-
+        SMS,
         Contact,
         Contacts,
+        Stripe,
+        SplashScreen,
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+
+        // GoogleMaps
 
 
 

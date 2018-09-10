@@ -79,6 +79,9 @@ export class ModalratePage {
         console.log(this.rating);
 
     }
+    discard() {
+        this.viewcontroller.dismiss();
+    }
 
 
 }

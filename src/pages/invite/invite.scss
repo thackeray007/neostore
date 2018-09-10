@@ -1,3 +1,25 @@
 page-invite {
-
+    .myview{
+        background-image:url('/assets/imgs/Android_Master_bg.jpg');
+    };
+    .button1{
+        font-family:'gotham-medium' ;
+        position: fixed;
+        bottom:5px;
+        background-color:map-get($colors ,afont1 );
+        color:#e91c1a;
+        font-size: 26px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10%;
+        width:80%;
+        height:50px ;
+        
+    };
+    .button1:hover{
+        background-color: map-get($colors , afont2 );
+        color: map-get($colors, afont1 );
+    };
+    
+    
 }
