@@ -55,68 +55,18 @@ export class AddresslistPage {
     };
 
     placeOrder() {
-        this.navCtrl.push(CardPage);
+        if (this.index1 == "" || this.index1 == undefined) {
+            this.alertp.presentAlertt("ohhhHo", "please select the address")
+        } else {
+            this.address2 = this.address[this.index1];
+            console.log(this.address);
+
+            this.navCtrl.push(CardPage, { address: this.address2.address + " " + this.address2.landmark + " " + this.address2.city + " " + this.address2.country + " " + this.address2.zip });
+        }
+
     }
 
 
-    // placeOrder() {
-    //     console.log("address", this.index1);
-
-    //     var method = "post";
-    //     var url = this.url.order;
-    //     console.log("token", this.token);
-    //     this.address2 = this.address[this.index1];
-    //     var headers = new Headers({ 'access_token': this.token });
-    //     console.log(this.address2);
-
-    //     console.log(headers);
-    //     this.orderCallback = this.orderCallback.bind(this);
-
-    //     // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
-    //     // console.log(this.data);
-    //     if (this.platform.is('mobileweb')) {
-    //         var data = new FormData();
-    //         data.append('address', this.address2);
-
-    //         return this.apip.apicall(method, url, data, { headers: headers }, this.orderCallback);
-    //     } else { this.apip.apicall(method, url, data, { 'access_token': this.token }, this.orderCallback); }
-
-    // }
-    // orderCallback(response) {
-    //     if (this.platform.is('mobileweb')) {
-    //         var a = JSON.parse(response._body);
-
-    //         // console.log(a.data.access_token);
-    //     }
-    //     else {
-    //         var a = (response);
-    //         console.log("asdasd");
-
-    //         console.log(response.data);
-
-    //         // console.log(JSON.parse(response.data).data.access_token)
-
-    //     };
-    //     console.log(a);
-    //     console.log(a.status);
-
-    //     if(a.status == 200) {
-    //     console.log(a.status);
-    //     var mess = a.message;
-    //     var usr_mess = a.user_msg;
-    //     this.alertp.presentAlertt(mess, usr_mess);
-    //     console.log(a.status);
-
-    // } else {
-    //     console.log(a.statusText);
-    //     console.log("fail in callback");
-    //     this.alertp.presentAlert("something went wrong")
-
-    //     // this.alertp.presentAlert(a.statusText);
-    // }
-
-
-    //     }
     delete(i) {
         console.log(i);
 

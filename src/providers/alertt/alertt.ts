@@ -88,5 +88,10 @@ export class AlerttProvider {
         alert.present();
     }
 
-
+    valid(data) {
+        if (data == undefined || data == null) {
+            this.presentAlertt("validation error", "field cant be blank");
+            return 1;
+        }
+    }
 }

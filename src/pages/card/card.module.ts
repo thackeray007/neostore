@@ -3,11 +3,11 @@ import { IonicPageModule } from 'ionic-angular';
 import { CardPage } from './card';
 
 @NgModule({
-  declarations: [
-    CardPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(CardPage),
-  ],
+    declarations: [
+        CardPage,
+    ],
+    imports: [
+        IonicPageModule.forChild(CardPage),
+    ],
 })
-export class CardPageModule {}
+export class CardPageModule { }

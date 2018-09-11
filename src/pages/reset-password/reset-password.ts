@@ -37,49 +37,56 @@ export class ResetPasswordPage {
 
     }
     editPass($event) {
-        $event.buttonDisabled = true;
-        console.log(this.pass);
-        console.log(this.pass1);
-        console.log(this.pass2);
+        if (this.pass == "" || this.pass == undefined) { this.alertp.presentAlert("password cant be blank") }
+        else {
+            if (this.pass1 == "" || this.pass1 == undefined) { this.alertp.presentAlert("password cant be blank") }
+            else {
+                if (this.pass2 == "" || this.pass2 == undefined) { this.alertp.presentAlert("password cant be blank") }
+                else {
+                    $event.buttonDisabled = true;
+                    console.log(this.pass);
+                    console.log(this.pass1);
+                    console.log(this.pass2);
 
-        this.presentLoadingDefault();
-        var method = "post";
-        var url = this.url.editPass;
-        console.log(this.data);
-        var headers = new Headers({ 'access_token': this.token });
+                    this.presentLoadingDefault();
+                    var method = "post";
+                    var url = this.url.editPass;
+                    console.log(this.data);
+                    var headers = new Headers({ 'access_token': this.token });
 
-        console.log(headers);
-        this.profileCallback = this.profileCallback.bind(this);
+                    console.log(headers);
+                    this.profileCallback = this.profileCallback.bind(this);
 
-        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
-        // console.log(this.data);
-        if (this.platform.is('mobileweb')) {
-            var data = new FormData();
-            data.append('old_password', this.pass);
-            data.append('password', this.pass1);
-            data.append('confirm_password', this.pass2);
+                    // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+                    // console.log(this.data);
+                    if (this.platform.is('mobileweb')) {
+                        var data = new FormData();
+                        data.append('old_password', this.pass);
+                        data.append('password', this.pass1);
+                        data.append('confirm_password', this.pass2);
 
-            this.token = localStorage.getItem("access_token");
-            return this.apip.apicall(method, url, data, { headers: headers }, this.profileCallback);
-        } else { this.apip.apicall(method, url, { 'old_password': this.pass, 'password': this.pass1, 'confirm_password': this.pass2, }, { 'access_token': this.token }, this.profileCallback); }
+                        this.token = localStorage.getItem("access_token");
+                        return this.apip.apicall(method, url, data, { headers: headers }, this.profileCallback);
+                    } else { this.apip.apicall(method, url, { 'old_password': this.pass, 'password': this.pass1, 'confirm_password': this.pass2, }, { 'access_token': this.token }, this.profileCallback); }
 
 
 
-        // if (this.platform.is('mobileweb')) {
-        //     this.data = new FormData();
-        //     this.data.append('access_token', this.token);
+                    // if (this.platform.is('mobileweb')) {
+                    //     this.data = new FormData();
+                    //     this.data.append('access_token', this.token);
 
-        // }
-        // else {
-        //     this.data = { 'access_token': this.token };
-        // };
+                    // }
+                    // else {
+                    //     this.data = { 'access_token': this.token };
+                    // };
 
-        // var method = "post";
-        // var url = this.url.add;
-        // console.log(this.data);
-        // this.apip.apicall(method, url, this.data, {}, this.addCallback);
-        // // console.log(data);
-
+                    // var method = "post";
+                    // var url = this.url.add;
+                    // console.log(this.data);
+                    // this.apip.apicall(method, url, this.data, {}, this.addCallback);
+                }   // // console.log(data);
+            }
+        }
     }
 
     profileCallback(response) {

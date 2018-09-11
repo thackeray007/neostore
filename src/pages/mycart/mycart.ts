@@ -22,7 +22,7 @@ export class MycartPage {
     data: any;
     token: any;
     abcd: any;
-    total: any;
+    total = 0;
     itemss: any;
     a: any;
     cart_items: any;
@@ -151,8 +151,13 @@ export class MycartPage {
     }
 
     orderNow() {
-        console.log("ordered");
-        this.navCtrl.push(AddresslistPage)
+        if (this.cart_items == 0) {
+            this.alert.presentAlertt("oHhhooo_", "add something to your cart_");
+        } else {
+            console.log("ordered");
+            this.navCtrl.push(AddresslistPage)
+        }
+
     }
 
     changed(id, itemss) {

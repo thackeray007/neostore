@@ -6,14 +6,18 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>invite</ion-title>
-    </ion-navbar>
+    <ion-toolbar>
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+                <ion-icon class="icon-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Invite</ion-title>
 
-</ion-header>
+    </ion-toolbar>
 
 
-<ion-content padding class="myview">
+    <ion-content padding class="myview">
 
-    <button ion-button class="button1" (click)='search()'>Invite a Friend..</button>
-</ion-content>
+        <button ion-button class="button1" (click)='search()'>Invite a Friend..</button>
+    </ion-content>
