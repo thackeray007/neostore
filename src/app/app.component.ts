@@ -15,6 +15,7 @@ import { MapPage } from '../pages/map/map';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { AccountDetailsPage } from '../pages/account-details/account-details';
 import { InvitePage } from '../pages/invite/invite';
+import { MenuController } from '../../node_modules/ionic-angular/components/app/menu-controller';
 @Component({
     templateUrl: 'app.html'
 })
@@ -28,7 +29,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = HomePage;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private events: Events) {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private events: Events, private menuCtrl: MenuController) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -72,16 +73,29 @@ export class MyApp {
         this.nav.push(MyOrdersPage);
 
     };
+    // table(abcd) {
+    //     this.nav.push(ProductsPage, {
+    //         id: abcd
+    //     })
+    // };
     table(abcd) {
+        var data1 = JSON.parse(localStorage.getItem("userDetails"));
+
+        var index = data1.data.product_categories.findIndex(img => img.id === abcd);
+        console.log(index);
+        var type = data1.data.product_categories[index].name;
         this.nav.push(ProductsPage, {
-            id: abcd
+            id: abcd, category: type
         })
-    };
+        // this.postdata(data);
+    }
+
     map() {
         this.nav.push(MapPage)
     };
     myAccount() {
         this.nav.push(AccountDetailsPage);
+        this.menuCtrl.close();
     };
     invite() {
         this.nav.push(InvitePage);
@@ -108,5 +122,6 @@ export class MyApp {
 
         }
     }
+
 
 }

@@ -155,7 +155,7 @@ export class MycartPage {
             this.alert.presentAlertt("oHhhooo_", "add something to your cart_");
         } else {
             console.log("ordered");
-            this.navCtrl.push(AddresslistPage)
+            this.navCtrl.push(AddresslistPage, { total: this.total })
         }
 
     }
@@ -221,7 +221,7 @@ export class MycartPage {
 
         if (a.status == 200) {
             console.log(a.status);
-
+            this.postdata();
             console.log(a.status);
 
         } else {

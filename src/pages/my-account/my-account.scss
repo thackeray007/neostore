@@ -166,6 +166,16 @@ width: 30%;
     
     
     }
+    .datetime-md {
+        padding: 13px 8px 13px 36px;
+    }
+    ion-datetime{
+        position: absolute !important;
+        left: 20px;
+        font-size: 20px;
+        font-family: 'gotham-medium';
+        font-weight: 600;
+    }
     
 
 }

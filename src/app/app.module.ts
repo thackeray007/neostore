@@ -44,6 +44,10 @@ import { SMS } from '../../node_modules/@ionic-native/sms';
 // import { GoogleMaps } from '@ionic-native/google-maps';
 import { Stripe } from '@ionic-native/stripe';
 import { CardPage } from '../pages/card/card';
+
+import { Direct1Page } from '../pages/direct1/direct1';
+
+// import { directive } from '../../node_modules/@angular/core/src/render3/instructions';
 @NgModule({
     declarations: [
         MyApp,
@@ -67,6 +71,7 @@ import { CardPage } from '../pages/card/card';
         ResetPasswordPage,
         InvitePage,
         CardPage,
+        Direct1Page
 
 
     ],
@@ -110,7 +115,7 @@ import { CardPage } from '../pages/card/card';
         ResetPasswordPage,
         InvitePage,
         CardPage,
-
+        Direct1Page
 
     ],
     providers: [
@@ -133,6 +138,7 @@ import { CardPage } from '../pages/card/card';
         Contacts,
         Stripe,
         SplashScreen,
+
         { provide: ErrorHandler, useClass: IonicErrorHandler },
 
         // GoogleMaps

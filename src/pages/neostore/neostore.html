@@ -15,7 +15,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <ion-slides padding-bottom="5px" pager="true " autoplay="5000 " loop="true " speed="3000 " style="height:37%">
+    <ion-slides padding-bottom="5px" pager="true " autoplay="5000 " loop="true " speed="3000 " style="height:45%">
         <ion-slide *ngFor="let icon of images ">
             <img src="{{icon.icon_image}} ">
         </ion-slide>
@@ -33,19 +33,17 @@
             <ion-col>
                 <button class="tile3 " (click)=table(1);>
                     <ion-row>
-                        <ion-label style="position:absolute;right: 10px;top: 5px " class="a "> Tables</ion-label>
+                        <ion-label class="l1 a"> Tables</ion-label>
                     </ion-row>
                     <ion-row>
-                        <i style="padding-right: 20px;bottom:10px;padding-top: 40px;float:right;color: white;font-size:100px;bottom:10px;padding-bottom:
-                20px " class="icon-dinning-table" aria-hidden="true "></i>
+                        <i class="i1 icon-dinning-table" aria-hidden="true "></i>
                     </ion-row>
                 </button>
             </ion-col>
             <ion-col>
                 <button class="tile2 " (click)=table(2);>
-                    <i style="padding-right: 20px;position: absolute;top:10px;right:10px;color: white;font-size:100px
-                " class="icon-sofa"></i>
-                    <ion-label style="float: left;position: absolute;bottom:10px;padding-top: 40px " class="a ">Sofas</ion-label>
+                    <i class="i2 icon-sofa"></i>
+                    <ion-label class="a  l2">Sofas</ion-label>
                 </button>
             </ion-col>
         </ion-row>
@@ -53,24 +51,21 @@
             <ion-col>
                 <button class="tile3 " (click)=table(3);>
                     <ion-row>
-                        <ion-label style="position:absolute;left:10px;top: 10px " class="a "> Chairs</ion-label>
+                        <ion-label class="a l3"> Chairs</ion-label>
                     </ion-row>
                     <ion-row>
-                        <ion-label style="position: absolute;right:10px;float:right;color: white;font-size:100px;padding-bottom:10px;bottom:10px "
-                            class="icon-chair" aria-hidden="true "></ion-label>
+                        <ion-label class="i3 icon-chair" aria-hidden="true "></ion-label>
                     </ion-row>
                 </button>
             </ion-col>
             <ion-col>
                 <button class="tile1 " (click)=table(4);>
 
-                    <ion-row>
-                        <ion-label style="float: left ;padding-right: 38px;padding-top: 5px;padding-bottom: 40px;float:left;font-size:
-                100px;color:white " class="icon-cupboard" aria-hidden="true "></ion-label>
-                        <ion-label style="float: right;position: absolute;bottom:10px;padding-top: 80px;padding-bottom:
-                5px;right:2px;font-size: 26px ; " class="a">Cupboards</ion-label>
 
-                    </ion-row>
+                    <ion-label class="l4 icon-cupboard" aria-hidden="true "></ion-label>
+                    <ion-label class="a i4">Cupboards</ion-label>
+
+
 
                 </button>
             </ion-col>

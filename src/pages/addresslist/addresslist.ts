@@ -27,6 +27,7 @@ export class AddresslistPage {
     address1: any;
     address2: any;
     index1: any;
+    total: any;
     constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alertp: AlerttProvider) {
         this.getData();
     }
@@ -36,6 +37,9 @@ export class AddresslistPage {
         console.log('ionViewDidLoad AddresslistPage');
         this.getData();
         this.token = localStorage.getItem("access_token");
+        this.total = this.navParams.get("total");
+        console.log(this.total);
+
     }
     getData() {
         this.address = JSON.parse(localStorage.getItem("address"));
@@ -51,7 +55,7 @@ export class AddresslistPage {
         // console.log(JSON.stringify(this.address));
     }
     add() {
-        this.navCtrl.push(AddaddressPage);
+        this.navCtrl.push(AddaddressPage, { total: this.total });
     };
 
     placeOrder() {
@@ -61,7 +65,7 @@ export class AddresslistPage {
             this.address2 = this.address[this.index1];
             console.log(this.address);
 
-            this.navCtrl.push(CardPage, { address: this.address2.address + " " + this.address2.landmark + " " + this.address2.city + " " + this.address2.country + " " + this.address2.zip });
+            this.navCtrl.push(CardPage, { total: this.total, address: this.address2.address + " " + this.address2.landmark + " " + this.address2.city + " " + this.address2.country + " " + this.address2.zip });
         }
 
     }

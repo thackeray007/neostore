@@ -88,10 +88,17 @@ export class AlerttProvider {
         alert.present();
     }
 
-    valid(data) {
-        if (data == undefined || data == null) {
-            this.presentAlertt("validation error", "field cant be blank");
-            return 1;
+    valid(data, name) {
+        if (data == undefined || data == null || data == "") {
+            this.presentAlertt("warning", name + " field cant be blank");
+            return true;
         }
     }
+    matchpass(data1, data2) {
+        if (data1 != data2) {
+            this.presentAlertt("warning", "passwords do not match");
+            return true;
+        }
+    }
+
 }

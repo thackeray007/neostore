@@ -52,23 +52,34 @@ ion-title {
     background-color:map-get($colors , red1) !important;
     height: calc(100%);
     width:100%;
+}
+.tile1::hover{
+    background-color:map-get($colors , red) !important;
 };
 .tile2{
     background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
+}
+.tile2:hover{
+    background-color:map-get($colors , red) !important;
 };
 .tile3{
     background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
 };
+.tile3:hover{
+    background-color:map-get($colors , red) !important;
+}
 .tile4{
     background-color:map-get($colors , red1) !important;
     height: 100%;
     width:100%;
 };
-
+.tile4:hover{
+    background-color:map-get($colors , red2) !important;
+}
 
 .a{
 font-family:'Gotham-Medium' ;
@@ -92,4 +103,31 @@ font-family:'Gotham-Medium' ;
     padding:0px;
     
 }
+.l1{
+    position:absolute;
+    right: 16px;
+    top: 5px
+};
+.i1{
+    padding-left: 16px;
+    bottom:10px;
+    padding-top: 50px;
+    float:right;
+    color: white;
+    font-size:100px;
+    bottom:10px;
+    padding-bottom:20px 
+}
+.i2{
+    padding-right: 20px;position: absolute;top:10px;right:10px;color: white;font-size:100px
+}
+.l2{
+    float: left;position: absolute;bottom:10px;padding-top: 40px;padding-left: 16px 
+}
+.i3{position: absolute;right:10px;float:right;color: white;font-size:100px;padding-bottom:10px;bottom:0px }
+.l3{position:absolute;left:26px;top: 10px}
+.i4{float: right;position: absolute;bottom:0px;padding-top: 90px;padding-bottom:
+    5px;right:16px;font-size: 26px}
+.l4{float: left ;padding-left: 16px;padding-top: 5px;padding-bottom: 40px;float:left;font-size:
+    100px;color:white;position:relative;right: 10px }
 };      

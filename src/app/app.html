@@ -2,7 +2,7 @@
     <ion-header class="head">
         <ion-toolbar color="font6">
 
-            <img class="avatar" src={{dp}}>
+            <img (click)="myAccount()" class="avatar" src={{dp}}>
 
 
             <ion-label class="name">{{name}}</ion-label>
@@ -41,7 +41,7 @@
             <button full ion-item (click)='table(4)' menuToggle="left">
                 <ion-icon style="padding-right: 20px" class="icon-cupboard" name="person"></ion-icon>Cupboards</button>
             <button full ion-item (click)='myAccount()' menuToggle="left">
-                <ion-icon style="padding-right: 20px" class="icon-user" name="person"></ion-icon>MY Account</button>
+                <ion-icon style="padding-right: 20px" class="icon-user" name="person"></ion-icon>My Account</button>
             <button full ion-item (click)='map()' menuToggle="left">
                 <i style="padding-right: 20px" class="icon-locate"></i>Store Locator</button>
             <button full (click)='myOrders()' ion-item menuToggle="left">

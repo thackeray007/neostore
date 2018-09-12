@@ -8,7 +8,7 @@ import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate'
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
 import { AlerttProvider } from '../../providers/alertt/alertt';
 import { NeostorePage } from '../neostore/neostore';
-import { TIMEOUT } from 'dns';
+
 
 /**
  * Generated class for the MyAccountPage page.
@@ -167,60 +167,75 @@ export class MyAccountPage {
     //     );
 
     // }
-    editProfile($event) {
-        $event.buttonDisabled = true;
-        console.log(this.f_name);
-        console.log(this.l_name);
-        console.log(this.email);
-        console.log(this.dob);
-        console.log(this.dp);
-        console.log(this.dp);
-
-        var method = "post";
-        var url = this.url.update;
-        console.log(this.data);
-        var headers = new Headers({ 'access_token': this.token });
-
-        console.log(headers);
-        this.profileCallback = this.profileCallback.bind(this);
-
-        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
-        // console.log(this.data);
-        this.alertp.presentLoadingDefault('Edit in progress. Please wait a while');
-        if (this.platform.is('mobileweb')) {
-            var data = new FormData();
-            data.append('first_name', this.f_name);
-            data.append('last_name', this.l_name);
-            data.append('email', this.email);
-            data.append('dob', this.dob);
-            data.append('phone_no', this.number);
-            data.append('profile_pic', this.dp);
-            this.token = localStorage.getItem("access_token");
-            return this.apip.apicall(method, url, data, { headers: headers }, this.profileCallback);
-        } else { this.apip.apicall(method, url, { 'first_name': this.f_name, 'last_name': this.l_name, 'email': this.email, 'dob': this.dob, 'phone_no': this.number, 'profile_pic': this.dp }, { 'access_token': this.token }, this.profileCallback); }
+    editProfile() {
+        if (this.alertp.valid(this.f_name, "first name") == true) { return 0 }
+        else {
+            if (this.alertp.valid(this.l_name, "last name") == true) { return 0 }
+            else {
+                if (this.alertp.valid(this.email, "email") == true) { return 0 }
+                else {
+                    if (this.alertp.valid(this.dob, "dob") == true) { return 0 }
+                    else {
 
 
 
-        // if (this.platform.is('mobileweb')) {
-        //     this.data = new FormData();
-        //     this.data.append('access_token', this.token);
+                        // $event.buttonDisabled = true;
+                        console.log(this.f_name);
+                        console.log(this.l_name);
+                        console.log(this.email);
+                        console.log(this.dob);
+                        console.log(this.dp);
+                        console.log(this.dp);
 
-        // }
-        // else {
-        //     this.data = { 'access_token': this.token };
-        // };
+                        var method = "post";
+                        var url = this.url.update;
+                        console.log(this.data);
+                        var headers = new Headers({ 'access_token': this.token });
 
-        // var method = "post";
-        // var url = this.url.add;
-        // console.log(this.data);
-        // this.apip.apicall(method, url, this.data, {}, this.addCallback);
-        // // console.log(data);
+                        console.log(headers);
+                        this.profileCallback = this.profileCallback.bind(this);
 
+                        // return this.apip.apicall(method, url, options, { 'product_id': "1" }, this.detailsCallback);
+                        // console.log(this.data);
+                        this.alertp.presentLoadingDefault('Edit in progress. Please wait a while');
+                        if (this.platform.is('mobileweb')) {
+                            var data = new FormData();
+                            data.append('first_name', this.f_name);
+                            data.append('last_name', this.l_name);
+                            data.append('email', this.email);
+                            data.append('dob', this.dob);
+                            data.append('phone_no', this.number);
+                            data.append('profile_pic', this.dp);
+                            this.token = localStorage.getItem("access_token");
+                            return this.apip.apicall(method, url, data, { headers: headers }, this.profileCallback);
+                        } else { this.apip.apicall(method, url, { 'first_name': this.f_name, 'last_name': this.l_name, 'email': this.email, 'dob': this.dob, 'phone_no': this.number, 'profile_pic': this.dp }, { 'access_token': this.token }, this.profileCallback); }
+
+
+
+                        // if (this.platform.is('mobileweb')) {
+                        //     this.data = new FormData();
+                        //     this.data.append('access_token', this.token);
+
+                        // }
+                        // else {
+                        //     this.data = { 'access_token': this.token };
+                        // };
+
+                        // var method = "post";
+                        // var url = this.url.add;
+                        // console.log(this.data);
+                        // this.apip.apicall(method, url, this.data, {}, this.addCallback);
+                        // // console.log(data);
+
+                    }
+                }
+            }
+        }
     }
 
     profileCallback(response) {
 
-        this.loading.dismiss();
+        this.alertp.loading.dismiss();
 
         if (this.platform.is('mobileweb')) {
             var a = JSON.parse(response._body);

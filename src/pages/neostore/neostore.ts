@@ -116,6 +116,8 @@ export class NeostorePage {
 
     }
     table(abcd) {
+        this.data1 = JSON.parse(localStorage.getItem("userDetails"));
+
         var index = this.data1.data.product_categories.findIndex(img => img.id === abcd);
         console.log(index);
         var type = this.data1.data.product_categories[index].name;

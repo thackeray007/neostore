@@ -1,5 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+
+import { Direct1Page } from '../direct1/direct1';
+
 // import {
 //     GoogleMaps,
 //     GoogleMap,
@@ -24,7 +27,7 @@ export class MapPage {
     latlng: any;
     locations = [{ name: 'NEOSOFT SOFTWARE', address: 'The Ruby, Dadar, Mumbai-400 028, INDIA', lat: 19.157934, lng: 72.993477 }, { name: 'NEOSOFT SOFTWARE', address: '124 Unique Estate, Mumbai - 400 025, INDIA', lat: 19.013514, lng: 72.826486 }, { name: 'NEOSOFT SOFTWARE', address: 'Sigma IT Park, Navi Mumbai-400 701, INDIA', lat: 19.137048, lng: 73.006706 }, { name: 'NEOSOFT SOFTWARE', address: 'Infotech Park, Hinjewadi, Pune-411 057', lat: 18.591626, lng: 73.737803 }];
     co_ord = [{ lat: 19.157934, lng: 72.993477 },];
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
 
     }
 
@@ -119,16 +122,29 @@ export class MapPage {
         });
 
     }
+    // locateto(i) {
+    //     let latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
+
+    //     let mapOptions = {
+    //         center: latLng,
+    //         zoom: 15,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP
+    //     }
+
+    //     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    //     this.addmarker();
+    // }
     locateto(i) {
-        let latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
 
-        let mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+        this.navCtrl.push(Direct1Page, { i: i });
+        // let destination = 19.157934 + ',' + 72.993477;
 
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-        this.addmarker();
+        // if (this.platform.is('ios')) {
+        //     window.open('maps://?q=' + destination, '_system');
+        // } else {
+        //     let label = encodeURI('My Label');
+        //     window.open('geo:0,0?q=' + destination + '(' + label + ')', '_system');
+        // }
+
     }
 }

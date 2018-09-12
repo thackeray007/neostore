@@ -64,13 +64,13 @@
                 <i class="fa fa-birthday-cake" style="color: white" name="calendar"></i>
 
             </ion-label>
-            <ion-datetime displayFormat="DD MM YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="dob"></ion-datetime>
+            <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="dob"></ion-datetime>
             <!-- <ion-input (click)="datePicker()" class="ipfield" [(ngModel)]="dob" placeholder={{dob}} disabled></ion-input> -->
         </ion-item>
     </ion-list>
 
 
-    <button ion-button class="button1" id="button1" (click)=editProfile($event); style="margin-top: 30px" full>{{buttonStatus}}
+    <button ion-button class="button1" id="button1" (click)=editProfile(); style="margin-top: 30px" full>{{buttonStatus}}
     </button>
 
 </ion-content>

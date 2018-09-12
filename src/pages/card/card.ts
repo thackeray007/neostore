@@ -23,6 +23,7 @@ import { Platform } from '../../../node_modules/ionic-angular/platform/platform'
 })
 export class CardPage {
     token: any;
+    total: any;
     address: any;
     cardinfo: any = {
         number: 4242424242424242,
@@ -43,6 +44,9 @@ export class CardPage {
         console.log(this.address);
         console.log(this.token);
         console.log('ionViewDidLoad CardPage');
+        this.total = this.navParams.get("total");
+        console.log(this.total);
+
     }
 
 
@@ -64,13 +68,13 @@ export class CardPage {
     //         .catch(error => console.error(error));
     // }
     pay() {
-        this.alertp.presentLoadingDefault("please wait ...payment in process");
         this.stripe.setPublishableKey('pk_test_d0jG9KYWiro7NC1jHwJeimun');
+        this.alertp.presentLoadingDefault("please wait ...payment in process");
         this.stripe.createCardToken(this.cardinfo).then((token) => {
             console.log("token generator", token);
 
             var data = ({
-                'token': token.id, 'amount': 50
+                'token': token.id, 'amount': this.total
             })
 
             var headers = new Headers();
