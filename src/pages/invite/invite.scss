@@ -1,7 +1,23 @@
 page-invite {
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        
+      };
+
     .myview{
         background-image:url('/assets/imgs/Android_Master_bg.jpg');
     };
+
+
+
+
+  
     .button1{
         font-family:'gotham-medium' ;
         position: fixed;

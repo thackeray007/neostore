@@ -25,15 +25,17 @@
 <ion-content>
     <div #map id="map"></div>
     <ion-list>
-        <ion-item (click)="locateto(i)" *ngFor='let a of locations;let i=index'>
-            <div class="icomoon" item-left>
+        <ion-item *ngFor='let a of locations;let i=index'>
+            <div (click)="locateto1(i)" class="icomoon" item-left>
                 <ion-icon class="icon-locate" aria-hidden="true">
                 </ion-icon>
             </div>
-            <p class=" name">{{a.name}}
-            </p>
-            <p class="address">{{a.address}}
-            </p>
+            <div (click)="locateto(i)">
+                <p class=" name">{{a.name}}
+                </p>
+                <p class="address">{{a.address}}
+                </p>
+            </div>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -42,6 +42,8 @@ export class AddaddressPage {
         this.index = (this.navParams.get('i'));
         console.log("i", this.index);
         this.total = this.navParams.get("total");
+        console.log("total", this.total);
+
 
         console.log(this.data);
         if (this.data != undefined) {
@@ -101,7 +103,9 @@ export class AddaddressPage {
                                         // this.add = { 'address': this.address, 'landmark': this.landmark, 'city': this.city, 'state': this.state, 'zip': this.zip, 'country': this.country };
                                         this.local.push(this.add);
                                         localStorage.setItem("address", JSON.stringify(this.local));
-                                        this.navCtrl.push(AddresslistPage);
+                                        this.navCtrl.push(AddresslistPage, { total: this.total });
+
+                                        // this.navCtrl.push(AddresslistPage);
                                         // console.log(JSON.parse(this.local));
                                     } else {
                                         this.local[this.index] = { address: this.address, landmark: this.landmark, city: this.city, state: this.state, zip: this.zip, country: this.country };

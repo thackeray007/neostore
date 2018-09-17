@@ -111,7 +111,7 @@ export class ProductsPage {
             // this.alertp.presentAlert(a.statusText);
         }
 
-        this.presentToast();
+        // this.presentToast();
     }
 
     doInfinite(infiniteScroll: any) {

@@ -122,21 +122,21 @@ export class MapPage {
         });
 
     }
-    // locateto(i) {
-    //     let latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
+    locateto1(i) {
+        let latLng = new google.maps.LatLng(this.locations[i].lat, this.locations[i].lng);
 
-    //     let mapOptions = {
-    //         center: latLng,
-    //         zoom: 15,
-    //         mapTypeId: google.maps.MapTypeId.ROADMAP
-    //     }
+        let mapOptions = {
+            center: latLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
 
-    //     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    //     this.addmarker();
-    // }
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        this.addmarker();
+    }
     locateto(i) {
 
-        this.navCtrl.push(Direct1Page, { i: i });
+        this.navCtrl.push(Direct1Page, { i: i, lat: this.locations[i].lat, lng: this.locations[i].lng });
         // let destination = 19.157934 + ',' + 72.993477;
 
         // if (this.platform.is('ios')) {

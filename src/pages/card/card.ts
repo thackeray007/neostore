@@ -22,6 +22,8 @@ import { Platform } from '../../../node_modules/ionic-angular/platform/platform'
     templateUrl: 'card.html',
 })
 export class CardPage {
+    user_details: any;
+    name: any;
     token: any;
     total: any;
     address: any;
@@ -40,12 +42,13 @@ export class CardPage {
 
     ionViewDidLoad() {
         this.address = (this.navParams.get('address'));
-        this.token = localStorage.getItem('access_token');
-        console.log(this.address);
-        console.log(this.token);
+        this.user_details = localStorage.getItem("userDetails");
+        this.name = JSON.parse(this.user_details).data.user_data.first_name + " " + JSON.parse(this.user_details).data.user_data.last_name; this.token = localStorage.getItem('access_token');
+        console.log("address", this.address);
+        console.log("token", this.token);
         console.log('ionViewDidLoad CardPage');
         this.total = this.navParams.get("total");
-        console.log(this.total);
+        console.log("total", this.total);
 
     }
 
@@ -74,7 +77,7 @@ export class CardPage {
             console.log("token generator", token);
 
             var data = ({
-                'token': token.id, 'amount': this.total
+                'token': token.id, 'amount': this.total, name: this.name
             })
 
             var headers = new Headers();

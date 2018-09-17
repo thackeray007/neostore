@@ -46,6 +46,7 @@ import { Stripe } from '@ionic-native/stripe';
 import { CardPage } from '../pages/card/card';
 
 import { Direct1Page } from '../pages/direct1/direct1';
+import { Geolocation } from '@ionic-native/geolocation';
 
 // import { directive } from '../../node_modules/@angular/core/src/render3/instructions';
 @NgModule({
@@ -138,6 +139,7 @@ import { Direct1Page } from '../pages/direct1/direct1';
         Contacts,
         Stripe,
         SplashScreen,
+        Geolocation,
 
         { provide: ErrorHandler, useClass: IonicErrorHandler },
 
