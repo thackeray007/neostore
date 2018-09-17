@@ -51,7 +51,13 @@ page-products {
     .list-md .item-block .item-inner {
         border-bottom: none;
     }
+    .list-ios .item-block .item-inner {
+        border-bottom: none;
+    }
     .item-md{
+        border-bottom: 1px solid map-get($colors ,font5 );
+    }
+    .item-ios{
         border-bottom: 1px solid map-get($colors ,font5 );
     }
 .filled-star{
@@ -61,5 +67,9 @@ page-products {
 .star{
     font-size: 12px;
     color:#7f7f7f;
+}
+.list-ios{
+    border-bottom: 1px solid black;
+
 }
 }

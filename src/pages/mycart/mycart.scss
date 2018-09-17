@@ -116,4 +116,19 @@ page-mycart {
         .item-cover{
             width:60%;
         }
+        .select-ios{
+            padding: 2px 8px 2px 12px !important;
+
+        }
+        .list-ios .item-block .item-inner {
+            border-bottom:none;
+        }
+        .item-ios{
+            border-bottom: 1px solid black;
+
+        }
+        .list-ios{
+            border-bottom: 1px solid black !important;
+
+        }
 }

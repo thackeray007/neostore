@@ -67,9 +67,9 @@ export class Direct1Page {
 
         setTimeout(() => {
             this.alert.loading.dismiss();
-            this.navCtrl.pop();
-            this.alert.presentAlertt("Ooops", "its taking too long to get your location");
-        }, 3000);
+            // this.navCtrl.pop();
+            // this.alert.presentAlertt("Ooops", "its taking too long to get your location");
+        }, 300000);
 
 
 
