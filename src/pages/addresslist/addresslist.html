@@ -29,10 +29,11 @@
 
 <ion-content>
 
+    <ion-item>
+        <div class="shipping">Shipping Address</div>
+    </ion-item>
     <ion-list radio-group [(ngModel)]="abcd">
-        <ion-item>
-            <div class="shipping">Shipping Address</div>
-        </ion-item>
+
         <ion-item *ngFor="let add of address; let i=index">
             <ion-row>
                 <div class="radio1">

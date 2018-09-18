@@ -82,14 +82,25 @@ export class CardPage {
 
             var headers = new Headers();
             headers.append('Content-Type', 'application/json');
-            this.http.post('http://192.168.2.1:3333/processpay', data, { headers: headers }).subscribe((res) => {
-                console.log(res);
+            setTimeout(() => {
+                this.http.post('http://192.168.2.1:3333/processpay', data, { headers: headers }).subscribe((res) => {
+                    console.log(res);
+                    var a = res.json().customer;
+                    console.log("customer id", a);
 
-                if (res.json().success)
-                    this.alertp.loading.dismiss();
-                this.placeOrder();
-                // alert('transaction Successfull!!')
-            })
+                    if (res.json().success) {
+
+                        this.placeOrder();
+                    } else {
+                        this.alertp.loading.dismiss();
+                        this.alertp.presentAlertt("transaction failed!", "try after some time");
+                    }
+
+                    // alert('transaction Successfull!!')
+                })
+
+            }, 30000);
+            this.alertp.loading.dismiss();
         })
     }
 

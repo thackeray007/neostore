@@ -28,14 +28,15 @@ page-mycart {
         font-size:15px;
         color:#333333;
         position:absolute;
-        right:0px ;
+        right:15px ;
         padding-top:15px
         
     };
     //for product img in left styling
 
     .img{
-        margin: 10px 10px 10px 10px !important;
+
+        margin: 10px 10px 20px 10px !important;
         width: 77px;
         height: 77px;
     };
@@ -64,11 +65,12 @@ page-mycart {
             font-size:15px;
             color: #333333;
             width: 100px;
+margin-left: 10px;
 
         };
         .price{position: absolute;
             float:right;
-            right: 0px;
+            right: 15px;
             font-family:'gotham-medium';
             font-size:15px;
             color: #333333;

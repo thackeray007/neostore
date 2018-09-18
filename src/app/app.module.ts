@@ -140,8 +140,9 @@ import { Geolocation } from '@ionic-native/geolocation';
         Stripe,
         SplashScreen,
         Geolocation,
+        { provide: ErrorHandler, useClass: IonicErrorHandler }
 
-        { provide: ErrorHandler, useClass: IonicErrorHandler },
+
 
         // GoogleMaps
 
