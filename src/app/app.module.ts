@@ -44,9 +44,20 @@ import { SMS } from '../../node_modules/@ionic-native/sms';
 // import { GoogleMaps } from '@ionic-native/google-maps';
 import { Stripe } from '@ionic-native/stripe';
 import { CardPage } from '../pages/card/card';
-
 import { Direct1Page } from '../pages/direct1/direct1';
 import { Geolocation } from '@ionic-native/geolocation';
+// import { FcmProvider } from '../providers/fcm/fcm';
+// import { Firebase } from '@ionic-native/firebase';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+
+
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+
 
 // import { directive } from '../../node_modules/@angular/core/src/render3/instructions';
 @NgModule({
@@ -80,6 +91,8 @@ import { Geolocation } from '@ionic-native/geolocation';
         BrowserModule,
         IonicImageViewerModule,
         HttpModule,
+        // AngularFireModule.initializeApp(firebase),
+        // AngularFirestoreModule,
         IonicModule.forRoot(MyApp, {
 
             // backButtonIcon: 'icon-arrow-back',
@@ -139,8 +152,13 @@ import { Geolocation } from '@ionic-native/geolocation';
         Contacts,
         Stripe,
         SplashScreen,
+        Push,
         Geolocation,
-        { provide: ErrorHandler, useClass: IonicErrorHandler }
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        // Firebase,
+        // FcmProvider,
+
+
 
 
 

@@ -6,7 +6,7 @@
             <ion-list style="align-items: center">
                 <ion-item class="inputfield" style="margin-top:43px">
                     <ion-label color="primary">
-                        <ion-icon class="icons icon-user"></ion-icon>
+                        <i class="fa fa-user icons"></i>
                     </ion-label>
                     <ion-input class="ipfield" name="email" [(ngModel)]="email" placeholder="Username"></ion-input>
                 </ion-item>
@@ -14,17 +14,17 @@
                     <ion-label>
                         <ion-icon class="icons icon-lock"></ion-icon>
                     </ion-label>
-                    <ion-input class="ipfield" name="Password" [(ngModel)]="Password" placeholder="Password"></ion-input>
+                    <ion-input class="ipfield" name="Password" type="password" [(ngModel)]="Password" placeholder="Password"></ion-input>
                 </ion-item>
             </ion-list>
 
 
-            <button ion-button class="button1" (click)=validate(); style="margin-top: 30px" full>login
+            <button ion-button class="button1" (click)=validate(); full>login
             </button>
         </form>
         <ion-list>
             <ion-label (click)='new_pass()' class="a3">Forgot Password?</ion-label>
-            <ion-label class="s4" style="position:fixed;bottom:15px">DON'T HAVE AN ACCOUNT? </ion-label>
+            <ion-label class="s4">DON'T HAVE AN ACCOUNT? </ion-label>
             <button class="buttonadd" ion-button (click)=a1();>
                 <ion-icon class="icon-add-dark"></ion-icon>
             </button>

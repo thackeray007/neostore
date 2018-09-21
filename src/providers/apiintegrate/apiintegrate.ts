@@ -63,11 +63,11 @@ export class ApiintegrateProvider {
             }, error => {
                 console.log(typeof (error));
 
-                // var a = JSON.stringify(error.error.user_msg);
+                var a = JSON.parse(error.error);
                 //
                 // console.log(a);
 
-                this.alertp.presentAlert(error.error);
+                this.alertp.presentAlert(a.user_msg);
                 // console.log(error);
                 // console.log(error.error.user_msg);
 
@@ -128,9 +128,9 @@ export class ApiintegrateProvider {
                 this.callback(data);
             }, error => {
                 var a = JSON.parse(error._body);
-                // console.log(a);
+                console.log(a);
 
-                this.alertp.presentAlert(a.user_msg);
+                // this.alertp.presentAlert(a.user_msg);
                 // console.log(error);
                 // var ab = a.access_token;
 

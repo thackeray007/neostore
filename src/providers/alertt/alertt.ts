@@ -1,6 +1,6 @@
 
 import { Injectable, ViewChild } from '@angular/core';
-import { AlertController, Platform, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, Platform, NavController, LoadingController, Alert } from 'ionic-angular';
 import { NeostorePage } from '../../pages/neostore/neostore';
 import { bind } from '../../../node_modules/@angular/core/src/render3/instructions';
 import { Network } from '../../../node_modules/@ionic-native/network';
@@ -86,6 +86,10 @@ export class AlerttProvider {
             ]
         });
         alert.present();
+
+        setTimeout(() => {
+
+        }, 3000);
     }
 
     valid(data, name) {

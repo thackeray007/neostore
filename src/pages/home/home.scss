@@ -50,6 +50,7 @@ page-home .text-input {
     margin-left: 10%;
     width:80%;
     height:50px ;
+    margin-top: 30px;
     
 };
 .button1:hover{
@@ -114,6 +115,8 @@ page-home .text-input {
     display: inline-block;
     color:white; 
     font-weight: 700;
+    position:fixed;
+    bottom:15px;
    
 };
 .ipfield{

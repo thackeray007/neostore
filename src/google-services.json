@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "661961272477",
+    "firebase_url": "https://neostore-214905.firebaseio.com",
+    "project_id": "neostore-214905",
+    "storage_bucket": "neostore-214905.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661961272477:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661961272477-bt7a2b0hums55433m1ofs90ag98d4fgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuHyqB_cSlKXgAOiYJl7KRbYB6I7y8DdU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

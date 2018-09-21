@@ -20,12 +20,14 @@ declare var google;
 export class Direct1Page {
 
     @ViewChild('map') mapElement: ElementRef;
-    @ViewChild('directionsPanel') directionsPanel: ElementRef;
+    // @ViewChild('directionsPanel') directionsPanel: ElementRef;
     map: any;
     start: any;
     end: any;
     lat1: any;
     lng1: any;
+    lat2 = 19.137048;
+    lng2 = 73.006706;
     LatLng: any;
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer;
@@ -39,6 +41,19 @@ export class Direct1Page {
         this.lng1 = this.navparams.get("lng");
         console.log(this.lat1);
         console.log(this.lng1);
+        this.LatLng = new google.maps.LatLng(this.lat2, this.lng2);
+        let mapOptions = {
+
+            center: this.LatLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
+
+        // this.start = latLng;
+        this.directionsDisplay.setMap(this.map);
+        this.calculateAndDisplayRoute();
+
         this.initMap();
 
         // this.end = new google.maps.LatLng(this.lat1, this.lng1);
@@ -49,14 +64,15 @@ export class Direct1Page {
 
     initMap() {
         this.geolocation.getCurrentPosition().then((postion) => {
-            this.start = new google.maps.LatLng(postion.coords.latitude, postion.coords.longitude);
-
+            this.LatLng = new google.maps.LatLng(postion.coords.latitude, postion.coords.longitude);
+            this.lat2 = postion.coords.latitude;
+            this.lng2 = postion.coords.longitude;
             // this.start = '19.137048, 73.006706';
             // this.end = JSON.stringify(this.lat1, this.lng1)
             console.log(this.start);
 
             let mapOptions = {
-                center: this.start,
+                center: this.LatLng,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
@@ -108,11 +124,11 @@ export class Direct1Page {
         let directionsDisplay = new google.maps.DirectionsRenderer;
 
         directionsDisplay.setMap(this.map);
-        directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+        // directionsDisplay.setPanel(this.directionsPanel.nativeElement);
 
         directionsService.route({
-            origin: this.start,
-            destination: this.end,
+            origin: { lat: this.lat2, lng: this.lng2 },
+            destination: { lat: this.lat1, lng: this.lng1 },
             travelMode: google.maps.TravelMode['DRIVING']
         }, (res, status) => {
 
