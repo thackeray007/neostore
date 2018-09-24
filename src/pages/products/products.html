@@ -14,11 +14,23 @@
             </button>
         </ion-buttons>
         <ion-title>{{title}}</ion-title>
-        <ion-buttons right>
+
+
+        <!-- <ion-buttons right>
+            <button ion-button (click)="toggle()" icon-only>
+                <ion-icon class="icon-search"></ion-icon>
+            </button>
+
+
+        </ion-buttons>
+        <ion-searchbar *ngIf="toggled" [(ngModel)]="Value1" (ionInput)="searchit($event)" (ionCancel)="postdata()" [showCancelButton]="true">
+        </ion-searchbar> -->
+
+        <!-- <ion-buttons right>
             <button ion-button navPop icon-only>
                 <ion-icon class="icon-search"></ion-icon>
             </button>
-        </ion-buttons>
+        </ion-buttons> -->
     </ion-toolbar>
 
 </ion-header>

@@ -20,6 +20,7 @@ import { AlerttProvider } from '../../providers/alertt/alertt';
 export class MyOrdersPage {
     token: any;
     abcd: any;
+    toggled: boolean = false;
     constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apip: ApiintegrateProvider, public url: UrlProvider, public alert: AlerttProvider) {
     }
 
@@ -87,10 +88,31 @@ export class MyOrdersPage {
 
 
     }
+    toggle() {
+        this.toggled = !this.toggled;
+        console.log("toggled", this.toggled);
+
+    }
+
     trackid(id) {
         this.navCtrl.push(TrackOrderPage, {
             id: id
         })
 
     }
+    searchit(ev: any) {
+        var val = ev.target.value;                                  //root to the data to be searched
+
+        // if the value is an empty string don't filter the items
+        if (val && val.trim() != '') {
+            this.abcd = this.abcd.filter((item) => {
+                console.log("searched items", this.abcd, item);
+
+                return item.id.toLowerCase().indexOf(val.toLowerCase()) > -1;
+
+
+
+            })
+        }
+    };
 }

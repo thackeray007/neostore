@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, InfiniteScroll, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, InfiniteScroll, ToastController, LoadingController, Searchbar } from 'ionic-angular';
 import { UrlProvider } from '../../providers/url/url';
 import { ApiintegrateProvider } from '../../providers/apiintegrate/apiintegrate';
 import { RequestOptions, Headers } from '../../../node_modules/@angular/http';
@@ -30,6 +30,8 @@ export class ProductsPage {
     public page: any = 1;
     reActiveInfinite: any;
     title: any;
+    toggled: boolean = false;
+    value1: any;
 
     // public rating: any = [];
     constructor(public toastCtrl: ToastController, public url: UrlProvider, public apip: ApiintegrateProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alert: AlerttProvider) {
@@ -37,6 +39,7 @@ export class ProductsPage {
     }
 
     ionViewDidLoad() {
+        this.toggled = false;
         this.postdata = this.postdata.bind(this);
         console.log('ionViewDidLoad ProductsPage');
         this.data = JSON.stringify(this.navParams.get('id'));
@@ -45,6 +48,11 @@ export class ProductsPage {
         console.log("data" + this.data);
 
         this.postdata();
+    }
+    toggle() {
+        this.toggled = !this.toggled;
+        console.log("toggled", this.toggled);
+
     }
 
     postdata() {
@@ -134,7 +142,24 @@ export class ProductsPage {
         });
 
 
+
     }
+
+    searchit(ev: any) {
+        var val = ev.target.value;                                  //root to the data to be searched
+
+        // if the value is an empty string don't filter the items
+        if (val && val.trim() != '') {
+            this.abcd = this.abcd.filter((item) => {
+                console.log("searched items", this.abcd, item);
+
+                return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
+
+
+
+            })
+        }
+    };
     fun(id) {
         this.navCtrl.push(ProductDetailsPage, {
             id: id, title: this.title
